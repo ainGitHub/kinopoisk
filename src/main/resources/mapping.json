@@ -1,0 +1,22 @@
+{
+  "_all": {
+    "analyzer": "nGram_analyzer",
+    "search_analyzer": "whitespace_analyzer"
+  },
+  "properties": {
+    "name": {
+      "analyzer": "nGram_analyzer",
+      "search_analyzer": "whitespace_analyzer",
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "include_in_all": false
+    },
+    "id": {
+      "type": "integer",
+      "include_in_all": false
+
+    }
+  }
+}
