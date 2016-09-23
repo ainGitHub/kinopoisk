@@ -39,8 +39,8 @@ public class Film {
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film_id",
-            targetEntity = Cast.class)
-    private List<Cast> castList;
+            targetEntity = Casts.class)
+    private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,

@@ -36,8 +36,8 @@ public class Person {
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "person_id",
-            targetEntity = Cast.class)
-    private List<Cast> castList;
+            targetEntity = Casts.class)
+    private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,

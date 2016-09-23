@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table
-public class Cast {
+public class Casts {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
