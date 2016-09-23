@@ -20,8 +20,8 @@ public class Rating {
     @JoinColumn(name = "film_id", referencedColumnName = "id")
     private Film film_id;
 
-    @ManyToOne(targetEntity = User.class)
+    @ManyToOne(targetEntity = UserInfo.class)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user_id;
+    private UserInfo user_id;
 
 }

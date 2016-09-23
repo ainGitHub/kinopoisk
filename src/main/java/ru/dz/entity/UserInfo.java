@@ -8,7 +8,7 @@ import java.util.*;
  */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"login"}))
-public class User {
+public class UserInfo {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -47,7 +47,7 @@ public class User {
             targetEntity = Review.class)
     private List<Review> reviews;
 
-    public User() {
+    public UserInfo() {
     }
 
 }

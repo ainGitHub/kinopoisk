@@ -20,9 +20,9 @@ public class Review {
     @Column
     private Date date;
 
-    @ManyToOne(targetEntity = User.class)
+    @ManyToOne(targetEntity = UserInfo.class)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user_id;
+    private UserInfo user_id;
 
     @ManyToOne(targetEntity = Film.class)
     @JoinColumn(name = "film_id", referencedColumnName = "id")
