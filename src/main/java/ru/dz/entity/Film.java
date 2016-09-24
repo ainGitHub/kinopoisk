@@ -38,19 +38,16 @@ public class Film {
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "film_id",
             targetEntity = Casts.class)
     private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "film_id",
             targetEntity = Genre.class)
     private List<Genre> genres;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "film_id",
             targetEntity = Review.class)
     private List<Review> reviews;
 }

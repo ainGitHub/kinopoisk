@@ -35,19 +35,16 @@ public class Person {
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "person_id",
             targetEntity = Casts.class)
     private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "person_id",
             targetEntity = PersonCareer.class)
     private List<PersonCareer> personCareerList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "person_id",
             targetEntity = Award.class)
     private List<Award> awardList;
 
