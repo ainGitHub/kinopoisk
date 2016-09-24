@@ -15,4 +15,10 @@ public class IndexController {
     private String get(){
         return INDEX_TEMPLATE;
     }
+
+    @RequestMapping(value = "/index")
+    private String index() {
+        //// TODO: 24.09.2016 Разделить test.ftl на части
+        return "test";
+    }
 }
