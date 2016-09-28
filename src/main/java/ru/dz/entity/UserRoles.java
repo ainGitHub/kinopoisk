@@ -19,7 +19,6 @@ public class UserRoles {
     @JoinColumn(name = "user_id", nullable = false)
     private UserInfo userInfo;
 
-
     @Column(name = "role", nullable = false, length = 45)
     private String role;
 

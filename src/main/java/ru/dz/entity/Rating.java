@@ -24,4 +24,35 @@ public class Rating {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserInfo user_id;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
+    public Film getFilm_id() {
+        return film_id;
+    }
+
+    public void setFilm_id(Film film_id) {
+        this.film_id = film_id;
+    }
+
+    public UserInfo getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(UserInfo user_id) {
+        this.user_id = user_id;
+    }
 }

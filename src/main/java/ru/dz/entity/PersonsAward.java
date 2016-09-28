@@ -31,4 +31,52 @@ public class PersonsAward {
     @ManyToOne(targetEntity = Award.class)
     @JoinColumn(name = "award_id", referencedColumnName = "id")
     private Award award_id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getYear() {
+        return year;
+    }
+
+    public void setYear(Date year) {
+        this.year = year;
+    }
+
+    public String getNomination() {
+        return nomination;
+    }
+
+    public void setNomination(String nomination) {
+        this.nomination = nomination;
+    }
+
+    public Person getPerson_id() {
+        return person_id;
+    }
+
+    public void setPerson_id(Person person_id) {
+        this.person_id = person_id;
+    }
+
+    public Film getFilm_id() {
+        return film_id;
+    }
+
+    public void setFilm_id(Film film_id) {
+        this.film_id = film_id;
+    }
+
+    public Award getAward_id() {
+        return award_id;
+    }
+
+    public void setAward_id(Award award_id) {
+        this.award_id = award_id;
+    }
 }

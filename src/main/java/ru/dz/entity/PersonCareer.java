@@ -20,4 +20,28 @@ public class PersonCareer {
     @ManyToOne(targetEntity = Career.class)
     @JoinColumn(name = "career_id", referencedColumnName = "id")
     private Career career_id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Person getPerson_id() {
+        return person_id;
+    }
+
+    public void setPerson_id(Person person_id) {
+        this.person_id = person_id;
+    }
+
+    public Career getCareer_id() {
+        return career_id;
+    }
+
+    public void setCareer_id(Career career_id) {
+        this.career_id = career_id;
+    }
 }

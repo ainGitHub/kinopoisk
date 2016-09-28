@@ -20,4 +20,28 @@ public class FilmGenre {
     @ManyToOne(targetEntity = Genre.class)
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genre_id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Film getFilm_id() {
+        return film_id;
+    }
+
+    public void setFilm_id(Film film_id) {
+        this.film_id = film_id;
+    }
+
+    public Genre getGenre_id() {
+        return genre_id;
+    }
+
+    public void setGenre_id(Genre genre_id) {
+        this.genre_id = genre_id;
+    }
 }

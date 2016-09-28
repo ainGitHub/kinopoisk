@@ -35,18 +35,96 @@ public class Person {
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            targetEntity = Casts.class)
+            mappedBy = "person_id")
     private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            targetEntity = PersonCareer.class)
+           mappedBy = "person_id")
     private List<PersonCareer> personCareerList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            targetEntity = Award.class)
-    private List<Award> awardList;
+            mappedBy = "person_id")
+    private List<PersonsAward> personsAwardsList;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public Integer getGrowth() {
+        return growth;
+    }
+
+    public void setGrowth(Integer growth) {
+        this.growth = growth;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public List<Casts> getCastList() {
+        return castList;
+    }
+
+    public void setCastList(List<Casts> castList) {
+        this.castList = castList;
+    }
+
+    public List<PersonCareer> getPersonCareerList() {
+        return personCareerList;
+    }
+
+    public void setPersonCareerList(List<PersonCareer> personCareerList) {
+        this.personCareerList = personCareerList;
+    }
+
+    public List<PersonsAward> getPersonsAwardsList() {
+        return personsAwardsList;
+    }
+
+    public void setPersonsAwardsList(List<PersonsAward> personsAwardsList) {
+        this.personsAwardsList = personsAwardsList;
+    }
 }
