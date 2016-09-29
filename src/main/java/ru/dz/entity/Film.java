@@ -36,6 +36,9 @@ public class Film {
     @Column
     private String trailer;
 
+    @Column
+    private Double rating;
+
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "filmId")
@@ -137,5 +140,13 @@ public class Film {
 
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 }
