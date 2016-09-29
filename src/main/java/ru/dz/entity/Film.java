@@ -38,17 +38,17 @@ public class Film {
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "film_id")
+            mappedBy = "filmId")
     private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "film_id")
+            mappedBy = "filmId")
     private List<FilmGenre> filmsGenres;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "film_id")
+            mappedBy = "filmId")
     private List<Review> reviews;
 
     public Long getId() {

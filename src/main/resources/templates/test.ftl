@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <link href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/resources/assets/css/style.css">
-    <link rel="stylesheet" href="/resources/assets/fonts/raphaelicons.css">
-    <link rel="stylesheet" href="/resources/assets/css/main.css">
-    <script src="/resources/assets/js/libs/modernizr-2.5.2.min.js"></script>
+    <link rel="stylesheet" href="/static/resources/assets/css/style.css">
+    <link rel="stylesheet" href="/static/resources/assets/fonts/raphaelicons.css">
+    <link rel="stylesheet" href="/static/resources/assets/css/main.css">
+    <script src="/static/resources/assets/js/libs/modernizr-2.5.2.min.js"></script>
 </head>
 <!--[if lt IE 7]>
 <body class="ie6 oldies"> <![endif]-->
@@ -56,6 +56,7 @@
         </nav>
     </div>
 </header>
+
 <section role="banner">
     <hgroup>
         <h1>An HTML5/CSS3 powered website that contains very less images</h1>
@@ -136,6 +137,7 @@
         </article>
     </div> <!-- //.columns -->
 </section>
+
 <footer role="contentinfo">
     <p>
         <span class="left">CSS Junction &copy; - 2012 | Released under Creative Common License. <a href="#">Goto Top</a></span>
@@ -143,8 +145,10 @@
             href="blog.html">BLOG</a> | <a href="contact.html">CONTACT US</a>
     </p>
 </footer>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 <script src="assets/js/script.js"></script>
+
 </body>
 </html>

@@ -21,12 +21,12 @@ public class Review {
     private Date date;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private UserInfo user_id;
+    @JoinColumn(name = "userId", referencedColumnName = "id")
+    private UserInfo userId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "film_id", referencedColumnName = "id")
-    private Film film_id;
+    @JoinColumn(name = "filmId", referencedColumnName = "id")
+    private Film filmId;
 
     public Long getId() {
         return id;
@@ -52,19 +52,19 @@ public class Review {
         this.date = date;
     }
 
-    public UserInfo getUser_id() {
-        return user_id;
+    public UserInfo getUserId() {
+        return userId;
     }
 
-    public void setUser_id(UserInfo user_id) {
-        this.user_id = user_id;
+    public void setUserId(UserInfo userId) {
+        this.userId = userId;
     }
 
-    public Film getFilm_id() {
-        return film_id;
+    public Film getFilmId() {
+        return filmId;
     }
 
-    public void setFilm_id(Film film_id) {
-        this.film_id = film_id;
+    public void setFilmId(Film filmId) {
+        this.filmId = filmId;
     }
 }

@@ -43,7 +43,7 @@ public class UserInfo {
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "user_id",
+            mappedBy = "userId",
             targetEntity = Review.class)
     private List<Review> reviews;
 

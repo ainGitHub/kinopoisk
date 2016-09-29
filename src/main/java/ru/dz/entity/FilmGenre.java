@@ -14,12 +14,12 @@ public class FilmGenre {
     private Long id;
 
     @ManyToOne(targetEntity = Film.class)
-    @JoinColumn(name = "film_id", referencedColumnName = "id")
-    private Film film_id;
+    @JoinColumn(name = "filmId", referencedColumnName = "id")
+    private Film filmId;
 
     @ManyToOne(targetEntity = Genre.class)
-    @JoinColumn(name = "genre_id", referencedColumnName = "id")
-    private Genre genre_id;
+    @JoinColumn(name = "genreId", referencedColumnName = "id")
+    private Genre genreId;
 
     public Long getId() {
         return id;
@@ -29,19 +29,19 @@ public class FilmGenre {
         this.id = id;
     }
 
-    public Film getFilm_id() {
-        return film_id;
+    public Film getFilmId() {
+        return filmId;
     }
 
-    public void setFilm_id(Film film_id) {
-        this.film_id = film_id;
+    public void setFilmId(Film filmId) {
+        this.filmId = filmId;
     }
 
-    public Genre getGenre_id() {
-        return genre_id;
+    public Genre getGenreId() {
+        return genreId;
     }
 
-    public void setGenre_id(Genre genre_id) {
-        this.genre_id = genre_id;
+    public void setGenreId(Genre genreId) {
+        this.genreId = genreId;
     }
 }
