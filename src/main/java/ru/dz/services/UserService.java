@@ -20,4 +20,8 @@ public class UserService {
     public void addUser(UserInfo user) {
         userRepository.save(user);
     }
+
+    public UserInfo findUserByVkID(Integer vkId) {
+        return userRepository.findByVkId(vkId);
+    }
 }

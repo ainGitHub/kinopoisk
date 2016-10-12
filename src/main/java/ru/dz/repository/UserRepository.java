@@ -9,4 +9,5 @@ import ru.dz.entity.UserInfo;
  */
 @Repository
 public interface UserRepository extends CrudRepository<UserInfo, Long> {
+    UserInfo findByVkId(Integer vkId);
 }
