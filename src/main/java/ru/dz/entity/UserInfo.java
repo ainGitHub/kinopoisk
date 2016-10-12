@@ -15,6 +15,9 @@ public class UserInfo {
     private Long id;
 
     @Column
+    private Integer vkId;
+
+    @Column
     private String lastName;
 
     @Column
@@ -136,6 +139,24 @@ public class UserInfo {
 
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public Integer getVkId() {
+        return vkId;
+    }
+
+    public void setVkId(Integer vkId) {
+        this.vkId = vkId;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", vkId=" + vkId +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                '}';
     }
 }
 
