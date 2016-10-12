@@ -8,17 +8,17 @@ import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
 import com.vk.api.sdk.objects.AuthResponse;
-import com.vk.api.sdk.objects.fave.responses.GetUsersResponse;
 import com.vk.api.sdk.objects.users.UserXtrCounters;
 import com.vk.api.sdk.queries.users.UserField;
-import com.vk.api.sdk.queries.users.UsersGetQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import ru.dz.entity.UserInfo;
+import ru.dz.services.UserService;
 
 import java.util.List;
 
@@ -30,14 +30,19 @@ import java.util.List;
 public class RegistrationController {
     private Logger logger = LoggerFactory.getLogger(RegistrationController.class);
 
+    //// TODO: 13.10.2016 move constants to config file
     private String VK_URL = "https://oauth.vk.com/authorize";
     private int VK_APP_ID = 5650812;
     private String VK_REDIRECT_URI = "http://localhost:8080/registration/vk/";
     private String VK_SECRET_KEY = "Z64QtM7PEAN24FDQ4l1m";
 
+    @Autowired
+    UserService userService;
+
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     private String registerPage() {
+
         return "register";
     }
 
@@ -51,7 +56,8 @@ public class RegistrationController {
 
     @RequestMapping(value = "registration/vk/", method = RequestMethod.GET)
     @ResponseBody
-    private List<UserXtrCounters> registerVK(@RequestParam String code) throws ClientException, ApiException {
+    private ModelAndView registerVK(@RequestParam String code) throws ClientException, ApiException {
+
         TransportClient transportClient = HttpTransportClient.getInstance();
         VkApiClient vk = new VkApiClient(transportClient);
 
@@ -63,19 +69,24 @@ public class RegistrationController {
 
         List<UserXtrCounters> users = vk.users().get()
                 .userIds(actor.getId() + "")
+                .fields(UserField.BDATE, UserField.COUNTRY, UserField.CITY)
                 .lang(Lang.RU)
                 .execute();
 
         UserXtrCounters userXtrCounters = users.get(0);
 
-        //// TODO: 11.10.2016 saving users
-        UserInfo userInfo = new UserInfo();
-        userInfo.setFirstName(userXtrCounters.getFirstName());
-        userInfo.setSecondName(userXtrCounters.getLastName());
+        UserInfo checkUser = userService.findUserByVkID(userXtrCounters.getId());
 
-        logger.info(userXtrCounters.getBdate());
-        logger.info(userXtrCounters.getFirstName());
-        logger.info(userXtrCounters.getLastName());
-        return users;
+        if (checkUser == null) {
+            UserInfo userInfo = new UserInfo();
+            userInfo.setFirstName(userXtrCounters.getFirstName());
+            userInfo.setSecondName(userXtrCounters.getLastName());
+            userInfo.setCity(userXtrCounters.getCity().getTitle());
+            userInfo.setVkId(userXtrCounters.getId());
+            userService.addUser(userInfo);
+        } else
+            logger.info("User already exist " + checkUser);
+
+        return new ModelAndView(new RedirectView("/login"));
     }
 }
