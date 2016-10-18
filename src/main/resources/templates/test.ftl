@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <link href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/static/resources/assets/css/style.css">
-    <link rel="stylesheet" href="/static/resources/assets/fonts/raphaelicons.css">
-    <link rel="stylesheet" href="/static/resources/assets/css/main.css">
-    <script src="/static/resources/assets/js/libs/modernizr-2.5.2.min.js"></script>
+    <link rel="stylesheet" href="/resources/assets/css/style.css">
+    <link rel="stylesheet" href="/resources/assets/fonts/raphaelicons.css">
+    <link rel="stylesheet" href="/resources/assets/css/main.css">
+    <script src="/resources/assets/js/libs/modernizr-2.5.2.min.js"></script>
 </head>
 <!--[if lt IE 7]>
 <body class="ie6 oldies"> <![endif]-->
