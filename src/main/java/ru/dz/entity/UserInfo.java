@@ -1,5 +1,9 @@
 package ru.dz.entity;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -7,7 +11,7 @@ import java.util.*;
  * Created by Adel on 22.09.2016.
  */
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"login"}))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"vkId"}))
 public class UserInfo {
     @Id
     @Column(name = "id")
@@ -21,7 +25,7 @@ public class UserInfo {
     private String lastName;
 
     @Column
-    private String firstName;
+    private String username;
 
     @Column
     private String secondName;
@@ -35,8 +39,6 @@ public class UserInfo {
     @Column
     private String city;
 
-    @Column
-    private String login;
 
     @Column
     private String email;
@@ -49,6 +51,9 @@ public class UserInfo {
             mappedBy = "userId",
             targetEntity = Review.class)
     private List<Review> reviews;
+
+    @OneToMany
+    private List<UserRoles> userRoles;
 
     public UserInfo() {
     }
@@ -69,12 +74,12 @@ public class UserInfo {
         this.lastName = lastName;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getSecondName() {
@@ -109,13 +114,6 @@ public class UserInfo {
         this.city = city;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
 
     public String getEmail() {
         return email;
@@ -154,9 +152,20 @@ public class UserInfo {
         return "UserInfo{" +
                 "id=" + id +
                 ", vkId=" + vkId +
-                ", firstName='" + firstName + '\'' +
+                ", username='" + username + '\'' +
                 ", secondName='" + secondName + '\'' +
                 '}';
+    }
+
+    //// TODO: 19.10.2016 change to linked with roles entity
+    public List<GrantedAuthority> getUserRoles() {
+        List<GrantedAuthority> roles = new ArrayList<>();
+        roles.add(new SimpleGrantedAuthority("ROLE_USER"));
+        return roles;
+    }
+
+    public void setUserRoles(List<UserRoles> userRoles) {
+        this.userRoles = userRoles;
     }
 }
 
