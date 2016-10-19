@@ -30,7 +30,7 @@
             </select>
         </div>
         <div class="col-md-3">
-            <button ng-click="load()" class="btn btn-md btn-default">Импортировать все фильмы</button>
+            <button ng-click="load('${_csrf.token}')" class="btn btn-md btn-default">Импортировать все фильмы</button>
         </div>
 
     </div>

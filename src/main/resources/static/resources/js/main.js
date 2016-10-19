@@ -6,8 +6,10 @@ app.controller("MovieController", function ($scope, $http) {
     $scope.movies = [];
     $scope.type = 'MATCH';
 
-    $scope.add = function(movie){
-        $http.post('/api/movies/', movie);
+    $scope.add = function (movie, csrf) {
+        $http.post('/api/movies/', movie).then(function () {
+            $scope.movies.push(movie)
+        });
     };
 
     $scope.search = function () {
@@ -25,11 +27,11 @@ app.controller("MovieController", function ($scope, $http) {
             })
     };
 
-    $scope.load = function(){
+    $scope.load = function (csrf) {
         $http.get('/resources/movies.json')
             .then(function(resp){
                 resp.data.forEach((movie) => {
-                    $scope.add(movie);
+                    $scope.add(movie, csrf);
                 });
             })
     }
