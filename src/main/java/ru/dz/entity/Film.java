@@ -39,6 +39,12 @@ public class Film {
     @Column
     private Double rating;
 
+    @Column
+    private boolean changed = true;
+
+    @Column
+    private boolean deleted = false;
+
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "filmId")
@@ -148,5 +154,21 @@ public class Film {
 
     public void setRating(Double rating) {
         this.rating = rating;
+    }
+
+    public boolean isChanged() {
+        return changed;
+    }
+
+    public void setChanged(boolean changed) {
+        this.changed = changed;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 }
