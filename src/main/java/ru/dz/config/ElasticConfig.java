@@ -11,6 +11,9 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean;
+import org.springframework.scheduling.concurrent.ScheduledExecutorTask;
+import ru.dz.services.ElasticExecutorTask;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -36,11 +39,30 @@ public class ElasticConfig {
     @Value("${elastic.port:9300}")
     private int elasticPort;
 
+    @Value("${elastic.period}")
+    private long elasticPeriod;
+
     @Value("${cluster.name:'elasticsearch'}")
     private String clusterName;
 
     @Value("${client.transport.sniff:true}")
     private boolean transportSniff;
+
+
+    @Bean
+    public ScheduledExecutorFactoryBean scheduledExecutorFactoryBean() {
+        ScheduledExecutorFactoryBean scheduledExecutorFactoryBean = new ScheduledExecutorFactoryBean();
+        scheduledExecutorFactoryBean.setScheduledExecutorTasks(elasticExecutor());
+        return scheduledExecutorFactoryBean;
+    }
+
+    @Bean
+    public ScheduledExecutorTask elasticExecutor() {
+        ScheduledExecutorTask scheduledExecutorTask = new ScheduledExecutorTask();
+        scheduledExecutorTask.setRunnable(new ElasticExecutorTask());
+        scheduledExecutorTask.setPeriod(elasticPeriod);
+        return scheduledExecutorTask;
+    }
 
     @Bean
     public Client elasticSearchClient() throws UnknownHostException {
