@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ru.dz.entity.Film;
 import ru.dz.entity.Person;
 
 /**
@@ -16,5 +17,11 @@ public class ContentController {
     public String renderPersonPage(ModelMap model) {
         model.put("person", new Person());
         return "actor";
+    }
+
+    @RequestMapping(value = "/film", method = RequestMethod.GET)
+    public String renderFilmPage(ModelMap model) {
+        model.put("film", new Film());
+        return "film";
     }
 }
