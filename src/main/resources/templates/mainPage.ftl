@@ -2,7 +2,6 @@
 <@main_template title="Главная" scripts=[]/>
 
 <#macro body>
-<!-- CONTENT -->
 <div id="content">
     <div id="slogan">
         <div class="image png"></div>

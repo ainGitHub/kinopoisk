@@ -258,9 +258,11 @@ ul, ol {
 
 .img-box1 img {
     float: left;
-    margin: -10px 20px 0 0
+    margin: -10px 20px 0 50px
 }
-
+.photo{
+    padding-left: 50px;
+}
 p {
     margin-bottom: 15px;
     line-height: 1.714em

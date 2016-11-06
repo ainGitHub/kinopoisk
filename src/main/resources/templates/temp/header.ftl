@@ -11,10 +11,10 @@
     <div class="row-2">
         <ul>
             <li><a href="/" class="active">Главная</a></li>
-            <li><a href="/">Поиск</a></li>
-            <li><a href="/">Новости</a></li>
+            <li><a href="/person">Поиск</a></li>
+            <li><a href="/film">Новости</a></li>
             <li><a href="/login">Вход</a></li>
-            <li class="last"><a href="">Регистрация</a></li>
+            <li class="last"><a href="/registration_vk">Регистрация</a></li>
         </ul>
     </div>
 </div>

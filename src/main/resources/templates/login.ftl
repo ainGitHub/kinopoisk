@@ -2,7 +2,6 @@
 <@main_template title="Вход" scripts=[]/>
 
 <#macro body>
-<!-- CONTENT -->
 <div id="content">
     <div class="line-hor"></div>
     <div class="box">
