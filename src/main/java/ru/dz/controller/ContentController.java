@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ru.dz.entity.Film;
 import ru.dz.entity.Person;
+import ru.dz.entity.UserInfo;
 
 /**
  * Created by Adel on 06.11.2016.
@@ -23,5 +24,11 @@ public class ContentController {
     public String renderFilmPage(ModelMap model) {
         model.put("film", new Film());
         return "film";
+    }
+
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public String renderProfilePage(ModelMap model) {
+        model.put("user", new UserInfo());
+        return "profile";
     }
 }

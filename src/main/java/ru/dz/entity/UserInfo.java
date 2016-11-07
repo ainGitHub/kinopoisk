@@ -2,10 +2,11 @@ package ru.dz.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Adel on 22.09.2016.
@@ -38,7 +39,6 @@ public class UserInfo {
 
     @Column
     private String city;
-
 
     @Column
     private String email;
