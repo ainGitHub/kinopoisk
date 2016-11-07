@@ -8,6 +8,8 @@ import ru.dz.entity.Film;
 import ru.dz.entity.Person;
 import ru.dz.entity.UserInfo;
 
+import java.util.ArrayList;
+
 /**
  * Created by Adel on 06.11.2016.
  */
@@ -30,5 +32,11 @@ public class ContentController {
     public String renderProfilePage(ModelMap model) {
         model.put("user", new UserInfo());
         return "profile";
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String renderSearchPage(ModelMap model) {
+        model.put("films", new ArrayList<Film>());
+        return "searchPage";
     }
 }

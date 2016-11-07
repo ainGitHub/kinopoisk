@@ -163,6 +163,55 @@ ul, ol {
     float: right
 }
 
+/* SEARCH */
+#search-form-1 {
+    clear: right;
+    width: 842px;
+    overflow: hidden;
+    margin-left: 50px
+}
+
+#search-form-1 fieldset {
+    border: none;
+    float: left
+}
+
+#search-form-1 .field {
+    clear: both
+}
+
+#search-form-1 label {
+    float: left;
+    width: 112px !important;
+    width: 109px;
+    line-height: 18px;
+    padding-bottom: 8px;
+    color: #fff
+}
+
+#search-form-1 input {
+    width: 293px;
+    padding: 1px 0 1px 3px;
+    background: #000;
+    border: 1px solid #3a3a3a;
+    color: #fff
+}
+
+#search-form-1 textarea {
+    width: 674px;
+    height: 174px;
+    padding: 2px 28px 1px 28px;
+    background: url(../images/img/textarea-bg.gif) no-repeat left top;
+    border: 0;
+    color: #fff;
+    margin-bottom: 15px;
+    overflow: auto
+}
+
+#search-form-1 .link2 {
+    float: right
+}
+
 /* LISTS */
 .movies {
     width: 100%

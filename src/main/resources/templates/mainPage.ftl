@@ -23,7 +23,7 @@
                     <p>Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore
                         etolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris.</p>
 
-                    <div class="img-box1"><img src="/resources/images/1page-img1.jpg" alt=""/>Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore
+                    <div class="img-box1"><img src="/resources/images/img/1page-img1.jpg" alt=""/>Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore
                         etolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris. Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore
                         etolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris.
                     </div>
