@@ -8,6 +8,7 @@ import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,6 +49,8 @@ public class ElasticConfig {
     @Value("${client.transport.sniff:true}")
     private boolean transportSniff;
 
+    @Autowired
+    ElasticExecutorTask executorTask;
 
     @Bean
     public ScheduledExecutorFactoryBean scheduledExecutorFactoryBean() {
@@ -59,7 +62,7 @@ public class ElasticConfig {
     @Bean
     public ScheduledExecutorTask elasticExecutor() {
         ScheduledExecutorTask scheduledExecutorTask = new ScheduledExecutorTask();
-        scheduledExecutorTask.setRunnable(new ElasticExecutorTask());
+        scheduledExecutorTask.setRunnable(executorTask);
         scheduledExecutorTask.setPeriod(elasticPeriod);
         return scheduledExecutorTask;
     }
