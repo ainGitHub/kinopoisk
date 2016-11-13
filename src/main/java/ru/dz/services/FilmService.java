@@ -24,4 +24,8 @@ public class FilmService {
     public List<Film> findAllDeletedFilms() {
         return filmRepository.findAllDeleted();
     }
+
+    public List<Film> findAll() {
+        return filmRepository.findAll();
+    }
 }

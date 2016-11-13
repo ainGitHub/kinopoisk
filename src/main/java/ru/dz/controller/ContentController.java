@@ -22,12 +22,6 @@ public class ContentController {
         return "actor";
     }
 
-    @RequestMapping(value = "/film", method = RequestMethod.GET)
-    public String renderFilmPage(ModelMap model) {
-        model.put("film", new Film());
-        return "film";
-    }
-
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String renderProfilePage(ModelMap model) {
         model.put("user", new UserInfo());
