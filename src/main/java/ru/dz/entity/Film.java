@@ -30,7 +30,7 @@ public class Film {
     @Column
     private Integer duration;
 
-    @Column
+    @Column(length = 2000)
     private String description;
 
     @Column
