@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import ru.dz.entity.Film;
 import ru.dz.services.FilmService;
+import ru.dz.services.FirstGenerateFilms;
 
 import java.util.List;
 
@@ -19,10 +21,19 @@ public class FilmController {
     @Autowired
     FilmService filmService;
 
+    @Autowired
+    FirstGenerateFilms firstGenerateFilms;
+
     @RequestMapping(value = "/film", method = RequestMethod.GET)
     private String filmsPage(ModelMap map) {
         List<Film> films = filmService.findAll();
         map.put("films", films);
         return "film";
+    }
+
+    @RequestMapping(value = "/generate", method = RequestMethod.GET)
+    private String generateFilms(ModelAndView modelAndView) {
+        firstGenerateFilms.generateFilms();
+        return "redirect:/";
     }
 }
