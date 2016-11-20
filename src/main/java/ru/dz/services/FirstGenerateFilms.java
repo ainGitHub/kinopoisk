@@ -1,11 +1,7 @@
 package ru.dz.services;
 
-import com.fasterxml.jackson.core.type.ResolvedType;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Charsets;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.dz.entity.Film;
@@ -16,7 +12,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -24,7 +19,6 @@ import java.util.List;
  */
 @Service
 public class FirstGenerateFilms {
-    Logger logger = LoggerFactory.getLogger(FirstGenerateFilms.class);
 
     @Autowired
     FilmRepository filmRepository;
@@ -44,7 +38,7 @@ public class FirstGenerateFilms {
         initializeDBWithGeneratedFilms();
     }
 
-    public void initializeDBWithGeneratedFilms() {
+    private void initializeDBWithGeneratedFilms() {
         filmRepository.save(films);
     }
 

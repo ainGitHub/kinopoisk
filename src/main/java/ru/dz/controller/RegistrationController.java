@@ -84,7 +84,8 @@ public class RegistrationController {
             UserInfo userInfo = new UserInfo();
             userInfo.setUsername(userXtrCounters.getFirstName());
             userInfo.setSecondName(userXtrCounters.getLastName());
-            userInfo.setCity(userXtrCounters.getCity().getTitle());
+            if (userXtrCounters.getCity() != null)
+                userInfo.setCity(userXtrCounters.getCity().getTitle());
             userInfo.setVkId(userXtrCounters.getId());
             userService.addUser(userInfo);
 
