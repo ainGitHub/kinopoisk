@@ -14,4 +14,9 @@ public class MainPageController {
     public String renderMainPage() {
         return "mainPage";
     }
+
+    @RequestMapping(value = "/v2")
+    public String v2MainPage() {
+        return "v2/mainPage";
+    }
 }

@@ -36,4 +36,11 @@ public class FilmController {
         firstGenerateFilms.generateFilms();
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/v3/film", method = RequestMethod.GET)
+    private ModelAndView ilmsPage(ModelMap map) {
+        List<Film> films = filmService.findAll();
+        map.put("films", films);
+        return new ModelAndView("v2/film");
+    }
 }
