@@ -21,6 +21,11 @@
                                     фантастика, фэнтези, боевик<br>
                                     Галь Гадот, Крис Пайн<br>
                                 </div>
+                                <#if film.description??>
+                                    <div style="text-align: justify; margin-top: 30px">
+                                    ${film.description}
+                                    </div>
+                                </#if>
                             </div>
                             <hr>
                         </#list>
