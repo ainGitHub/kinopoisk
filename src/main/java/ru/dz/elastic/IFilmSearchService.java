@@ -2,7 +2,6 @@ package ru.dz.elastic;
 
 import org.springframework.data.domain.Pageable;
 import ru.dz.entity.Film;
-import ru.dz.entity.Movie;
 
 import java.util.List;
 
@@ -20,13 +19,15 @@ public interface IFilmSearchService {
 
     void deleteAll(List<Film> films);
 
-    List<Movie> matchQuery(String q, Pageable page);
+    List<Film> matchQuery(String q, Pageable page);
 
-    List<Movie> matchPhraseQuery(String q);
+    List<Film> matchPhraseQuery(String q);
 
-    List<Movie> matchPhrasePrefixQuery(String q);
+    List<Film> matchPhrasePrefixQuery(String q);
 
-    List<Movie> fuzzyQuery(String q);
+    List<Film> fuzzyQuery(String q);
 
     String autocomplete(String q);
+
+    List<Film> findAll();
 }
