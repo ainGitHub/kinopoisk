@@ -9,9 +9,9 @@
         <div class="border-right">
             <div class="border-left">
                 <div class="inner">
-                    <#--<#if user??>-->
-                        <h3><span>${(name)!}</span></h3>
-
+                    <#if user??>
+                        <h3><span>${user.username}</span></h3>
+                    </#if>
                         <div class="img-box1 photo">
                             <img src="/resources/images/photo/unknown.gif" alt="photo" width="180" height="280"/>
                             <div style="margin-left: 400px">

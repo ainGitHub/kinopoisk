@@ -62,7 +62,6 @@ public class RegistrationController {
 
 
     @RequestMapping(value = "/registration/vk", method = RequestMethod.GET)
-    @ResponseBody
     private String registerVK(@RequestParam String code) throws ClientException, ApiException {
         //// TODO: 19.10.2016 Refactoring. Move the code to services
         TransportClient transportClient = HttpTransportClient.getInstance();
@@ -100,7 +99,6 @@ public class RegistrationController {
         SecurityContextHolder.getContext().setAuthentication(auth);
 
         //// TODO: 19.10.2016 Change return
-        return SecurityContextHolder.getContext().getAuthentication().getName();
-
+        return "redirect:/profile";
     }
 }
