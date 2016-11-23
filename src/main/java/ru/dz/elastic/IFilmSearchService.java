@@ -30,4 +30,6 @@ public interface IFilmSearchService {
     String autocomplete(String q);
 
     List<Film> findAll();
+
+    void deleteAll();
 }

@@ -38,4 +38,10 @@ public class FilmSearchController {
         return "searchPage";
         //return "v2/film";
     }
+
+    @RequestMapping(value = "delete/all")
+    private String deleteAll() {
+        filmSearchService.deleteAll();
+        return "/test/films";
+    }
 }

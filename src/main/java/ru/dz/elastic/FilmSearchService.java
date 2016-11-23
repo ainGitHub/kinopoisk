@@ -108,6 +108,11 @@ public class FilmSearchService implements IFilmSearchService {
         return getResult(response);
     }
 
+    @Override
+    public void deleteAll() {
+        client.admin().indices().prepareDelete("_all").get();
+    }
+
     private List<Film> getResult(SearchResponse response) {
         List<Film> result = new ArrayList<>();
         response.getHits().forEach(h -> {
