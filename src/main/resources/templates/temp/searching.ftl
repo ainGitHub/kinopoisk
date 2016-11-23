@@ -3,15 +3,11 @@
 
     <form id="search-form-1" action="/test/search/films" method="get">
         <fieldset>
-            <div class="field">
-                <label>Описание:</label>
-                <input type="text" name="query"/>
-            </div>
-        <#--<div class="field">
-            <label>Название:</label>
-            <input type="text" name="name"/>
-        </div>
         <div class="field">
+            <label>Название:</label>
+            <input type="text" name="query"/>
+        </div>
+        <#--<div class="field">
             <label>Жанр:</label>
             <input type="text" name="genre"/>
         </div>

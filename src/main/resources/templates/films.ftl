@@ -24,7 +24,7 @@
                             </div>
                             <hr>
                         </#list>
-                    <#else><h3><span>Данные не найдены</span></h3>
+                    <#else><h3 align="center">Данные не найдены</h3>
                     </#if>
                 </div>
             </div>

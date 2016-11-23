@@ -27,6 +27,7 @@ import java.util.List;
 public class FilmSearchService implements IFilmSearchService {
     Logger logger = LoggerFactory.getLogger(FilmSearchService.class);
     private static final String DESCRIPTION_FIELD = "description";
+    private static final String NAME_FIELD = "name";
 
     @Autowired
     private Client client;
@@ -76,7 +77,7 @@ public class FilmSearchService implements IFilmSearchService {
         SearchResponse response = client.prepareSearch(ElasticConfig.FILM_CORP_INDEX)
                 .setTypes(ElasticConfig.FILM_TYPE)
                 .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-                .setQuery(QueryBuilders.matchQuery(DESCRIPTION_FIELD, q))
+                .setQuery(QueryBuilders.matchQuery(NAME_FIELD, q))
                 .execute()
                 .actionGet();
         return getResult(response);
