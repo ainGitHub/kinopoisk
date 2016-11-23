@@ -164,23 +164,23 @@ ul, ol {
 }
 
 /* SEARCH */
-#search-form-1 {
+.search-form-1 {
     clear: right;
     width: 842px;
     overflow: hidden;
     margin-left: 50px
 }
 
-#search-form-1 fieldset {
+.search-form-1 fieldset {
     border: none;
     float: left
 }
 
-#search-form-1 .field {
+.search-form-1 .field {
     clear: both
 }
 
-#search-form-1 label {
+.search-form-1 label {
     float: left;
     width: 112px !important;
     width: 109px;
@@ -189,7 +189,7 @@ ul, ol {
     color: #fff
 }
 
-#search-form-1 input {
+.search-form-1 input {
     width: 293px;
     padding: 1px 0 1px 3px;
     background: #000;
@@ -197,7 +197,7 @@ ul, ol {
     color: #fff
 }
 
-#search-form-1 textarea {
+.search-form-1 textarea {
     width: 674px;
     height: 174px;
     padding: 2px 28px 1px 28px;
@@ -208,7 +208,7 @@ ul, ol {
     overflow: auto
 }
 
-#search-form-1 .link2 {
+.search-form-1 .link2 {
     float: right
 }
 

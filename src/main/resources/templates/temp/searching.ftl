@@ -1,34 +1,41 @@
 <div>
     <h3><span>Поиск</span></h3>
-
-    <form id="search-form-1" action="/test/search/films" method="get">
+    <div>
+        <form class="search-form-1" action="/search/films/name" method="get">
         <fieldset>
-        <div class="field">
-            <label>Название:</label>
-            <input type="text" name="query"/>
-        </div>
-        <#--<div class="field">
-            <label>Жанр:</label>
-            <input type="text" name="genre"/>
-        </div>
-        <div class="field">
-            <label>Год выпуска:</label>
-            <input type="text" name="year"/>
-        </div>
-        <div class="field">
-            <label>Актер, режиссер:</label>
-            <input type="text" name="actor"/>
-        </div>-->
-            <div class="wrapper">
-            <#--  <a href="#" class="link2"
-                 onclick="document.getElementById('contacts-form').submit()">
-              <span>Поиск</span>
-              </a>-->
-
-                <input type="submit" class="link2" value="Поиск">
+            <div class="field">
+                <label>Название:</label>
+                <input type="text" name="name"/>
             </div>
+            <input type="submit" class="link2" value="Поиск по названию">
         </fieldset>
-    </form>
+        </form>
+    </div>
+    <br>
+    <div>
+        <form class="search-form-1" action="/search/films/description" method="get">
+            <fieldset>
+                <div class="field">
+                    <label>Описание:</label>
+                    <input type="text" name="description"/>
+                </div>
+                <input type="submit" class="link2" value="Поиск по описанию">
+            </fieldset>
+        </form>
+    </div>
+<#--  <div class="field">
+      <label>Жанр:</label>
+      <input type="text" name="genre"/>
+  </div>
+  <div class="field">
+      <label>Год выпуска:</label>
+      <input type="text" name="year"/>
+  </div>
+  <div class="field">
+      <label>Актер, режиссер:</label>
+      <input type="text" name="actor"/>
+  </div>-->
+
 
     <#--<h3><span>Сортировать по</span></h3>-->
     <#--<form action="">-->

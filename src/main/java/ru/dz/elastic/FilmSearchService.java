@@ -73,15 +73,28 @@ public class FilmSearchService implements IFilmSearchService {
     }
 
     @Override
-    public List<Film> matchPhraseQuery(String q) {
+    public List<Film> matchNameQuery(String name) {
         SearchResponse response = client.prepareSearch(ElasticConfig.FILM_CORP_INDEX)
                 .setTypes(ElasticConfig.FILM_TYPE)
                 .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-                .setQuery(QueryBuilders.matchQuery(NAME_FIELD, q))
+                .setQuery(QueryBuilders.matchQuery(NAME_FIELD, name))
                 .execute()
                 .actionGet();
         return getResult(response);
     }
+
+
+    @Override
+    public List<Film> matchDescriptionQuery(String description) {
+        SearchResponse response = client.prepareSearch(ElasticConfig.FILM_CORP_INDEX)
+                .setTypes(ElasticConfig.FILM_TYPE)
+                .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
+                .setQuery(QueryBuilders.matchQuery(DESCRIPTION_FIELD, description))
+                .execute()
+                .actionGet();
+        return getResult(response);
+    }
+
 
     @Override
     public List<Film> matchPhrasePrefixQuery(String q) {
@@ -112,6 +125,18 @@ public class FilmSearchService implements IFilmSearchService {
     @Override
     public void deleteAll() {
         client.admin().indices().prepareDelete("_all").get();
+    }
+
+    @Override
+    public List<Film> searchByNameAndDescription(String name, String description) {
+        SearchResponse response = client.prepareSearch(ElasticConfig.FILM_CORP_INDEX)
+                .setTypes(ElasticConfig.FILM_TYPE)
+                .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
+                .setQuery(QueryBuilders.matchQuery(NAME_FIELD, name))
+                .setQuery(QueryBuilders.matchQuery(DESCRIPTION_FIELD, description))
+                .execute()
+                .actionGet();
+        return getResult(response);
     }
 
     private List<Film> getResult(SearchResponse response) {

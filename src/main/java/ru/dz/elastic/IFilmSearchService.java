@@ -21,7 +21,9 @@ public interface IFilmSearchService {
 
     List<Film> matchQuery(String q, Pageable page);
 
-    List<Film> matchPhraseQuery(String q);
+    List<Film> matchNameQuery(String name);
+
+    List<Film> matchDescriptionQuery(String description);
 
     List<Film> matchPhrasePrefixQuery(String q);
 
@@ -32,4 +34,6 @@ public interface IFilmSearchService {
     List<Film> findAll();
 
     void deleteAll();
+
+    List<Film> searchByNameAndDescription(String name, String description);
 }
