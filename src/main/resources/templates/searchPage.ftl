@@ -78,41 +78,23 @@
                         </form>
 
                     </div>
-                    <div class="img-box1 photo" style="margin-top: 20px">
-                        <img src="/resources/images/photo/2.jpg" alt="photo" width="58" height="83"/>
 
-                        <div>
-                            Чудо-женщина<br>
-                            США, реж. Пэтти Дженкинс<br>
-                            фантастика, фэнтези, боевик<br>
-                            Галь Гадот, Крис Пайн<br>
-                        </div>
-                    </div>
-                    <hr>
+                    <#if films??>
+                        <#list films as film>
+                            <div class="img-box1 photo" style="margin-top: 20px">
+                                <img src="${(film.image)!}" alt="photo" width="58" height="83"/>
 
-                    <div class="img-box1 photo" style="margin-top: 20px">
-                        <img src="/resources/images/photo/2.jpg" alt="photo" width="58" height="83"/>
-
-                        <div>
-                            Чудо-женщина<br>
-                            США, реж. Пэтти Дженкинс<br>
-                            фантастика, фэнтези, боевик<br>
-                            Галь Гадот, Крис Пайн<br>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="img-box1 photo" style="margin-top: 20px">
-                        <img src="/resources/images/photo/2.jpg" alt="photo" width="58" height="83"/>
-
-                        <div>
-                            Чудо-женщина<br>
-                            США, реж. Пэтти Дженкинс<br>
-                            фантастика, фэнтези, боевик<br>
-                            Галь Гадот, Крис Пайн<br>
-                        </div>
-                    </div>
-
+                                <div>
+                                    ${(film.name)!}<br>
+                                    ${(film.country)!}, реж. Пэтти Дженкинс<br>
+                                    фантастика, фэнтези, боевик<br>
+                                    Галь Гадот, Крис Пайн<br>
+                                </div>
+                            </div>
+                            <hr>
+                        </#list>
+                    <#else><h3><span>Данные не найдены</span></h3>
+                    </#if>
                 </div>
             </div>
         </div>

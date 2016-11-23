@@ -35,7 +35,7 @@ public class FilmSearchController {
     public String searchBYQuery(@RequestParam String query, ModelMap map) {
         List<Film> films = filmSearchService.matchPhraseQuery(query);
         map.put("films", films);
-        return "film";
+        return "searchPage";
         //return "v2/film";
     }
 }
