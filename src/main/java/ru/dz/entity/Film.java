@@ -28,7 +28,7 @@ public class Film {
     private String ageLimit;
 
     @Column
-    private String image;
+    private String image = "/resources/images/photo/unknown.gif";
 
     @Column
     private Integer duration;
