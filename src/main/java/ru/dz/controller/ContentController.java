@@ -6,7 +6,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ru.dz.entity.Person;
-import ru.dz.entity.UserInfo;
 import ru.dz.services.FilmService;
 
 /**
@@ -25,7 +24,6 @@ public class ContentController {
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String renderProfilePage(ModelMap model) {
-        model.put("user", new UserInfo());
         return "profile";
     }
 

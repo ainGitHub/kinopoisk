@@ -18,10 +18,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import ru.dz.entity.UserInfo;
@@ -62,9 +62,8 @@ public class RegistrationController {
 
 
     @RequestMapping(value = "/registration/vk", method = RequestMethod.GET)
-    //@ResponseBody
-    private String registerVK(@RequestParam String code,
-                              ModelMap model) throws ClientException, ApiException {
+    @ResponseBody
+    private String registerVK(@RequestParam String code) throws ClientException, ApiException {
         //// TODO: 19.10.2016 Refactoring. Move the code to services
         TransportClient transportClient = HttpTransportClient.getInstance();
         VkApiClient vk = new VkApiClient(transportClient);
@@ -101,8 +100,7 @@ public class RegistrationController {
         SecurityContextHolder.getContext().setAuthentication(auth);
 
         //// TODO: 19.10.2016 Change return
-        //return SecurityContextHolder.getContext().getAuthentication().getName();
-        model.put("name", SecurityContextHolder.getContext().getAuthentication().getName());
-        return "profile";
+        return SecurityContextHolder.getContext().getAuthentication().getName();
+
     }
 }
