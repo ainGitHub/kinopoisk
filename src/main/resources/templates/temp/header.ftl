@@ -12,7 +12,7 @@
         <ul>
             <li><a href="/" class="active">Главная</a></li>
             <li><a href="/test/films">Поиск</a></li>
-            <li><a href="/film">Новости</a></li>
+            <li><a href="/test/films">Новости</a></li>
             <li><a href="/login">Вход</a></li>
             <li class="last"><a href="/registration_vk">Регистрация</a></li>
         </ul>

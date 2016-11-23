@@ -27,7 +27,7 @@ public class FilmSearchController {
     public String search(ModelMap map) {
         List<Film> allFilms = filmSearchService.findAll();
         map.put("films", allFilms);
-        return "searchPage";
+        return "films";
         //return "v2/film";
     }
 
@@ -35,7 +35,7 @@ public class FilmSearchController {
     public String searchBYQuery(@RequestParam String query, ModelMap map) {
         List<Film> films = filmSearchService.matchPhraseQuery(query);
         map.put("films", films);
-        return "searchPage";
+        return "films";
         //return "v2/film";
     }
 
