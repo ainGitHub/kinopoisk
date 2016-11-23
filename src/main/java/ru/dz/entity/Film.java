@@ -28,6 +28,9 @@ public class Film {
     private String ageLimit;
 
     @Column
+    private String image;
+
+    @Column
     private Integer duration;
 
     @Column(length = 2000)
@@ -98,6 +101,14 @@ public class Film {
 
     public void setAgeLimit(String ageLimit) {
         this.ageLimit = ageLimit;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Integer getDuration() {

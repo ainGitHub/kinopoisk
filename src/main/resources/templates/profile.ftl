@@ -13,7 +13,7 @@
                         <h3><span>User name</span></h3>
 
                         <div class="img-box1 photo">
-                            <img src="/resources/images/photo/user.gif" alt="photo" width="180" height="280"/>
+                            <img src="/resources/images/photo/unknown.gif" alt="photo" width="180" height="280"/>
                             <div style="margin-left: 400px">
                                 <a href="#">Изменить данные</a><br>
                                 дата рождения: 01.01.1990 <br>

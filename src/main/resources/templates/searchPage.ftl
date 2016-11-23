@@ -62,7 +62,7 @@
                                         <option value="asc"> по возрастанию</option>
                                         <option value="desc"> по убыванию</option>
                                     </select>
-                                </label><br>    
+                                </label><br>
                                 <label>
                                     году выпуска
                                     <select name="year" style="background: black; color: white">

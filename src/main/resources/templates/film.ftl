@@ -26,11 +26,12 @@
                                 возрастное ограничение:
                             </div>
                         </div>
-                        <div style="text-align: justify; margin-top: 50px">
+                        <div style="text-align: justify; margin-top: 30px">
                             <#if film.description??>
                                 ${film.description}
                             </#if>
                         </div>
+                        <hr>
                         </#list>
                     <#else><h3><span>Данные не найдены</span></h3>
                     </#if>
