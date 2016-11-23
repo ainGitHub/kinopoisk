@@ -27,7 +27,7 @@ public class FilmSearchController {
     public String search(ModelMap map) {
         List<Film> allFilms = filmSearchService.findAll();
         map.put("films", allFilms);
-        return "film";
+        return "searchPage";
         //return "v2/film";
     }
 

@@ -1,38 +1,62 @@
 [
   {
-    "name": "Suicide Squad",
-    "description": "A secret government agency recruits some of the most dangerous incarcerated criminals to form a defensive task force, with their first case leading to a potential apocalypse.",
+    "name": "Отряд самоубийц",
+    "description": "Правительство решает дать команде суперзлодеев шанс на искупление. Подвох в том, что их отправляют на миссию, где они, вероятнее всего, погибнут.",
     "image": "/resources/images/photo/unknown.gif",
-    "country": "���"
+    "country": "США",
+    "year": "2016",
+    "ageLimit": "PG-13",
+    "duration": "118",
+    "trailer": "https://www.youtube.com/embed/7xLCggrIRHY"
   },
   {
-    "name": "Don't Breathe",
-    "description": "Hoping to walk away with a massive fortune, a trio of thieves break into the house of a blind man who isn't as helpless as he seems.",
+    "name": "Чудо-женщина",
+    "description": "Перед тем как стать Чудо-Женщиной, она была Дианой — принцессой амазонок, обученной быть непобедимой воительницей. И когда на берегах огражденного от внешнего мира райского острова, который служил ей родиной, терпит крушение американский пилот и рассказывает о серьезном конфликте, бушующем во внешнем мире, Диана покидает свой дом, чтобы справиться с этой угрозой. И там, сражаясь бок о бок с человеком в войне за мир, Диана обнаружит всю полноту своей власти… и свое истинное предназначение.",
     "image": "/resources/images/photo/unknown.gif",
-    "country": "���"
+    "country": "США",
+    "year": "2017",
+    "ageLimit": "PG-13",
+    "duration": "123",
+    "trailer": "https://www.youtube.com/embed/3HTb-mqqk6w"
   },
   {
-    "name": "Sausage Party",
-    "description": "A sausage strives to discover the truth about his existence.",
+    "name": "Бэтмен против Супермена: На заре справедливости",
+    "description": "Опасаясь, что действия богоподобного супергероя так и останутся бесконтрольными, грозный и могущественный страж Готэм Сити бросает вызов самому почитаемому в наши дни спасителю Метрополиса, в то время как весь остальной мир решает, какой герой ему по-настоящему нужен.",
     "image": "/resources/images/photo/unknown.gif",
-    "country": "���"
+    "country": "США",
+    "year": "2016",
+    "ageLimit": "PG-13",
+    "duration": "153",
+    "trailer": "https://www.youtube.com/embed/9nwfnO2vE_A"
   },
   {
-    "name": "Blood Father",
-    "description": "An ex-con reunites with his estranged wayward 17-year old daughter to protect her from drug dealers who are trying to kill her.",
+    "name": "Первый мститель: Противостояние",
+    "description": "«Первый мститель: Противостояние» — супергеройский боевик производства Marvel Studios и дистрибьюции Walt Disney Studios Motion Pictures.",
     "image": "/resources/images/photo/unknown.gif",
-    "country": "���"
+    "country": "США",
+    "year": "2016",
+    "ageLimit": "PG-13",
+    "duration": "147",
+    "trailer": "https://www.youtube.com/embed/AaEH4AgPb2A"
   },
   {
-    "name": "Max Steel",
-    "description": "The adventures of teenager Max McGrath and alien companion Steel, who must harness and combine their tremendous new powers to evolve into the turbo-charged superhero Max Steel.",
+    "name": "Мстители",
+    "description": "Локи, сводный брат Тора, возвращается, и в этот раз он не один. Земля на грани порабощения, и только лучшие из лучших могут спасти человечество.",
     "image": "/resources/images/photo/unknown.gif",
-    "country": "���"
+    "country": "США",
+    "year": "2012",
+    "ageLimit": "PG-13",
+    "duration": "142",
+    "trailer": "https://www.youtube.com/embed/EPFkCjbDDfI"
   },
   {
-    "name": "Mechanic: Resurrection",
-    "description": "Arthur Bishop thought he had put his murderous past behind him when his most formidable foe kidnaps the love of his life. Now he is forced to travel the globe to complete three impossible assassinations, and do what he does best, make them look like accidents.",
+    "name": "Люди Икс: Апокалипсис",
+    "description": "События «Дней Минувшего Будущего» оказали колоссальное влияние на мир, где мутанты и люди борются за свое место под Солнцем. В это нелегкое время Людям Икс предстоит столкнуться со своим самым опасным противником — древним мутантом Апокалипсисом.",
     "image": "/resources/images/photo/unknown.gif",
-    "country": "���"
+    "country": "США",
+    "year": "2016",
+    "ageLimit": "PG-13",
+    "duration": "143",
+    "trailer": "https://www.youtube.com/embed/299V5RO59Q0"
   }
 ]

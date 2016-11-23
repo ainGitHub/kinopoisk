@@ -10,7 +10,6 @@
             <div class="border-left">
                 <div class="inner">
                     <#if films??>
-                        <#list films as film>
                             <h3><span>${film.name}</span></h3>
 
                         <div class="img-box1 photo">
@@ -31,8 +30,6 @@
                                 ${film.description}
                             </#if>
                         </div>
-                        <hr>
-                        </#list>
                     <#else><h3><span>Данные не найдены</span></h3>
                     </#if>
 
