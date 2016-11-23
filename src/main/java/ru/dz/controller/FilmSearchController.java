@@ -27,13 +27,15 @@ public class FilmSearchController {
     public String search(ModelMap map) {
         List<Film> allFilms = filmSearchService.findAll();
         map.put("films", allFilms);
-        return "v2/film";
+        return "film";
+        //return "v2/film";
     }
 
     @RequestMapping(value = "/test/search/films", method = RequestMethod.GET)
     public String searchBYQuery(@RequestParam String query, ModelMap map) {
         List<Film> films = filmSearchService.matchPhraseQuery(query);
         map.put("films", films);
-        return "v2/film";
+        return "film";
+        //return "v2/film";
     }
 }
