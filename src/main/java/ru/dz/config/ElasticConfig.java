@@ -22,7 +22,7 @@ import java.net.URL;
 import java.net.UnknownHostException;
 
 /**
- * Created by Aydar Farrakhov on 05.09.16.
+ * Created by generated on 05.09.16.
  */
 @Configuration
 public class ElasticConfig {
@@ -32,6 +32,9 @@ public class ElasticConfig {
 
     public static final String MOVIE_CORP_INDEX = "moviecorp";
     public static final String MOVIE_TYPE = "movies";
+
+    public static final String FILM_CORP_INDEX = "filmcorp";
+    public static final String FILM_TYPE = "films";
 
 
     @Value("${elastic.ip:'127.0.0.1'}")
@@ -84,16 +87,16 @@ public class ElasticConfig {
     }
 
     private void initClient(Client client) {
-        final IndicesExistsResponse res = client.admin().indices().prepareExists(MOVIE_CORP_INDEX).execute().actionGet();
+        final IndicesExistsResponse res = client.admin().indices().prepareExists(FILM_CORP_INDEX).execute().actionGet();
         if (res.isExists()) {
             return;
         }
 
         final CreateIndexRequestBuilder createIndexRequestBuilder = client.admin().indices()
-                .prepareCreate(MOVIE_CORP_INDEX);
+                .prepareCreate(FILM_CORP_INDEX);
 
         createIndexRequestBuilder.setSettings(getResource("autocomplete.json"));
-        createIndexRequestBuilder.addMapping(MOVIE_TYPE, getResource("mapping.json"));
+        createIndexRequestBuilder.addMapping(FILM_TYPE, getResource("mapping.json"));
 
         createIndexRequestBuilder.execute().actionGet();
 
