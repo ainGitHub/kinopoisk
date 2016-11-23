@@ -9,8 +9,8 @@
         <div class="border-right">
             <div class="border-left">
                 <div class="inner">
-                    <#if user??>
-                        <h3><span>User name</span></h3>
+                    <#--<#if user??>-->
+                        <h3><span>${(name)!}</span></h3>
 
                         <div class="img-box1 photo">
                             <img src="/resources/images/photo/unknown.gif" alt="photo" width="180" height="280"/>
@@ -24,8 +24,8 @@
                                 <a href="#">Написать рецензию</a>
                             </div>
                         </div>
-                    <#else><h3><span>Данные не найдены</span></h3>
-                    </#if>
+                    <#--<#else><h3><span>Данные не найдены</span></h3>-->
+                    <#--</#if>-->
 
                 </div>
             </div>
