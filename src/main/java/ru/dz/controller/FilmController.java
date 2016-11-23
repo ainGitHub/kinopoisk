@@ -28,7 +28,7 @@ public class FilmController {
     private String filmsPage(ModelMap map) {
         List<Film> films = filmService.findAll();
         map.put("films", films);
-        return "film";
+        return "films";
     }
 
     @RequestMapping(value = "/generate", method = RequestMethod.GET)
