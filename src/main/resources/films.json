@@ -6,7 +6,8 @@
     "year": "2016",
     "ageLimit": "PG-13",
     "duration": "118",
-    "trailer": "https://www.youtube.com/embed/7xLCggrIRHY"
+    "trailer": "https://www.youtube.com/embed/7xLCggrIRHY",
+    "image": "/resources/images/photo/отряд.jpg"
   },
   {
     "name": "Чудо-женщина",
@@ -15,7 +16,8 @@
     "year": "2017",
     "ageLimit": "PG-13",
     "duration": "123",
-    "trailer": "https://www.youtube.com/embed/3HTb-mqqk6w"
+    "trailer": "https://www.youtube.com/embed/3HTb-mqqk6w",
+    "image": "/resources/images/photo/чудо_женщина.jpg"
   },
   {
     "name": "Бэтмен против Супермена: На заре справедливости",
@@ -24,7 +26,8 @@
     "year": "2016",
     "ageLimit": "PG-13",
     "duration": "153",
-    "trailer": "https://www.youtube.com/embed/9nwfnO2vE_A"
+    "trailer": "https://www.youtube.com/embed/9nwfnO2vE_A",
+    "image": "/resources/images/photo/спаси_марту.jpg"
   },
   {
     "name": "Первый мститель: Противостояние",
@@ -33,7 +36,8 @@
     "year": "2016",
     "ageLimit": "PG-13",
     "duration": "147",
-    "trailer": "https://www.youtube.com/embed/AaEH4AgPb2A"
+    "trailer": "https://www.youtube.com/embed/AaEH4AgPb2A",
+    "image": "/resources/images/photo/кэп.jpg"
   },
   {
     "name": "Мстители",
@@ -42,7 +46,8 @@
     "year": "2012",
     "ageLimit": "PG-13",
     "duration": "142",
-    "trailer": "https://www.youtube.com/embed/EPFkCjbDDfI"
+    "trailer": "https://www.youtube.com/embed/EPFkCjbDDfI",
+    "image": "/resources/images/photo/мстюны.jpg"
   },
   {
     "name": "Люди Икс: Апокалипсис",
@@ -51,6 +56,7 @@
     "year": "2016",
     "ageLimit": "PG-13",
     "duration": "143",
-    "trailer": "https://www.youtube.com/embed/299V5RO59Q0"
+    "trailer": "https://www.youtube.com/embed/299V5RO59Q0",
+    "image": "/resources/images/photo/люди_икс.jpg"
   }
 ]
