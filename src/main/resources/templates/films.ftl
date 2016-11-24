@@ -1,39 +1,31 @@
 <#-- @ftlvariable name="films" type="java.util.List<ru.dz.entity.Film>" -->
 <#include "temp/mainTemplate.ftl">
-<@main_template title="Поиск" scripts=[]/>
+<@main_template title="Поиск"/>
 
-<#macro body>
-<div id="content">
-    <div class="line-hor"></div>
-    <div class="box">
-        <div class="border-right">
-            <div class="border-left">
-                <div class="inner">
-                    <#include "temp/searching.ftl" />
-                    <#if films?has_content>
-                        <#list films as film>
-                            <div class="img-box1 photo" style="margin-top: 20px">
-                                <a href="/film/${film.getId()}">
-                                <img src="${(film.image)!}" alt="photo" width="58" height="83"/></a>
+<#macro banner></#macro>
 
-                                <div>
-                                    ${(film.name)!}<br>
-                                    ${(film.country)!}, реж. Пэтти Дженкинс<br>
-                                    <#--фантастика, фэнтези, боевик<br>-->
-                                    <#--Галь Гадот, Крис Пайн<br>-->
-                                </div>
-                                <#if film.description??>
-                                    <div style="text-align: justify; margin-top: 30px">
-                                    ${film.description}
-                                    </div>
-                                </#if>
-                            </div>
-                            <hr>
-                        </#list>
-                    <#else><h3 align="center">Данные не найдены</h3>
-                    </#if>
+<#macro container>
+<section class="container">
+    <#include "temp/searching.ftl" />
+
+    <#if films?has_content>
+        <#list films as film>
+            <div class="img-box" style="margin-top: 20px">
+                <a href="/film/${film.getId()}">
+                    <img src="${(film.image)!}" alt="photo" width="58" height="83"/></a>
+                <div>
+                ${(film.name)!}<br>
+                ${(film.country)!}, реж. <br>
+                    жанр: <br>
+                    актеры: <br>
+                </div>
+                <div class="description">
+                ${(film.description)!}
                 </div>
             </div>
-        </div>
-    </div>
-</div></#macro>
+            <hr>
+        </#list>
+    <#else><h3 align="center">Данные не найдены</h3>
+    </#if>
+</section>
+</#macro>

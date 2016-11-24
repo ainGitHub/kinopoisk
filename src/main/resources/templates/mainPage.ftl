@@ -1,37 +1,25 @@
 <#include "temp/mainTemplate.ftl">
-<@main_template title="Главная" scripts=[]/>
+<@main_template title="Главная" />
 
-<#macro body>
-<div id="content">
-    <div id="slogan">
-        <div class="image png"></div>
-        <div class="inside">
-            <h2>Добро пожаловать!</h2>
+<#macro banner>
+<article role="main" class="clearfix">
+    <div class="post">
+        <p>Nunc porta, mauris sit amet laoreet vestibulum, elit leo iaculis lorem, mattis euismod eros lorem sed
+            est. Donec porttitor augue vel nisl blandit gravida. Etiam eu purus non enim vehicula ultrices a non
+            neque.</p>
 
-            <p align="justify">Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore
-                etolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris.
-                Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore etolore magna
-                aliqua enim minim veniam quis nostrud exercitation ullamco laboris.</p>
-        </div>
+        <p>Morbi purus odio, faucibus sit amet elementum in:</p>
+        <ul>
+            <li>interdum eu ipsum.</li>
+            <li>Donec cursus pellentesque mauris vitae ultricies.</li>
+            <li>Donec lacinia nunc in nisl hendrerit scelerisque.</li>
+        </ul>
+        <a href="" class="button left">Начать поиск<span class="icon">:</span></a>
     </div>
-    <div class="box">
-        <div class="border-right">
-            <div class="border-left">
-                <div class="inner">
-                    <h3><span>Новинки</span></h3>
-
-                    <p>Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore
-                        etolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris.</p>
-
-                    <div class="img-box1"><img src="/resources/images/img/1page-img1.jpg" alt=""/>Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore
-                        etolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris. Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore
-                        etolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris.
-                    </div>
-                    <p>Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore
-                        etolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <aside role="complementary">
+        <img src="/resources/images/kino.png" alt="photo">
+    </aside>
+</article>
 </#macro>
+
+<#macro container></#macro>

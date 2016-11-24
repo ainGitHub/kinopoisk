@@ -1,34 +1,26 @@
 <#-- @ftlvariable name="user" type="ru.dz.entity.UserInfo" -->
 <#include "temp/mainTemplate.ftl">
-<@main_template title="Личный кабинет" scripts=[]/>
+<@main_template title="Личный кабинет"/>
 
-<#macro body>
-<div id="content">
-    <div class="line-hor"></div>
-    <div class="box">
-        <div class="border-right">
-            <div class="border-left">
-                <div class="inner">
-                    <#if user??>
-                        <h3><span>${user.username}</span></h3>
-                    </#if>
-                        <div class="img-box1 photo">
-                            <img src="/resources/images/photo/unknown.gif" alt="photo" width="180" height="280"/>
-                            <div style="margin-left: 400px">
-                                <a href="#">Изменить данные</a><br>
-                                дата рождения: 01.01.1990 <br>
-                                пол: женский <br>
-                                город: Казань <br>
-                                email: email@mail.ru<br>
-                                Список рецензий: - <br>
-                                <a href="#">Написать рецензию</a>
-                            </div>
-                        </div>
-                    <#--<#else><h3><span>Данные не найдены</span></h3>-->
-                    <#--</#if>-->
+<#macro banner></#macro>
 
-                </div>
-            </div>
+<#macro container>
+<section class="container">
+    <#if user??>
+        <h1>${(user.username)!}</h1>
+    </#if>
+    <div class="img-box" style="margin-top: 50px">
+        <img src="/resources/images/photo/unknown.gif" alt="photo" width="180" height="280"/>
+
+        <div>
+            <a href="#">Изменить данные</a><br>
+            дата рождения: <br>
+            пол: <br>
+            город: <br>
+            email: <br>
+            Список рецензий: - <br>
+            <a href="#">Написать рецензию</a>
         </div>
     </div>
-</div></#macro>
+</section>
+</#macro>
