@@ -1,4 +1,5 @@
-<div>
+<article role="main" class="clearfix">
+    <div class="post">
     <h3><span>Поиск</span></h3>
 
     <div>
@@ -17,6 +18,8 @@
             <input type="submit" class="link2" value="Найти">
         </form>
     </div>
+    </div>
+</article>
 <#--  <div class="field">
       <label>Жанр:</label>
       <input type="text" name="genre"/>
@@ -57,5 +60,3 @@
 <#--</label>-->
 <#--</fieldset>-->
 <#--</form>-->
-</div>
-<hr>
