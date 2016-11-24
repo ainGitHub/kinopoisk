@@ -18,4 +18,6 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
 
     @Query("select f from Film f where f.changed = true")
     public List<Film> findAllChanged();
+
+    public Film findFilmById(Long id);
 }

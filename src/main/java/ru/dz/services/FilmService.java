@@ -28,4 +28,8 @@ public class FilmService {
     public List<Film> findAll() {
         return filmRepository.findAll();
     }
+
+    public Film findFilmById(Long id) {
+        return filmRepository.findFilmById(id);
+    }
 }

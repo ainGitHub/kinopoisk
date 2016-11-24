@@ -13,13 +13,14 @@
                     <#if films?has_content>
                         <#list films as film>
                             <div class="img-box1 photo" style="margin-top: 20px">
-                                <img src="${(film.image)!}" alt="photo" width="58" height="83"/>
+                                <a href="/film/${film.getId()}">
+                                <img src="${(film.image)!}" alt="photo" width="58" height="83"/></a>
 
                                 <div>
                                     ${(film.name)!}<br>
                                     ${(film.country)!}, реж. Пэтти Дженкинс<br>
-                                    фантастика, фэнтези, боевик<br>
-                                    Галь Гадот, Крис Пайн<br>
+                                    <#--фантастика, фэнтези, боевик<br>-->
+                                    <#--Галь Гадот, Крис Пайн<br>-->
                                 </div>
                             </div>
                             <hr>

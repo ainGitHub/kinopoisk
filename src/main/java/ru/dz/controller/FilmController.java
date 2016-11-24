@@ -3,6 +3,7 @@ package ru.dz.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,10 +25,11 @@ public class FilmController {
     @Autowired
     FirstGenerateFilms firstGenerateFilms;
 
-    @RequestMapping(value = "/film", method = RequestMethod.GET)
-    private String filmsPage(ModelMap map) {
-        List<Film> films = filmService.findAll();
-        map.put("films", films);
+    @RequestMapping(value = "/film/{id}", method = RequestMethod.GET)
+    private String filmsPage(@PathVariable("id") Long id,
+                             ModelMap map) {
+        Film film = filmService.findFilmById(id);
+        map.put("film", film);
         return "film";
     }
 
