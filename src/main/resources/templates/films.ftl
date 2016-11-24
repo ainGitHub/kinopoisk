@@ -23,10 +23,9 @@
         <#list films as film>
             <li>
                 <h2><a href="/film/${film.getId()}">${film.name}</a></h2>
-            <#--<p class="meta">On April 26 | By: <a href="#">$hekh@r d-Ziner</a></p>-->
-                <img src="${film.image!}" alt="Lorem ipsum dolor...">
-                <p style="font-size: 16px">${film.description!}</p>
-                <p><a href="page.html" class="more-link">Reading continued <span class="icon">:</span></a></p>
+                <img src="${film.image!}" alt="Lorem ipsum dolor..." width="206" height="306">
+                <p style="font-size: 16px" class="description">${film.description!}</p>
+                <p><a href="/film/${film.getId()}" class="more-link">Продолжить<span class="icon">:</span></a></p>
             </li>
         </#list>
         </ul>
