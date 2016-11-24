@@ -61,12 +61,11 @@ public class FilmController {
 
     @RequestMapping(value = "/search/films/name", method = RequestMethod.GET)
     public String searchByName(@RequestParam(required = false) String name,
-                               @RequestParam(required = false) String description,
                                ModelMap map) {
 
         List<Film> films = null;
 
-        if (name != null && name.isEmpty())
+        if (name != null && !name.isEmpty())
             films = filmSearchService.matchNameQuery(name);
         else
             films = filmSearchService.findAll();
@@ -82,8 +81,8 @@ public class FilmController {
 
         List<Film> films = null;
 
-        if (description != null && description.isEmpty())
-            films = filmSearchService.matchNameQuery(description);
+        if (description != null && !description.isEmpty())
+            films = filmSearchService.matchDescriptionQuery(description);
         else
             films = filmSearchService.findAll();
 
