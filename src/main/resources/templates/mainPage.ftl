@@ -14,7 +14,7 @@
             <li>Donec cursus pellentesque mauris vitae ultricies.</li>
             <li>Donec lacinia nunc in nisl hendrerit scelerisque.</li>
         </ul>
-        <a href="" class="button left">Начать поиск<span class="icon">:</span></a>
+        <a href="/films" class="button left">Начать поиск<span class="icon">:</span></a>
     </div>
     <aside role="complementary">
         <img src="/resources/images/kino.png" alt="photo">
