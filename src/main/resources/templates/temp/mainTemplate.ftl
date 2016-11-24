@@ -23,10 +23,13 @@
 
     <#include "header.ftl" />
 <section role="banner">
-    <hgroup></hgroup>
+    <hgroup>
+        <h1>Кинопоиск - всегда только лучшие фильмы!</h1>
+    </hgroup>
     <@banner/>
 </section>
     <@container/>
+    <#include "footer.ftl"/>
 </body>
 </html>
 </#macro>
