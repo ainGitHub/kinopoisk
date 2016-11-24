@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="/resources/fonts/raphaelicons.css">
     <link rel="stylesheet" href="/resources/css/main.css">
     <link rel="stylesheet" href="/resources/css/myStyle.css">
-<#--<script src="/resources/js/libs/modernizr-2.5.2.min.js"></script>-->
-<#--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
-<#--<script>window.jQuery || document.write('<script src="/resources/js/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
-<#--<script src="/resources/js/script.js"></script>-->
 </head>
 <body>
 <div class="wrapper">

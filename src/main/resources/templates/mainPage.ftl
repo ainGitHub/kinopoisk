@@ -1,5 +1,5 @@
 <#include "temp/mainTemplate.ftl">
-<@main_template title="Главная" />
+<@main_template title="Главная"/>
 
 <#macro banner>
 <article role="main" class="clearfix">
