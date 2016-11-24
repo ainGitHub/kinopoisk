@@ -27,23 +27,22 @@ public class FilmController {
     @Autowired
     FirstGenerateFilms firstGenerateFilms;
 
-<<<<<<< HEAD
+    @Autowired
+    FilmSearchService filmSearchService;
+
     @RequestMapping(value = "/film/{id}", method = RequestMethod.GET)
     private String filmsPage(@PathVariable("id") Long id,
                              ModelMap map) {
         Film film = filmService.findFilmById(id);
         map.put("film", film);
         return "film";
-=======
-    @Autowired
-    FilmSearchService filmSearchService;
+    }
 
     @RequestMapping(value = "/films", method = RequestMethod.GET)
     private String filmsPage(ModelMap map) {
         List<Film> films = filmService.findAll();
         map.put("films", films);
         return "films";
->>>>>>> a522dd9d526a129294a3f141fd1a8ff17fbabc40
     }
 
     @RequestMapping(value = "/generate", method = RequestMethod.GET)
