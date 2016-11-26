@@ -21,16 +21,16 @@ public class PersonsAward {
     private String nomination;
 
     @ManyToOne(targetEntity = Person.class)
-    @JoinColumn(name = "personId", referencedColumnName = "id")
-    private Person personId;
+    @JoinColumn(name = "person", referencedColumnName = "id")
+    private Person person;
 
     @ManyToOne(targetEntity = Film.class)
-    @JoinColumn(name = "filmId", referencedColumnName = "id")
-    private Film filmId;
+    @JoinColumn(name = "film", referencedColumnName = "id")
+    private Film film;
 
     @ManyToOne(targetEntity = Award.class)
-    @JoinColumn(name = "awardId", referencedColumnName = "id")
-    private Award awardId;
+    @JoinColumn(name = "award", referencedColumnName = "id")
+    private Award award;
 
     public Long getId() {
         return id;
@@ -56,27 +56,27 @@ public class PersonsAward {
         this.nomination = nomination;
     }
 
-    public Person getPersonId() {
-        return personId;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setPersonId(Person personId) {
-        this.personId = personId;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
-    public Film getFilmId() {
-        return filmId;
+    public Film getFilm() {
+        return film;
     }
 
-    public void setFilmId(Film filmId) {
-        this.filmId = filmId;
+    public void setFilm(Film film) {
+        this.film = film;
     }
 
-    public Award getAwardId() {
-        return awardId;
+    public Award getAward() {
+        return award;
     }
 
-    public void setAwardId(Award awardId) {
-        this.awardId = awardId;
+    public void setAward(Award award) {
+        this.award = award;
     }
 }

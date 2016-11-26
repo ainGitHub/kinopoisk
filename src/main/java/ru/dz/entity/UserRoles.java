@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Adel on 22.09.2016.
  */
 @Entity
-@Table(name = "user_roles", uniqueConstraints = @UniqueConstraint(columnNames = {"role", "user_id"}))
+@Table(name = "user_roles", uniqueConstraints = @UniqueConstraint(columnNames = {"role", "userInfo"}))
 public class UserRoles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class UserRoles {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "userInfo", referencedColumnName = "id", nullable = false)
     private UserInfo userInfo;
 
     @Column(name = "role", nullable = false, length = 45)

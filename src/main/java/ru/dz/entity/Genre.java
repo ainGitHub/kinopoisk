@@ -19,7 +19,7 @@ public class Genre {
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "genreId")
+            mappedBy = "genre")
     private List<FilmGenre> filmGenres;
 
     public Long getId() {

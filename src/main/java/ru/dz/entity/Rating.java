@@ -17,12 +17,12 @@ public class Rating {
     private Integer rating;
 
     @ManyToOne(targetEntity = Film.class)
-    @JoinColumn(name = "filmId", referencedColumnName = "id")
-    private Film filmId;
+    @JoinColumn(name = "film", referencedColumnName = "id")
+    private Film film;
 
     @ManyToOne(targetEntity = UserInfo.class)
-    @JoinColumn(name = "userId", referencedColumnName = "id")
-    private UserInfo userId;
+    @JoinColumn(name = "userInfo", referencedColumnName = "id")
+    private UserInfo userInfo;
 
     public Long getId() {
         return id;
@@ -40,19 +40,19 @@ public class Rating {
         this.rating = rating;
     }
 
-    public Film getFilmId() {
-        return filmId;
+    public Film getFilm() {
+        return film;
     }
 
-    public void setFilmId(Film filmId) {
-        this.filmId = filmId;
+    public void setFilm(Film film) {
+        this.film = film;
     }
 
-    public UserInfo getUserId() {
-        return userId;
+    public UserInfo getUserInfo() {
+        return userInfo;
     }
 
-    public void setUserId(UserInfo userId) {
-        this.userId = userId;
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 }

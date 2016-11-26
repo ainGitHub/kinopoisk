@@ -14,12 +14,12 @@ public class PersonCareer {
     private Long id;
 
     @ManyToOne(targetEntity = Person.class)
-    @JoinColumn(name = "personId", referencedColumnName = "id")
-    private Person personId;
+    @JoinColumn(name = "person", referencedColumnName = "id")
+    private Person person;
 
     @ManyToOne(targetEntity = Career.class)
-    @JoinColumn(name = "careerId", referencedColumnName = "id")
-    private Career careerId;
+    @JoinColumn(name = "career", referencedColumnName = "id")
+    private Career career;
 
     public Long getId() {
         return id;
@@ -29,19 +29,19 @@ public class PersonCareer {
         this.id = id;
     }
 
-    public Person getPersonId() {
-        return personId;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setPersonId(Person personId) {
-        this.personId = personId;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
-    public Career getCareerId() {
-        return careerId;
+    public Career getCareer() {
+        return career;
     }
 
-    public void setCareerId(Career careerId) {
-        this.careerId = careerId;
+    public void setCareer(Career career) {
+        this.career = career;
     }
 }

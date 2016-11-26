@@ -14,12 +14,12 @@ public class Casts {
     private Long id;
 
     @ManyToOne(targetEntity = Film.class)
-    @JoinColumn(name = "filmId", referencedColumnName = "id")
-    private Film filmId;
+    @JoinColumn(name = "film", referencedColumnName = "id")
+    private Film film;
 
     @ManyToOne(targetEntity = Person.class)
-    @JoinColumn(name = "personId", referencedColumnName = "id")
-    private Person personId;
+    @JoinColumn(name = "person", referencedColumnName = "id")
+    private Person person;
 
     public Long getId() {
         return id;
@@ -29,19 +29,19 @@ public class Casts {
         this.id = id;
     }
 
-    public Film getFilmId() {
-        return filmId;
+    public Film getFilm() {
+        return film;
     }
 
-    public void setFilmId(Film filmId) {
-        this.filmId = filmId;
+    public void setFilm(Film film) {
+        this.film = film;
     }
 
-    public Person getPersonId() {
-        return personId;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setPersonId(Person personId) {
-        this.personId = personId;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }
