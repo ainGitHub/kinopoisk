@@ -7,7 +7,7 @@
 </#macro>
 
 <#macro container>
-<section class="container clearfix">
+<section role="main">
     <aside role="complementary">
         <h2>Addtional info</h2>
         <p>Vestibulum viverra <strong>consectetur enim vel rutrum</strong>. Mauris hendrerit sodales congue. Etiam
@@ -16,21 +16,21 @@
             lacinia vestibulum vitae in ipsum.</p>
         <p><a href="#">Jump now <span class="icon">:</span></a></p>
     </aside>
-
     <article class="post content">
-    <#if films?has_content>
-        <ul class="post-list">
-        <#list films as film>
-            <li>
-                <h2><a href="/film/${film.getId()}">${film.name}</a></h2>
-                <img src="${film.image!}" alt="Lorem ipsum dolor..." width="206" height="306">
-                <p style="font-size: 16px" class="description">${film.description!}</p>
-                <p><a href="/film/${film.getId()}" class="more-link">Продолжить<span class="icon">:</span></a></p>
-            </li>
-        </#list>
-        </ul>
-    <#else><h3 align="center">Данные не найдены</h3>
-    </#if>
+        <#if films?has_content>
+            <ul class="post-list">
+                <#list films as film>
+                    <li>
+                        <h2><a href="/film/${film.getId()}">${film.name}</a></h2>
+                        <img src="${film.image!}" alt="Lorem ipsum dolor..." width="206" height="306">
+                        <p style="font-size: 16px" class="description">${film.description!}</p>
+                        <p><a href="/film/${film.getId()}" class="more-link">Продолжить<span class="icon">:</span></a>
+                        </p>
+                    </li>
+                </#list>
+            </ul>
+        <#else><h3 align="center">Данные не найдены</h3>
+        </#if>
     </article>
 </section>
 </#macro>
