@@ -35,17 +35,17 @@ public class Person {
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "personId")
+            mappedBy = "person")
     private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-           mappedBy = "personId")
+           mappedBy = "person")
     private List<PersonCareer> personCareerList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "personId")
+            mappedBy = "person")
     private List<PersonsAward> personsAwardsList;
 
     public Long getId() {

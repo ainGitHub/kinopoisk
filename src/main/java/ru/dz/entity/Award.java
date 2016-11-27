@@ -19,7 +19,7 @@ public class Award {
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
-            mappedBy = "awardId")
+            mappedBy = "award")
     private List<PersonsAward> personsAwardsList;
 
 
