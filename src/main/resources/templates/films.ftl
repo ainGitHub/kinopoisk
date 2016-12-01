@@ -3,12 +3,12 @@
 <@main_template title="Поиск"/>
 
 <#macro banner>
-    <#include "temp/searching.ftl" />
+
 </#macro>
 
 <#macro container>
-<section role="main">
-    <aside role="complementary">
+<section role="main" id="root">
+<#--  <aside role="complementary">
         <h2>Addtional info</h2>
         <p>Vestibulum viverra <strong>consectetur enim vel rutrum</strong>. Mauris hendrerit sodales congue. Etiam
             malesuada nibh id sapien tincidunt vitae rhoncus nunc tincidunt.</p>
@@ -31,6 +31,11 @@
             </ul>
         <#else><h3 align="center">Данные не найдены</h3>
         </#if>
-    </article>
+    </article>-->
 </section>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/resources/react/react.js"></script>
+<script src="/resources/react/react-dom.js"></script>
+<script src="/resources/react/browser.min.js"></script>
+<script type="text/babel" src="/resources/app.js"></script>
 </#macro>
