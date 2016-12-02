@@ -94,7 +94,7 @@ strong {
     LAYOUTS
 ================================================*/
 .container {
-    margin: 1% auto;
+    margin: 0 auto;
     width: 800px;
 }
 
@@ -746,8 +746,6 @@ footer[role=contentinfo] p .left {
 
     .container {
         width: 100%;
-        min-height: 100%;
-        overflow: visible;
     }
 
     header {

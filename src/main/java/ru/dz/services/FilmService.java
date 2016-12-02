@@ -26,10 +26,16 @@ public class FilmService {
     }
 
     public List<Film> findAll() {
-        return filmRepository.findAll();
+        return (List<Film>) filmRepository.findAll();
     }
 
     public Film findFilmById(Long id) {
         return filmRepository.findFilmById(id);
     }
+
+    public void addFilm(Film film) {
+        filmRepository.save(film);
+    }
+
+
 }

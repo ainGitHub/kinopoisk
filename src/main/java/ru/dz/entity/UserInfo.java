@@ -5,7 +5,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,7 +34,7 @@ public class UserInfo {
     private String gender;
 
     @Column
-    private Date birthday;
+    private String birthday;
 
     @Column
     private String city;
@@ -100,11 +99,11 @@ public class UserInfo {
         this.gender = gender;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -154,8 +153,13 @@ public class UserInfo {
         return "UserInfo{" +
                 "id=" + id +
                 ", vkId=" + vkId +
+                ", lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
                 ", secondName='" + secondName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", city='" + city + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 

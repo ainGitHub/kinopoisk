@@ -43,6 +43,9 @@ public class Film {
     private Double rating;
 
     @Column
+    private Integer voters;
+
+    @Column
     private boolean changed = true;
 
     @Column
@@ -167,6 +170,14 @@ public class Film {
         this.rating = rating;
     }
 
+    public Integer getVoters() {
+        return voters;
+    }
+
+    public void setVoters(Integer voters) {
+        this.voters = voters;
+    }
+
     public boolean isChanged() {
         return changed;
     }
@@ -181,5 +192,24 @@ public class Film {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", year=" + year +
+                ", country='" + country + '\'' +
+                ", ageLimit='" + ageLimit + '\'' +
+                ", image='" + image + '\'' +
+                ", duration=" + duration +
+                ", description='" + description + '\'' +
+                ", trailer='" + trailer + '\'' +
+                ", rating=" + rating +
+                ", voters=" + voters +
+                ", changed=" + changed +
+                ", deleted=" + deleted +
+                '}';
     }
 }

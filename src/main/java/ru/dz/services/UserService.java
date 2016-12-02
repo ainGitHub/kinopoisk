@@ -21,7 +21,12 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public void deleteUser(Long id) {
+        userRepository.delete(id);
+    }
+
     public UserInfo findUserByVkID(Integer vkId) {
         return userRepository.findByVkId(vkId);
     }
+
 }

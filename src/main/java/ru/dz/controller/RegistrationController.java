@@ -9,6 +9,7 @@ import com.vk.api.sdk.httpclient.HttpTransportClient;
 import com.vk.api.sdk.objects.AuthResponse;
 import com.vk.api.sdk.objects.users.UserXtrCounters;
 import com.vk.api.sdk.queries.users.UserField;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import ru.dz.entity.UserInfo;
@@ -46,6 +46,8 @@ public class RegistrationController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    HttpServletRequest request;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     private String registerPage() {
@@ -99,6 +101,7 @@ public class RegistrationController {
         SecurityContextHolder.getContext().setAuthentication(auth);
 
         //// TODO: 19.10.2016 Change return
+        request.getSession().setAttribute("user", checkUser);
         return "redirect:/profile";
     }
 }

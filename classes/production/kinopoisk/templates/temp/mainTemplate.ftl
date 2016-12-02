@@ -8,12 +8,6 @@
     <meta name="MobileOptimized" content="320"/>
     <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <meta name="description" content="">
-    <script type="text/javascript" src="/resources/js/libs/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="/resources/js/libs/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/resources/js/validation.js"></script>
-    <script type="text/javascript" src="/resources/js/rating.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css"/>
     <link href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/resources/css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css'>
