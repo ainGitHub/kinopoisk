@@ -19,4 +19,9 @@ public class MainPageController {
     public String v2MainPage() {
         return "v2/mainPage";
     }
+
+    @RequestMapping(value = "/react")
+    public String react() {
+        return "react";
+    }
 }

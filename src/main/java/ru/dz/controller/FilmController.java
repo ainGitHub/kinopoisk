@@ -12,7 +12,9 @@ import ru.dz.entity.Film;
 import ru.dz.entity.Rating;
 import ru.dz.entity.Review;
 import ru.dz.services.*;
-
+import org.springframework.http.ResponseEntity;
+import ru.dz.services.FilmService;
+import ru.dz.services.FirstGenerateFilms;
 import java.util.Date;
 import java.util.List;
 
@@ -201,5 +203,11 @@ public class FilmController {
     private String deleteReviewAboutFilmFromProfile(@PathVariable Long id) {
         reviewService.deleteReviewById(id);
         return "redirect:/profile";
+    }
+
+    @RequestMapping(value = "/all")
+    @ResponseBody
+    private ResponseEntity<List<Film>> allFilms() {
+        return ResponseEntity.ok(filmSearchService.findAll());
     }
 }
