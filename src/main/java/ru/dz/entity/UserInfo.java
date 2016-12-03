@@ -185,5 +185,6 @@ public class UserInfo {
     public void setUserRoles(List<UserRoles> userRoles) {
         this.userRoles = userRoles;
     }
+
 }
 

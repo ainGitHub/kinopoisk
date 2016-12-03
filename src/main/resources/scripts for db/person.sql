@@ -1,30 +1,30 @@
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(1, '1979-04-21', 'Глазго, Шотладия, Великобритания', 'Джеймс', 170, 'МакЭвой','/resources/images/actors/макэвой.jpg');
+values(1, '1979-04-21', 'Р“Р»Р°Р·РіРѕ, РЁРѕС‚Р»Р°РґРёСЏ, Р’РµР»РёРєРѕР±СЂРёС‚Р°РЅРёСЏ', 'Р”Р¶РµР№РјСЃ', 170, 'РњР°РєР­РІРѕР№','/resources/images/actors/РјР°РєСЌРІРѕР№.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(2, '1977-04-02', 'Хайдельберг, Германия', 'Майкл', 183, 'Фассбендер','/resources/images/actors/фассбендер.jpg');
+values(2, '1977-04-02', 'РҐР°Р№РґРµР»СЊР±РµСЂРі, Р“РµСЂРјР°РЅРёСЏ', 'РњР°Р№РєР»', 183, 'Р¤Р°СЃСЃР±РµРЅРґРµСЂ','/resources/images/actors/С„Р°СЃСЃР±РµРЅРґРµСЂ.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(3, '1990-08-15', 'Луисвилл, Кентукки, США', 'Дженнифер', 171, 'Лоуренс','/resources/images/actors/лоуренс.jpg');
+values(3, '1990-08-15', 'Р›СѓРёСЃРІРёР»Р», РљРµРЅС‚СѓРєРєРё, РЎРЁРђ', 'Р”Р¶РµРЅРЅРёС„РµСЂ', 171, 'Р›РѕСѓСЂРµРЅСЃ','/resources/images/actors/Р»РѕСѓСЂРµРЅСЃ.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(4, '1985-04-30', 'Рош-ха-Аин, Израиль', 'Галь', 178, 'Гадот','/resources/images/actors/гадот.jpg');
+values(4, '1985-04-30', 'Р РѕС€-С…Р°-РђРёРЅ, РР·СЂР°РёР»СЊ', 'Р“Р°Р»СЊ', 178, 'Р“Р°РґРѕС‚','/resources/images/actors/РіР°РґРѕС‚.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(5, '1980-08-26', '	Лос-Анджелес, Калифорния, США', 'Крис', 183, 'Пайн','/resources/images/actors/пайн.jpg');
+values(5, '1980-08-26', '	Р›РѕСЃ-РђРЅРґР¶РµР»РµСЃ, РљР°Р»РёС„РѕСЂРЅРёСЏ, РЎРЁРђ', 'РљСЂРёСЃ', 183, 'РџР°Р№РЅ','/resources/images/actors/РїР°Р№РЅ.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(6, '1990-07-02', 'Голд-Кост, Квинсленд, Австралия', 'Марго', 168, 'Робби','/resources/images/actors/робби.jpg');
+values(6, '1990-07-02', 'Р“РѕР»Рґ-РљРѕСЃС‚, РљРІРёРЅСЃР»РµРЅРґ, РђРІСЃС‚СЂР°Р»РёСЏ', 'РњР°СЂРіРѕ', 168, 'Р РѕР±Р±Рё','/resources/images/actors/СЂРѕР±Р±Рё.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(7, '1968-09-25', 'Филадельфия, Пенсильвания, США', 'Уилл ', 188, 'Смит','/resources/images/actors/смит.jpg');
+values(7, '1968-09-25', 'Р¤РёР»Р°РґРµР»СЊС„РёСЏ, РџРµРЅСЃРёР»СЊРІР°РЅРёСЏ, РЎРЁРђ', 'РЈРёР»Р» ', 188, 'РЎРјРёС‚','/resources/images/actors/СЃРјРёС‚.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(8, '1971-12-26', '	Боссьер Сити, Луизиана, США', 'Джаред', 180, 'Лето','/resources/images/actors/лето.jpg');
+values(8, '1971-12-26', '	Р‘РѕСЃСЃСЊРµСЂ РЎРёС‚Рё, Р›СѓРёР·РёР°РЅР°, РЎРЁРђ', 'Р”Р¶Р°СЂРµРґ', 180, 'Р›РµС‚Рѕ','/resources/images/actors/Р»РµС‚Рѕ.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(9, '1965-04-04', 'Нью-Йорк, США', 'Роберт', 174, 'Дауни мл.','/resources/images/actors/дауни.jpg');
+values(9, '1965-04-04', 'РќСЊСЋ-Р™РѕСЂРє, РЎРЁРђ', 'Р РѕР±РµСЂС‚', 174, 'Р”Р°СѓРЅРё РјР».','/resources/images/actors/РґР°СѓРЅРё.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(10, '1981-06-13', 'Бостон, Массачусетс, США', 'Крис', 183, 'Эванс','/resources/images/actors/эванс.jpg');
+values(10, '1981-06-13', 'Р‘РѕСЃС‚РѕРЅ, РњР°СЃСЃР°С‡СѓСЃРµС‚СЃ, РЎРЁРђ', 'РљСЂРёСЃ', 183, 'Р­РІР°РЅСЃ','/resources/images/actors/СЌРІР°РЅСЃ.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(11, '1981-02-09', 'Вестминстер, Лондон, Англия, Великобритания', 'Том', 188, 'Хиддлстон','/resources/images/actors/хиддлстон.jpg');
+values(11, '1981-02-09', 'Р’РµСЃС‚РјРёРЅСЃС‚РµСЂ, Р›РѕРЅРґРѕРЅ, РђРЅРіР»РёСЏ, Р’РµР»РёРєРѕР±СЂРёС‚Р°РЅРёСЏ', 'РўРѕРј', 188, 'РҐРёРґРґР»СЃС‚РѕРЅ','/resources/images/actors/С…РёРґРґР»СЃС‚РѕРЅ.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(12, '1984-11-21', '	Нью-Йорк, США', 'Скарлетт', 160, 'Йоханссон','/resources/images/actors/скарлетт.jpg');
+values(12, '1984-11-21', '	РќСЊСЋ-Р™РѕСЂРє, РЎРЁРђ', 'РЎРєР°СЂР»РµС‚С‚', 160, 'Р™РѕС…Р°РЅСЃСЃРѕРЅ','/resources/images/actors/СЃРєР°СЂР»РµС‚С‚.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(13, '1982-08-13', 'Констанца, Румыния', 'Себастьян', 183, 'Стэн','/resources/images/actors/стэн.jpg');
+values(13, '1982-08-13', 'РљРѕРЅСЃС‚Р°РЅС†Р°, Р СѓРјС‹РЅРёСЏ', 'РЎРµР±Р°СЃС‚СЊСЏРЅ', 183, 'РЎС‚СЌРЅ','/resources/images/actors/СЃС‚СЌРЅ.jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(14, '1983-05-05', '	Джерси, Нормандские острова', 'Генри', 185, 'Кавилл','/resources/images/actors/кавилл.jpg');
+values(14, '1983-05-05', '	Р”Р¶РµСЂСЃРё, РќРѕСЂРјР°РЅРґСЃРєРёРµ РѕСЃС‚СЂРѕРІР°', 'Р“РµРЅСЂРё', 185, 'РљР°РІРёР»Р»','/resources/images/actors/РєР°РІРёР»Р».jpg');
 insert into person(id, birthday, city, first_name, growth, last_name, image)
-values(15, '1972-08-15', '	Беркли, Калифорния, США', 'Бен', 192, 'Аффлек','/resources/images/actors/аффлек.jpg');
+values(15, '1972-08-15', '	Р‘РµСЂРєР»Рё, РљР°Р»РёС„РѕСЂРЅРёСЏ, РЎРЁРђ', 'Р‘РµРЅ', 192, 'РђС„С„Р»РµРє','/resources/images/actors/Р°С„С„Р»РµРє.jpg');
