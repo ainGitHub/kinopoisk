@@ -75,7 +75,7 @@ public class RegistrationController {
 
         List<UserXtrCounters> users = vk.users().get()
                 .userIds(authResponse.getUserId() + "")
-                .fields(UserField.BDATE, UserField.COUNTRY, UserField.CITY)
+                .fields(UserField.BDATE, UserField.COUNTRY, UserField.CITY, UserField.PHOTO_200)
                 .lang(Lang.RU)
                 .execute();
 
@@ -90,17 +90,19 @@ public class RegistrationController {
             if (userXtrCounters.getCity() != null)
                 userInfo.setCity(userXtrCounters.getCity().getTitle());
             userInfo.setVkId(userXtrCounters.getId());
+            //todo Добавь поле имадже в юзеринфо таблицу и поменяй здесь. Придется удалить всю базу. В файле профиль.фтл  поменяй 17 - ую строку, где img
+            userInfo.setGender(userXtrCounters.getPhoto200());
             userService.addUser(userInfo);
 
             checkUser = userInfo;
-        } else
+        } else {
             logger.info("User already exist " + checkUser);
+        }
 
         UserDetails user = new User(checkUser.getUsername(), checkUser.getVkId() + "", checkUser.getUserRoles());
         Authentication auth = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
 
-        //// TODO: 19.10.2016 Change return
         request.getSession().setAttribute("user", checkUser);
         return "redirect:/profile";
     }

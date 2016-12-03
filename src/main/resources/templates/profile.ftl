@@ -13,7 +13,7 @@
         <h2>${(user.username)!}&nbsp&nbsp${(user.secondName)!}</h2>
 
         <div class="img-box" style="margin-top: 50px">
-            <img src="/resources/images/photo/unknown.gif" alt="photo" width="180" height="280"/>
+            <img src="${user.getGender()}" alt="photo" width="250" height="280"/>
 
             <div>
                 Дата рождения: <#if (user.birthday)?has_content> ${(user.birthday)!}
