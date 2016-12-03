@@ -42,14 +42,13 @@ class App extends React.Component {
 class Film extends React.Component {
     render() {
         let film = this.props.film;
-
+        let link = "/film/" + film.id;
         return (
             <li>
-                <h2><a href={this.props.key}>{film.name}</a></h2>
+                <h2><a href={link}>{film.name}</a></h2>
                 <img src={film.image} width="180" height="280"/>
                 <p className="description">{film.description}</p>
-                <p><a className="more-link" href={this.props.key}>Продолжить<span className="icon">:</span></a>
-                </p>
+                <p><a className="more-link" href="/reousrces">Продолжить<span className="icon">:</span></a></p>
             </li>
         );
     }
@@ -81,6 +80,7 @@ class Search extends React.Component {
         );
     }
 }
+
 
 ReactDOM.render(
     <App/>,
