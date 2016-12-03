@@ -91,7 +91,7 @@ public class RegistrationController {
                 userInfo.setCity(userXtrCounters.getCity().getTitle());
             userInfo.setVkId(userXtrCounters.getId());
             //todo Добавь поле имадже в юзеринфо таблицу и поменяй здесь. Придется удалить всю базу. В файле профиль.фтл  поменяй 17 - ую строку, где img
-            userInfo.setGender(userXtrCounters.getPhoto200());
+            userInfo.setImage(userXtrCounters.getPhoto200());
             userService.addUser(userInfo);
 
             checkUser = userInfo;

@@ -46,6 +46,9 @@ public class UserInfo {
     @Column
     private String hashPass;
 
+    @Column
+    private String image;
+
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "userInfo",
@@ -131,6 +134,14 @@ public class UserInfo {
 
     public void setHashPass(String hashPass) {
         this.hashPass = hashPass;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public List<Review> getReviews() {
