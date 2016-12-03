@@ -65,9 +65,9 @@ public class UserProfileController {
         if (user.getEmail() == null || user.getEmail().equals("") || !user.getEmail().equals(email)) {
             user.setEmail(email);
         }
-        if ((!bd.equals("")) && (user.getBirthday() == null || user.getBirthday().equals("") || !user.getBirthday().equals(bd))) {
-            user.setBirthday(bd);
-        }
+//        if ((!bd.equals("")) && (user.getBirthday() == null || user.getBirthday().equals("") || !user.getBirthday().equals(bd))) {
+//            user.setBirthday((bd));
+//        }
 
         userService.addUser(user);
         request.getSession().setAttribute("user", user);
@@ -77,7 +77,7 @@ public class UserProfileController {
     @RequestMapping(value = "/delete-date/{id}", method = RequestMethod.GET)
     public String deleteDateFromProfileInfo(@PathVariable Long id) throws ParseException {
         UserInfo user = userService.getUser(id);
-        user.setBirthday("");
+        //user.setBirthday("");
         userService.addUser(user);
         request.getSession().setAttribute("user", user);
         request.getSession().setAttribute("review", user.getReviews());
