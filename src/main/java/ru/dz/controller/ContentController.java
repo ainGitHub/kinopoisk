@@ -46,6 +46,7 @@ public class ContentController {
         if (userObj != null && !(userObj instanceof String))
             user = (User) userObj;
 
+        //// TODO: 03.12.2016 Постараться каким то образом вывести это в сервис
         UserInfo userInfo = (UserInfo) request.getSession().getAttribute("user");
         List<Review> reviews = reviewService.getAllReviews();
         ArrayList<Film> films = (ArrayList<Film>) filmService.findAll();

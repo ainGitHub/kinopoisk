@@ -71,13 +71,6 @@ public class FilmController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/v2/film", method = RequestMethod.GET)
-    private ModelAndView ilmsPage(ModelMap map) {
-        List<Film> films = filmService.findAll();
-        map.put("films", films);
-        return new ModelAndView("v2/film");
-    }
-
 
     @RequestMapping(value = "/search/films/name", method = RequestMethod.GET)
     public String searchByName(@RequestParam(required = false) String name,
@@ -117,6 +110,8 @@ public class FilmController {
         return "/test/films";
     }
 
+    //TODO Создать отдельный контроллер для рейтингов и для ревью тоже
+
     @ResponseBody
     @RequestMapping(value = "/film/rating/{id}/{rating}", method = RequestMethod.GET)
     private String filmRating(@PathVariable("id") Long id, @PathVariable("rating") Integer rating) {
@@ -125,12 +120,14 @@ public class FilmController {
         Rating rat = new Rating();
         Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+        //todo correct it
         if (user != null && !(user instanceof String)) {
             System.out.println();
         } else {
             return "non-auto";
         }
 
+        //// TODO: 03.12.2016 Separate to service
         List<Rating> ratings = ratingService.getAllRatings();
         for (Rating r : ratings) {
             if (r.getFilm().equals(film) && r.getUserInfo().equals(userService.getUser((long) 7))) {
