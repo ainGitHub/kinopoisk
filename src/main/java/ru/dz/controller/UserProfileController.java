@@ -1,15 +1,24 @@
 package ru.dz.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ru.dz.entity.Film;
+import ru.dz.entity.Review;
 import ru.dz.entity.UserInfo;
+import ru.dz.services.FilmService;
+import ru.dz.services.ReviewService;
 import ru.dz.services.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Admin on 29.11.2016.
@@ -17,12 +26,46 @@ import java.text.ParseException;
 
 @Controller
 public class UserProfileController {
-
     @Autowired
     private HttpServletRequest request;
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    FilmService filmService;
+
+    @Autowired
+    ReviewService reviewService;
+
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public String renderProfilePage(ModelMap model) {
+        Object userObj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = null;
+
+        if (userObj != null && !(userObj instanceof String))
+            user = (User) userObj;
+
+        //// TODO: 03.12.2016 Постараться каким то образом вывести это в сервис
+        UserInfo userInfo = (UserInfo) request.getSession().getAttribute("user");
+        List<Review> reviews = reviewService.getAllReviews();
+        ArrayList<Film> films = (ArrayList<Film>) filmService.findAll();
+        ArrayList<Review> rev = new ArrayList<>();
+        if (userInfo != null) {
+            for (Review r : reviews) {
+                if (r.getUserInfo().getId().equals(userInfo.getId())) {
+                    rev.add(r);
+                }
+            }
+            model.put("films", films);
+            model.put("review", rev);
+            model.put("user", userInfo);
+            return "profile";
+        }
+        model.put("review", rev);
+        model.put("user", user);
+        return "profile";
+    }
 
     @RequestMapping(value = "/change/{id}", method = RequestMethod.GET)
     public String changeUserInformation(@PathVariable Long id) throws ParseException {
