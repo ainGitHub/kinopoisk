@@ -14,13 +14,21 @@ class App extends React.Component {
             });
     }
 
+    filterFilms(filtered) {
+        if (filtered == null) {
+            alert("aaa");
+        } else {
+            this.setState({films: filtered})
+        }
+    };
+
     render() {
         let films = this.state.films.map((film) => {
             return <Film film={film} key={"/film/" + film.id}/>
         });
         return (
             <div>
-                <Search/>
+                <Search filterFilms={() => this.filterFilms} key="search"/>
                 <article className="post content">
                     <ul className="post-list">
                         {films}
@@ -48,6 +56,15 @@ class Film extends React.Component {
 }
 
 class Search extends React.Component {
+    constructor(props) {
+        super(props);
+
+    }
+
+    filterFilms() {
+        alert(this);
+    };
+
     render() {
         return (
             <aside role="complementary">
@@ -58,7 +75,8 @@ class Search extends React.Component {
                 <p>Curabitur posuere libero sit amet est tristique egestas. Duis porta tempor tristique. Nam in erat sed
                     leo
                     lacinia vestibulum vitae in ipsum.</p>
-                <p><a href="#">Jump now <span class="icon">:</span></a></p>
+                <p><a href="#">Jump now <span className="icon">:</span></a></p>
+                <button onClick={() => this.filterFilms}>Hello</button>
             </aside>
         );
     }
