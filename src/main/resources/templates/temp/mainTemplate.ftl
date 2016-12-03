@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/resources/css/myStyle.css">
 </head>
 <body>
+<#--<div class="wrapper flex-container">-->
 <div class="wrapper">
     <#include "header.ftl" />
     <section role="banner">

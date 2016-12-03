@@ -10,7 +10,7 @@
         <h1>Галь Гадот</h1>
 
         <div class="img-box" style="margin-top: 50px">
-            <img src="../../resources/static/resources/images/photo/1.jpg" alt="photo" width="180" height="280"/>
+            <img src="/resources/images/photo/1.jpg" alt="photo" width="180" height="280"/>
 
             <div>
                 карьера: Актриса <br>

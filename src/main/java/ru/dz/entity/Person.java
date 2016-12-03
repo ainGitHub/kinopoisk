@@ -33,6 +33,9 @@ public class Person {
     @Column
     private String city;
 
+    @Column
+    private String image;
+
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "person")
@@ -102,6 +105,14 @@ public class Person {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public List<Casts> getCastList() {

@@ -32,7 +32,7 @@ public class ContentController {
     @Autowired
     HttpServletRequest request;
 
-    @RequestMapping(value = "/person", method = RequestMethod.GET)
+    @RequestMapping(value = "/actor", method = RequestMethod.GET)
     public String renderPersonPage(ModelMap model) {
         model.put("person", new Person());
         return "actor";
