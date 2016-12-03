@@ -15,6 +15,7 @@
         <div class="img-box" style="margin-top: 50px">
             <img src="${(user.getImage())!}" alt="photo" width="250" height="280"/>
 
+            <a class="btn" href="/logout">Выйти</a>
             <div>
                 Дата рождения: <#if (user.birthday)?has_content> ${(user.birthday)!}
                 (<a href="/delete-date/${(user.id)!}">удалить</a>)

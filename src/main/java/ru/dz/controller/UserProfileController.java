@@ -31,6 +31,7 @@ public class UserProfileController {
         String email = request.getParameter("email");
         String birthday = request.getParameter("birthday");
 
+        //Todo Это надо исправить и поскорее пока никто не увидел)))
         String bd = "";
         if (birthday != null && !birthday.equals("")) {
             String numbers[] = new String[3];
@@ -46,15 +47,18 @@ public class UserProfileController {
 
         UserInfo user = userService.getUser(id);
 
-        if (gender.equals("none")) {
-            gender = "не указан";
-        } else {
-            if (gender.equals("man")) {
+        switch (gender) {
+            case "none":
+                gender = "не указан";
+                break;
+            case "man":
                 gender = "мужской";
-            } else {
+                break;
+            case "woman":
                 gender = "женский";
-            }
+                break;
         }
+
 
         if (user.getCity() == null || user.getCity().equals("") || !user.getCity().equals(city)) {
             user.setCity(city);

@@ -90,7 +90,6 @@ public class RegistrationController {
             if (userXtrCounters.getCity() != null)
                 userInfo.setCity(userXtrCounters.getCity().getTitle());
             userInfo.setVkId(userXtrCounters.getId());
-            //todo Добавь поле имадже в юзеринфо таблицу и поменяй здесь. Придется удалить всю базу. В файле профиль.фтл  поменяй 17 - ую строку, где img
             userInfo.setImage(userXtrCounters.getPhoto200());
             userService.addUser(userInfo);
 
