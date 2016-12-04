@@ -48,7 +48,7 @@ class Film extends React.Component {
                 <h2><a href={link}>{film.name}</a></h2>
                 <img src={film.image} width="180" height="280"/>
                 <p className="description">{film.description}</p>
-                <p><a className="more-link" href="/reousrces">Продолжить<span className="icon">:</span></a></p>
+                <p><a className="more-link" href={link}>Продолжить<span className="icon">:</span></a></p>
             </li>
         );
     }

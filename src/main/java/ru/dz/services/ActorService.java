@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import ru.dz.entity.Person;
 import ru.dz.repository.ActorRepository;
 
+import java.util.List;
+
 /**
  * Created by Adel on 04.12.2016.
  */
@@ -15,5 +17,17 @@ public class ActorService {
 
     public Person findPersonById(Long id) {
         return actorRepository.findPersonById(id);
+    }
+
+    public List<Person> getActorByFilmId(Long id) {
+        return actorRepository.getActorByFilmId(id);
+    }
+
+    public List<Person> getScreenWritersByFilmId(Long id) {
+        return actorRepository.getScreenWritersByFilmId(id);
+    }
+
+    public List<Person> getDirectorsByFilmId(Long id) {
+        return actorRepository.getDirectorsByFilmId(id);
     }
 }

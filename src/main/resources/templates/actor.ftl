@@ -22,7 +22,7 @@
                     </#list>
                 </#if>
                 <br>
-                рост: ${(person.growth)!} <br>
+                <#if person.growth??>рост: ${(person.growth)!} см<br></#if>
                 дата рождения: ${(person.birthday?date)!} <br>
                 место рождения: ${(person.city)!} <br>
                 жанры:

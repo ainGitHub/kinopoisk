@@ -1,4 +1,8 @@
 <#-- @ftlvariable name="film" type="ru.dz.entity.Film" -->
+<#-- @ftlvariable name="genres" type="java.util.List<ru.dz.entity.Genre>" -->
+<#-- @ftlvariable name="actors" type="java.util.List<ru.dz.entity.Person>" -->
+<#-- @ftlvariable name="directors" type="java.util.List<ru.dz.entity.Person>" -->
+<#-- @ftlvariable name="screenwriters" type="java.util.List<ru.dz.entity.Person>" -->
 <#include "temp/mainTemplate.ftl">
 <@main_template title="Фильм"/>
 
@@ -16,13 +20,40 @@
                         <img src="${(film.getImage())!}" alt="photo" width="180" height="280"/>
 
                         <div>
-                            год: ${(film.getYear())!} <br>
+                            дата премьеры: ${(film.getYear()?date)!} <br>
                             страна: ${(film.getCountry())!} <br>
-                            режиссер: <br>
-                            сценарий: <br>
-                            жанр: <br>
-                            время: ${(film.getDuration())!} <br>
+                            режиссер:
+                            <#if directors?has_content>
+                                <#list directors as director>
+                                    <a href="/actor/${(director.id)!}" style="text-decoration: none">
+                                    ${(director.firstName)!} ${(director.lastName)!}</a><#sep>,
+                                </#list>
+                            </#if><br>
+                            сценарий:
+                            <#if screenwriters?has_content>
+                                <#list screenwriters as screenwriter>
+                                    <a href="/actor/${(screenwriter.id)!}" style="text-decoration: none">
+                                    ${(screenwriter.firstName)!} ${(screenwriter.lastName)!}</a><#sep>,
+                                </#list>
+                            </#if><br>
+                            жанр:
+                            <#if genres?has_content>
+                                <#list genres as genres>
+                                ${(genres.name)!}<#sep>,
+                                </#list>
+                            </#if><br>
+                            актеры:
+                            <#if actors?has_content>
+                                <#list actors as actor>
+                                    <a href="/actor/${(actor.id)!}" style="text-decoration: none">
+                                    ${(actor.firstName)!} ${(actor.lastName)!}</a><#sep>,
+                                </#list>
+                            </#if><br>
+                            время: ${(film.getDuration())!} мин.<br>
                             возрастное ограничение: ${(film.getAgeLimit())!}<br>
+                            <a href="" data-toggle="modal" data-target="#trailer"
+                               style="text-decoration: none">
+                                посмотреть трейлер</a><br>
                             рейтинг: <#if film.getRating()??> ${(film.getRating()/film.getVoters())!} из 5 <#else> 0 из
                             5</#if><br>
 
@@ -49,6 +80,7 @@
                         ${(film.description)!}
                         </div>
                         <br><br><br>
+
                         <h1>Отзывы о фильме</h1><br>
 
                         <#if film.getReviews()?has_content>
@@ -69,6 +101,16 @@
                         <#else>
                             Отзыв могут оставлять только авторизованные пользователи
                         </#if>
+                    </div>
+
+                    <div class="modal fade bd-example-modal-lg" id="trailer" tabindex="-1" role="dialog"
+                         aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content" style="width:854px; height:480px">
+                                <iframe width="854" height="480" src="${(film.trailer)!}" frameborder="0"
+                                        allowfullscreen></iframe>
+                            </div>
+                        </div>
                     </div>
 
                 <#else>

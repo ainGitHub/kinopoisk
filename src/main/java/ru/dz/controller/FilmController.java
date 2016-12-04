@@ -15,6 +15,7 @@ import ru.dz.services.*;
 import org.springframework.http.ResponseEntity;
 import ru.dz.services.FilmService;
 import ru.dz.services.FirstGenerateFilms;
+
 import java.util.Date;
 import java.util.List;
 
@@ -23,33 +24,34 @@ import java.util.List;
  */
 @Controller
 public class FilmController {
-
     @Autowired
     UserService userService;
-
     @Autowired
     RatingService ratingService;
-
     @Autowired
     ReviewService reviewService;
-
     @Autowired
     HttpServletRequest request;
-
     @Autowired
     FilmService filmService;
-
     @Autowired
     FirstGenerateFilms firstGenerateFilms;
-
     @Autowired
     FilmSearchService filmSearchService;
+    @Autowired
+    GenreService genreService;
+    @Autowired
+    ActorService actorService;
 
     @RequestMapping(value = "/film/{id}", method = RequestMethod.GET)
     private String filmsPage(@PathVariable("id") Long id,
                              ModelMap map) {
         Film film = filmService.findFilmById(id);
         map.put("film", film);
+        map.put("genres", genreService.getGenreByFilmId(id));
+        map.put("actors", actorService.getActorByFilmId(id));
+        map.put("directors", actorService.getScreenWritersByFilmId(id));
+        map.put("screenwriters", actorService.getDirectorsByFilmId(id));
 
         Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (user != null && !(user instanceof String)) {

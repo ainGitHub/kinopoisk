@@ -18,4 +18,8 @@ public class GenreService {
     public List<Genre> getGenreByPersonId(Long id) {
         return genreRepository.getGenreByPersonId(id);
     }
+
+    public List<Genre> getGenreByFilmId(Long id) {
+        return genreRepository.getGenreByFilmId(id);
+    }
 }

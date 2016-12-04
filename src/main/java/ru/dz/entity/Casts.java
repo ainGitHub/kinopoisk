@@ -21,6 +21,10 @@ public class Casts {
     @JoinColumn(name = "person", referencedColumnName = "id")
     private Person person;
 
+    @ManyToOne(targetEntity = Career.class)
+    @JoinColumn(name = "role", referencedColumnName = "id")
+    private Career role;
+
     public Long getId() {
         return id;
     }
@@ -43,5 +47,13 @@ public class Casts {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public Career getRole() {
+        return role;
+    }
+
+    public void setRole(Career role) {
+        this.role = role;
     }
 }
