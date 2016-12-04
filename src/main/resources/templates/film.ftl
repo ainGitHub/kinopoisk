@@ -54,25 +54,42 @@
                             <a href="" data-toggle="modal" data-target="#trailer"
                                style="text-decoration: none">
                                 посмотреть трейлер</a><br>
-                            рейтинг: <#if film.getRating()??> ${(film.getRating()/film.getVoters())!} из 5 <#else> 0 из
-                            5</#if><br>
+                            рейтинг:
+                            <#if film.getRating()??> ${(film.getRating()/film.getVoters())!} из 5 <#else> 0 из 5</#if>
+                            <br>
 
                             <div id="reviewStars-input">
-                                <input id="star-4" type="radio" name="reviewStars" data-id="${film.getId()!}"/>
+                                <input id="star-4"
+                                       <#if film.getVoters()?? && (film.getRating()/film.getVoters())! lt 5.5>checked</#if>
+                                       type="radio" name="reviewStars"
+                                       data-id="${film.getId()!}"/>
                                 <label title="good" for="star-4"></label>
 
-                                <input id="star-3" type="radio" name="reviewStars" data-id="${film.getId()!}"/>
+                                <input id="star-3"
+                                       <#if film.getVoters()?? && (film.getRating()/film.getVoters())! lt 4.5>checked</#if>
+                                       type="radio" name="reviewStars"
+                                       data-id="${film.getId()!}"/>
                                 <label title="regular" for="star-3"></label>
 
-                                <input id="star-2" type="radio" name="reviewStars" data-id="${film.getId()!}"/>
+                                <input id="star-2"
+                                       <#if film.getVoters()?? && (film.getRating()/film.getVoters())! lt 3.5>checked</#if>
+                                       type="radio" name="reviewStars"
+                                       data-id="${film.getId()!}"/>
                                 <label title="poor" for="star-2"></label>
 
-                                <input id="star-1" type="radio" name="reviewStars" data-id="${film.getId()!}"/>
+                                <input id="star-1"
+                                       <#if film.getVoters()?? && (film.getRating()/film.getVoters())! lt 2.5>checked</#if>
+                                       type="radio" name="reviewStars"
+                                       data-id="${film.getId()!}"/>
                                 <label title="gorgeous" for="star-1"></label>
 
-                                <input id="star-0" type="radio" name="reviewStars" data-id="${film.getId()!}"/>
+                                <input id="star-0"
+                                       <#if film.getVoters()?? && (film.getRating()/film.getVoters())! lt 1.5>checked</#if>
+                                       type="radio" name="reviewStars"
+                                       data-id="${film.getId()!}"/>
                                 <label title="bad" for="star-0"></label>
                             </div>
+
                             <br>
                             <br>
                         </div>
@@ -85,8 +102,8 @@
 
                         <#if film.getReviews()?has_content>
                             <#list film.getReviews() as review>
-                                <h2>${review.getUserInfo().getUsername()}</h2> &nbsp&nbsp <br>
-                                <h5>${review.getContent()}</h5>
+                                <h2>${(review.getUserInfo().getUsername())!}</h2> &nbsp&nbsp <br>
+                                <h5>${(review.getContent())!}</h5>
                             </#list>
                         <#else>
                             У этого фильма пока нет ни одного отзыва
