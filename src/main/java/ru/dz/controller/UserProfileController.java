@@ -8,7 +8,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ru.dz.entity.Film;
 import ru.dz.entity.Review;
 import ru.dz.entity.UserInfo;
 import ru.dz.services.FilmService;
@@ -17,8 +16,9 @@ import ru.dz.services.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
 /**
  * Created by Admin on 29.11.2016.
@@ -48,21 +48,15 @@ public class UserProfileController {
 
         //// TODO: 03.12.2016 Постараться каким то образом вывести это в сервис
         UserInfo userInfo = (UserInfo) request.getSession().getAttribute("user");
-        List<Review> reviews = reviewService.getAllReviews();
-        ArrayList<Film> films = (ArrayList<Film>) filmService.findAll();
-        ArrayList<Review> rev = new ArrayList<>();
+        ArrayList<Review> reviews = new ArrayList<>();
         if (userInfo != null) {
-            for (Review r : reviews) {
-                if (r.getUserInfo().getId().equals(userInfo.getId())) {
-                    rev.add(r);
-                }
-            }
-            model.put("films", films);
-            model.put("review", rev);
+            reviews = (ArrayList<Review>) reviewService.getAllReviewsByUser(userInfo);
+            model.put("films", filmService.findAll());
+            model.put("review", reviews);
             model.put("user", userInfo);
             return "profile";
         }
-        model.put("review", rev);
+        model.put("review", reviews);
         model.put("user", user);
         return "profile";
     }
@@ -72,20 +66,11 @@ public class UserProfileController {
         String city = request.getParameter("city");
         String gender = request.getParameter("gender");
         String email = request.getParameter("email");
-        String birthday = request.getParameter("birthday");
-
-        //Todo Это надо исправить и поскорее пока никто не увидел)))
-        String bd = "";
-        if (birthday != null && !birthday.equals("")) {
-            String numbers[] = new String[3];
-            for (int i = 0; i < birthday.length(); i++) {
-                numbers = birthday.split("-");
-            }
-
-            for (int i = 1; i <= numbers.length; i++) {
-                bd += "." + numbers[numbers.length - i];
-            }
-            bd = bd.substring(1);
+        String day = request.getParameter("birthday");
+        Date birthday = new Date();
+        if (!day.equals("")) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            birthday = dateFormat.parse(day);
         }
 
         UserInfo user = userService.getUser(id);
@@ -103,18 +88,29 @@ public class UserProfileController {
         }
 
 
-        if (user.getCity() == null || user.getCity().equals("") || !user.getCity().equals(city)) {
-            user.setCity(city);
+        if (!city.equals("")) {
+            if ((user.getCity() == null || user.getCity().equals("") || !user.getCity().equals(city)) || city.equals("")) {
+                user.setCity(city);
+            }
+        } else {
+            user.setCity(null);
         }
-        if (user.getGender() == null || user.getGender().equals("") || !user.getGender().equals(gender)) {
+
+        if (!email.equals("")) {
+            if (user.getEmail() == null || user.getEmail().equals("") || !user.getEmail().equals(email)) {
+                user.setEmail(email);
+            }
+        } else {
+            user.setEmail(null);
+        }
+        if (user.getGender() == null || !user.getGender().equals(gender)) {
             user.setGender(gender);
         }
-        if (user.getEmail() == null || user.getEmail().equals("") || !user.getEmail().equals(email)) {
-            user.setEmail(email);
+        if (!day.equals("")) {
+            if ((user.getBirthday() == null || !user.getBirthday().equals(birthday))) {
+                user.setBirthday(birthday);
+            }
         }
-//        if ((!bd.equals("")) && (user.getBirthday() == null || user.getBirthday().equals("") || !user.getBirthday().equals(bd))) {
-//            user.setBirthday((bd));
-//        }
 
         userService.addUser(user);
         request.getSession().setAttribute("user", user);
@@ -124,7 +120,7 @@ public class UserProfileController {
     @RequestMapping(value = "/delete-date/{id}", method = RequestMethod.GET)
     public String deleteDateFromProfileInfo(@PathVariable Long id) throws ParseException {
         UserInfo user = userService.getUser(id);
-        //user.setBirthday("");
+        user.setBirthday(null);
         userService.addUser(user);
         request.getSession().setAttribute("user", user);
         request.getSession().setAttribute("review", user.getReviews());

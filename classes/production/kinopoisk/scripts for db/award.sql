@@ -1,0 +1,12 @@
+insert into award values(1, 'Оскар');
+insert into award values(2, 'Золотой глобус');
+insert into award values(3, 'Британская академия');
+insert into award values(4, 'Сезар');
+insert into award values(5, 'Премия Гильдии актеров');
+insert into award values(6, 'Ника');
+insert into award values(7, 'Золотой орел');
+insert into award values(8, 'Сатурн');
+insert into award values(9, 'Гойя');
+insert into award values(10, 'Эмми');
+insert into award values(11, 'Премия канала MTV');
+insert into award values(12, 'Золотая малина');

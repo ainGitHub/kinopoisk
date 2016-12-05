@@ -1,0 +1,14 @@
+insert into genre values(1, 'боевик');
+insert into genre values(2, 'вестерн');
+insert into genre values(3, 'военный');
+insert into genre values(4, 'детектив');
+insert into genre values(5, 'детский');
+insert into genre values(6, 'драма');
+insert into genre values(7, 'исторический');
+insert into genre values(8, 'комедия');
+insert into genre values(9, 'мелодрама');
+insert into genre values(10, 'мультфильм');
+insert into genre values(11, 'приключения');
+insert into genre values(12, 'триллер');
+insert into genre values(13, 'ужасы');
+insert into genre values(14, 'фантастика');

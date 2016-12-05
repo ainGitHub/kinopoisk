@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 html, body {
     height: 100%;
 }
@@ -30,6 +31,28 @@ html, body {
     bottom: 0;
     width: 100%;
     height: 30px;
+}
+
+.review {
+    margin-bottom: 5%;
+}
+
+.reviews {
+    border: 1pt solid #cccccc;
+    width: 70%;
+    max-height: 100%;
+    margin-left: 25%;
+    padding: 2pt;
+}
+
+.review-text {
+    padding: 2%;
+}
+
+.remove {
+    float: right;
+    margin-top: 2%;
+    margin-right: -3%;
 }
 
 /**********************************************************/
@@ -88,18 +111,23 @@ html, body {
 #reviewStars-input #star-0 {
     left: 0px;
 }
+
 #reviewStars-input #star-1 {
     left: 53px;
 }
+
 #reviewStars-input #star-2 {
     left: 106px;
 }
+
 #reviewStars-input #star-3 {
     left: 159px;
 }
+
 #reviewStars-input #star-4 {
     left: 212px;
 }
+
 #reviewStars-input #star-5 {
     left: 265px;
 }

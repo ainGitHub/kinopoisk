@@ -746,6 +746,8 @@ footer[role=contentinfo] p .left {
 
     .container {
         width: 100%;
+        min-height: 100%;
+        overflow: visible;
     }
 
     header {

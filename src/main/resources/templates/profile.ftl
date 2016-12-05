@@ -17,7 +17,7 @@
 
             <a class="btn" href="/logout">Выйти</a>
             <div>
-                Дата рождения: <#if (user.birthday)?has_content> ${(user.birthday)!}
+                Дата рождения: <#if (user.birthday)??> ${(user.birthday)?string("dd.MM.yyyy")}
                 (<a href="/delete-date/${(user.id)!}">удалить</a>)
             <#else> не указана </#if> <br>
                 Пол: <#if (user.gender)?has_content> ${(user.gender)!}<#else>  не указан </#if> <br>
