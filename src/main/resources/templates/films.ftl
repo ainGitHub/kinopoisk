@@ -7,7 +7,7 @@
 </#macro>
 
 <#macro container>
-<section role="main" id="root">
+<section role="main" id="root" class="container clearfix">
 <#--  <aside role="complementary">
         <h2>Addtional info</h2>
         <p>Vestibulum viverra <strong>consectetur enim vel rutrum</strong>. Mauris hendrerit sodales congue. Etiam
