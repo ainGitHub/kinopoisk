@@ -98,7 +98,7 @@ public class RegistrationController {
             logger.info("User already exist " + checkUser);
         }
 
-        UserDetails user = new User(checkUser.getUsername(), checkUser.getVkId() + "", checkUser.getUserRoles());
+        UserDetails user = new User(checkUser.getVkId() + "", checkUser.getVkId() + "", checkUser.getUserRoles());
         Authentication auth = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
 

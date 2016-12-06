@@ -1,5 +1,7 @@
 package ru.dz.controller;
 
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -38,6 +40,8 @@ public class UserProfileController {
     @Autowired
     ReviewService reviewService;
 
+    Logger logger = LoggerFactory.logger(UserProfileController.class);
+
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String renderProfilePage(ModelMap model) {
         Object userObj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -45,6 +49,9 @@ public class UserProfileController {
 
         if (userObj != null && !(userObj instanceof String))
             user = (User) userObj;
+
+        UserInfo test = userService.findUserByVkID(Integer.parseInt(user.getUsername()));
+        logger.info(test.getUsername());
 
         //// TODO: 03.12.2016 Постараться каким то образом вывести это в сервис
         UserInfo userInfo = (UserInfo) request.getSession().getAttribute("user");
