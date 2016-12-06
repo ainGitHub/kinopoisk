@@ -47,8 +47,9 @@ public class UserProfileController {
         Object userObj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = null;
 
-        if (userObj != null && !(userObj instanceof String))
+        if (userObj != null && !(userObj instanceof String)) {
             user = (User) userObj;
+        }
 
         UserInfo test = userService.findUserByVkID(Integer.parseInt(user.getUsername()));
         logger.info(test.getUsername());
