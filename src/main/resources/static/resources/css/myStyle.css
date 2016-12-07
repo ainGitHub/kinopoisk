@@ -33,20 +33,39 @@ html, body {
     height: 30px;
 }
 
+.profile {
+    margin: 0 auto;
+    padding: 2% 0 5% 0;
+    width: 900px;
+}
+
 .review {
     margin-bottom: 5%;
 }
 
 .reviews {
     border: 1pt solid #cccccc;
-    width: 70%;
+    width: 65%;
     max-height: 100%;
-    margin-left: 25%;
+    margin-left: 30%;
     padding: 2pt;
+}
+
+.reviews a{
+    color: #3891cf;
+}
+
+.reviews a:hover{
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .review-text {
     padding: 2%;
+}
+
+.review-button{
+    margin-left: 30%;
 }
 
 .remove {

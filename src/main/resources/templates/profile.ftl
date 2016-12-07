@@ -8,14 +8,14 @@
 <#macro container>
 
 
-<section class="container">
+<section class="profile">
     <#if user??>
         <h2>${(user.username)!}&nbsp&nbsp${(user.secondName)!}</h2>
 
         <div class="img-box" style="margin-top: 50px">
             <img src="${(user.getImage())!}" alt="photo" width="250" height="280"/>
 
-            <a class="btn" href="/logout">Выйти</a>
+            <h2><a href="/logout">Выйти</a></h2>
             <div>
                 Дата рождения: <#if (user.birthday)??> ${(user.birthday)?string("dd.MM.yyyy")}
                 (<a href="/delete-date/${(user.id)!}">удалить</a>)
@@ -72,12 +72,13 @@
                     </div>
                 </div>
 
-                Список отзывов:
-                <br>
+                Список отзывов
                 <#if review?has_content>
+                    (<a href="" data-toggle="modal" data-target="#addReview">добавить новый отзыв</a>):
+                    <br>
                     <#list review as r>
                         <div class="reviews">
-                            <b>Фильм:</b> <i>${(r.getFilm().getName())!}</i>
+                            <b>Фильм:</b> <a href="/film/${r.getFilm().getId()}">«${(r.getFilm().getName())!}»</a>
                             <a href="/review/remove/${(r.getId())!}" class="remove"><img
                                     src="/resources/images/remove.png"></a> <br>
                             <b>Отзыв:</b> ${(r.getContent())!}
@@ -85,11 +86,12 @@
                         <br>
                     </#list>
                 <#else>
-                    пока вы не оставили ни одного отзыва <br>
+                <br>
+                    Вы пока не оставляли ни одного отзыва -
+                    <a href="" data-toggle="modal" data-target="#addReview">добавить отзыв</a><br>
+                    <br>
                 </#if>
                 <br>
-                <a href="" data-toggle="modal" data-target="#addReview">Добавить отзыв</a><br>
-
 
                 <div class="modal fade" id="addReview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">

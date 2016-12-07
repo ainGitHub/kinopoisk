@@ -51,21 +51,14 @@ public class UserProfileController {
             user = (User) userObj;
         }
 
-        UserInfo test = userService.findUserByVkID(Integer.parseInt(user.getUsername()));
-        logger.info(test.getUsername());
+        UserInfo userInfo = userService.findUserByVkID(Integer.parseInt(user.getUsername()));
+        logger.info(userInfo.getUsername());
 
         //// TODO: 03.12.2016 Постараться каким то образом вывести это в сервис
-        UserInfo userInfo = (UserInfo) request.getSession().getAttribute("user");
-        ArrayList<Review> reviews = new ArrayList<>();
-        if (userInfo != null) {
-            reviews = (ArrayList<Review>) reviewService.getAllReviewsByUser(userInfo);
-            model.put("films", filmService.findAll());
-            model.put("review", reviews);
-            model.put("user", userInfo);
-            return "profile";
-        }
+        ArrayList<Review> reviews = (ArrayList<Review>) reviewService.getAllReviewsByUser(userInfo);
+        model.put("films", filmService.findAll());
         model.put("review", reviews);
-        model.put("user", user);
+        model.put("user", userInfo);
         return "profile";
     }
 
