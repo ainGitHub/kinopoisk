@@ -7,7 +7,7 @@
 <#macro banner></#macro>
 
 <#macro container>
-<section class="container">
+<section class="container" style="width: 800px">
     <#if person??>
         <h1>${(person.firstName)!} ${(person.lastName)!}</h1>
 

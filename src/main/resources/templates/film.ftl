@@ -9,7 +9,7 @@
 <#macro banner></#macro>
 
 <#macro container>
-<section class="container">
+<section class="container" style="width: 800px">
     <article class="post content">
         <ul class="post-list">
             <li>

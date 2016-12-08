@@ -14,10 +14,9 @@ import java.util.List;
 @Repository
 public interface GenreRepository extends JpaRepository<Genre, Long> {
 
-    @Query("select fg.genre from FilmGenre fg " +
-            "where fg.film.id = " +
-            "(select distinct c.film.id from Casts c " +
-            "where c.person.id =:id)")
+    @Query("select distinct fg.genre from FilmGenre fg, Casts c " +
+            "where fg.film.id = c.film.id " +
+            "and c.person.id =:id")
     List<Genre> getGenreByPersonId(@Param("id") Long id);
 
     @Query("select fg.genre from FilmGenre fg " +
