@@ -56,7 +56,7 @@ public class FilmService {
         return answer;
     }
 
-    public void setRatingToFilm(int rating, Film film){
+    public void setRatingToFilm(int rating, Film film) {
         Double newRating = ((film.getRating() * film.getVoters() + rating)) / (film.getVoters() + 1);
         film.setVoters(film.getVoters() + 1);
         int d = (int) (Math.round(newRating * 10));
