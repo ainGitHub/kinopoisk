@@ -74,6 +74,10 @@ html, body {
     margin-right: -3%;
 }
 
+.films {
+    border-right: 1px solid #e0e0e0;
+}
+
 /**********************************************************/
 /*sprite with stars*/
 #reviewStars-input input:checked ~ label, #reviewStars-input label, #reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
