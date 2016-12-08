@@ -92,4 +92,17 @@ public class FilmController {
 
         return ResponseEntity.ok(films);
     }
+
+
+    @RequestMapping(method = RequestMethod.GET, value = "/autocomplete")
+    @ResponseBody
+    public ResponseEntity<String> searchAuto(@RequestParam String q) {
+        String response = filmSearchService.autocomplete(q);
+        return ResponseEntity.ok(response);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/search/films")
+    public ResponseEntity<List<Film>> searchDesc(String q) {
+        return ResponseEntity.ok(filmSearchService.matchPhrasePrefixQuery(q));
+    }
 }
