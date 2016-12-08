@@ -68,10 +68,20 @@ public class FilmController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/delete/all")
+    private String deleteAll() {
+        filmSearchService.deleteAll();
+        return "redirect:/films";
+    }
 
-    @RequestMapping(value = "/search/films/name", method = RequestMethod.GET)
-    public String searchByName(@RequestParam(required = false) String name,
-                               ModelMap map) {
+    @RequestMapping(value = "/all")
+    @ResponseBody
+    private ResponseEntity<List<Film>> allFilms() {
+        return ResponseEntity.ok(filmService.findAll());
+    }
+
+    @RequestMapping(value = "/search/film")
+    private ResponseEntity<List<Film>> searchFilms(@RequestParam(required = false) String name) {
 
         List<Film> films = null;
 
@@ -80,36 +90,6 @@ public class FilmController {
         else
             films = filmSearchService.findAll();
 
-        map.put("films", films);
-        return "films";
-        //return "v2/film";
-    }
-
-    @RequestMapping(value = "/search/films/description", method = RequestMethod.GET)
-    public String searchByDescription(@RequestParam(required = false) String description,
-                                      ModelMap map) {
-
-        List<Film> films = null;
-
-        if (description != null && !description.isEmpty())
-            films = filmSearchService.matchDescriptionQuery(description);
-        else
-            films = filmSearchService.findAll();
-
-        map.put("films", films);
-        return "films";
-        //return "v2/film";
-    }
-
-    @RequestMapping(value = "/delete/all")
-    private String deleteAll() {
-        filmSearchService.deleteAll();
-        return "/test/films";
-    }
-
-    @RequestMapping(value = "/all")
-    @ResponseBody
-    private ResponseEntity<List<Film>> allFilms() {
-        return ResponseEntity.ok(filmSearchService.findAll());
+        return ResponseEntity.ok(films);
     }
 }

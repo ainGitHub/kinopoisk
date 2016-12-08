@@ -33,7 +33,7 @@ public class FilmService {
     }
 
     public List<Film> findAll() {
-        return (List<Film>) filmRepository.findAll();
+        return filmRepository.findAll();
     }
 
     public Film findFilmById(Long id) {

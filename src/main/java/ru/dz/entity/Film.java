@@ -40,6 +40,7 @@ public class Film {
     private String trailer;
 
     @Column
+    @Transient
     private Double rating;
 
     @Column
@@ -54,16 +55,19 @@ public class Film {
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
+    @Transient
     private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
+    @Transient
     private List<FilmGenre> filmsGenres;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
+    @Transient
     private List<Review> reviews;
 
     public Long getId() {
