@@ -60,7 +60,7 @@
 
                             <div id="reviewStars-input">
                                 <input id="star-4"
-                                       <#if film.getVoters()?? && (film.getRating() lt 5.1)>checked</#if>
+                                       <#if film.getVoters()?? && (film.getRating() lt 5.5)>checked</#if>
                                        type="radio" name="reviewStars"
                                        data-id="${film.getId()!}"/>
                                 <label title="good" for="star-4"></label>
