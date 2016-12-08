@@ -6,6 +6,7 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
+import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,7 @@ public class FilmSearchService implements IFilmSearchService {
     Logger logger = LoggerFactory.getLogger(FilmSearchService.class);
     private static final String DESCRIPTION_FIELD = "description";
     private static final String NAME_FIELD = "name";
+    private static final String ALL_FIELD = "_all";
 
     @Autowired
     private Client client;
@@ -98,7 +100,15 @@ public class FilmSearchService implements IFilmSearchService {
 
     @Override
     public List<Film> matchPhrasePrefixQuery(String q) {
-        return null;
+        SearchResponse response = client.prepareSearch(ElasticConfig.FILM_CORP_INDEX)
+                .setTypes(ElasticConfig.FILM_TYPE)
+                .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
+                .setQuery(QueryBuilders.matchPhrasePrefixQuery(NAME_FIELD, q))
+                .execute()
+                .actionGet();
+
+
+        return getResult(response);
     }
 
     @Override
@@ -108,7 +118,18 @@ public class FilmSearchService implements IFilmSearchService {
 
     @Override
     public String autocomplete(String q) {
-        return null;
+        return client.prepareSearch(ElasticConfig.FILM_CORP_INDEX)
+                .setTypes(ElasticConfig.FILM_TYPE)
+                .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
+                .setQuery(QueryBuilders.matchQuery(ALL_FIELD, q).operator(MatchQueryBuilder.Operator.AND))
+                .addHighlightedField(NAME_FIELD)
+                .setHighlighterPreTags("<b>")
+                .setHighlighterPostTags("</b>")
+                .setHighlighterRequireFieldMatch(false)
+                .execute()
+                .actionGet()
+                .toString();
+
     }
 
     @Override

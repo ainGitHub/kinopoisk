@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 @Repository
-public interface FilmRepository extends JpaRepository<Film, Long>, CrudRepository<Film, Long> {
+public interface FilmRepository extends JpaRepository<Film, Long> {
 
     @Query("select f from Film f where f.deleted = true")
     public List<Film> findAllDeleted();
