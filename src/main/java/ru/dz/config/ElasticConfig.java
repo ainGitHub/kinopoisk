@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean;
 import org.springframework.scheduling.concurrent.ScheduledExecutorTask;
-import ru.dz.services.ElasticExecutorTask;
+import ru.dz.elastic.ElasticExecutorTask;
 
 import java.io.IOException;
 import java.net.InetAddress;
