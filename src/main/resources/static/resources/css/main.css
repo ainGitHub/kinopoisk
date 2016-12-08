@@ -95,7 +95,7 @@ strong {
 ================================================*/
 .container {
     margin: 0 auto;
-    width: 800px;
+    width: 1000px;
 }
 
 span.icon {
@@ -639,7 +639,7 @@ aside[role=complementary] {
     border-right: 1px solid #e0e0e0;
     display: table-cell;
     padding: 10px 20px;
-    width: 400px;
+    width: 250px;
 }
 
 aside[role=complementary] h2 {
