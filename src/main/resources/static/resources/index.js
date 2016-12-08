@@ -21,6 +21,16 @@ var Search = React.createClass({
         }
     },
 
+    autocomplete() {
+        let nameRefInput = this.refs.nameRef;
+
+        if (!nameRefInput.value.length) {
+            return;
+        }
+
+        this.props.autocomplete(nameRefInput.value);
+    },
+
     render(){
 
         return (
@@ -28,7 +38,7 @@ var Search = React.createClass({
                 <h2>Поиск фильмов</h2>
                 <div className="input-group add-on">
                     <input className="form-control" ref="nameRef" placeholder="Search" name="srch-term" id="srch-term"
-                           type="text"/>
+                           type="text" onKeyDown={this.autocomplete}/>
                     <div className="input-group-btn">
                         <button className="btn btn-default" type="submit" onClick={this.filterFilms}>Поиск</button>
                     </div>
@@ -54,7 +64,16 @@ var App = React.createClass({
     filterFilms (name){
         axios.get(`/search/film?name=` + name)
             .then(res => {
-                console.log(res.date);
+                this.setState({films: res.data});
+            });
+    },
+
+    autocomplete (q) {
+        axios.get('/search/films', {params: {q: q}})
+            .then(res => {
+                if (res.data.length == 0)
+                    return;
+
                 this.setState({films: res.data});
             });
     },
@@ -65,9 +84,12 @@ var App = React.createClass({
         let films = this.state.films.map((film) => {
             return <Film film={film} key={"/film/" + film.id}/>
         });
+
+        if (films.length == 0)
+            films = "По вашему запросу фильмы не найдеы";
         return (
             <div>
-                <Search filterFilms={this.filterFilms} key="search"/>
+                <Search filterFilms={this.filterFilms} autocomplete={this.autocomplete} key="search"/>
                 <article className="post content">
                     <ul className="post-list">
                         {films}
