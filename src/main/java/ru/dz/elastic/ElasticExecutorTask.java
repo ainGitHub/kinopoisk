@@ -24,11 +24,16 @@ public class ElasticExecutorTask implements Runnable {
 
     @Override
     public void run() {
-        List<Film> changedFilms = filmService.findAllChangedFilms();
-        filmElasticService.updateFilms(changedFilms);
+        List<Film> addedFilms = filmService.findAllAddedFilms();
 
-        List<Film> deletedFilms = filmService.findAllDeletedFilms();
-        filmElasticService.deleteFilms(deletedFilms);
+        filmElasticService.addFilms(addedFilms);
+
+        addedFilms.stream().forEach(film -> film.setAdded(false));
+        filmService.updateAll(addedFilms);
+
+
+      /*  List<Film> deletedFilms = filmService.findAllDeletedFilms();
+        filmElasticService.deleteFilms(deletedFilms);*/
         //// TODO: 30.10.2016  finding deleted or changed films and doing some deletings and changings in elastic
         logger.info("executor working ");
     }

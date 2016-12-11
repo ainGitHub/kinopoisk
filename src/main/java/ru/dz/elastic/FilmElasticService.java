@@ -3,7 +3,9 @@ package ru.dz.elastic;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.update.UpdateRequestBuilder;
 import org.elasticsearch.client.Client;
+import org.elasticsearch.common.unit.TimeValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,8 @@ import static org.elasticsearch.common.xcontent.XContentFactory.*;
 
 import ru.dz.config.ElasticConfig;
 import ru.dz.entity.Film;
+import ru.dz.entity.FilmDTO;
+import ru.dz.entity.FilmGenre;
 
 import java.io.IOException;
 import java.util.List;
@@ -33,16 +37,32 @@ public class FilmElasticService {
     private static final ObjectMapper mapper = new ObjectMapper();
 
 
-    public void updateFilms(List<Film> films) {
-        BulkRequestBuilder bulkRequest = client.prepareBulk();
+    /* public void updateFilms(List<Film> films){
+         if (films == null || films.isEmpty())
+             return;
+
+         Film film = films.get(0);
+         try {
+             UpdateRequestBuilder updateRequestBuilder = client.prepareUpdate(ElasticConfig.FILM_CORP_INDEX, ElasticConfig.FILM_TYPE, film.getId().toString())
+                     .setDoc(mapper.writeValueAsString(FilmDTO.convertFilmToFilmDTO(film)).getBytes());
+             updateRequestBuilder
+                     .setRefresh(false)
+                     .setTimeout(new TimeValue(10000))
+                     .execute()
+                     .actionGet();
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+
+
+     *//*    BulkRequestBuilder bulkRequest = client.prepareBulk();
         films.stream().forEach(film -> {
             try {
                 bulkRequest
                         .add(client.prepareUpdate(ElasticConfig.FILM_CORP_INDEX, ElasticConfig.FILM_TYPE, film.getId().toString())
-                                .setSource(mapper.writeValueAsString(film).getBytes()));
-            } catch (IOException e) {
-                e.printStackTrace();
+                                .setSource(mapper.writeValueAsString(FilmDTO.convertFilmToFilmDTO(film)).getBytes()));
             } catch (Exception e) {
+                logger.error(e.getMessage());
                 e.printStackTrace();
             }
         });
@@ -50,11 +70,34 @@ public class FilmElasticService {
         BulkResponse bulkResponse = bulkRequest.get();
         if (bulkResponse.hasFailures()) {
             logger.error("Can't to update films");
-        }
+        }*//*
+
+    }
+*/
+    public void deleteFilms(List<Film> films) {
 
     }
 
-    public void deleteFilms(List<Film> films) {
+    public void addFilms(List<Film> films) {
+        if (films == null || films.isEmpty())
+            return;
 
+        BulkRequestBuilder bulkRequest = client.prepareBulk();
+
+        films.stream().forEach(film -> {
+            try {
+                bulkRequest
+                        .add(client.prepareIndex(ElasticConfig.FILM_CORP_INDEX, ElasticConfig.FILM_TYPE, film.getId().toString())
+                                .setSource(mapper.writeValueAsString(FilmDTO.convertFilmToFilmDTO(film)).getBytes()));
+            } catch (Exception e) {
+                logger.error(e.getMessage());
+                e.printStackTrace();
+            }
+        });
+
+        BulkResponse bulkResponse = bulkRequest.get();
+        if (bulkResponse.hasFailures()) {
+            logger.error("Can't to add films");
+        }
     }
 }
