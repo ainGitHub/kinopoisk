@@ -123,8 +123,6 @@ public class FilmSearchService implements IFilmSearchService {
                 .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
                 .setQuery(QueryBuilders.matchQuery(ALL_FIELD, q).operator(MatchQueryBuilder.Operator.AND))
                 .addHighlightedField(NAME_FIELD)
-                .setHighlighterPreTags("<b>")
-                .setHighlighterPostTags("</b>")
                 .setHighlighterRequireFieldMatch(false)
                 .execute()
                 .actionGet()
