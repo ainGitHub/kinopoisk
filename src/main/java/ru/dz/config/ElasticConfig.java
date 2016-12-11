@@ -46,6 +46,10 @@ public class ElasticConfig {
     @Value("${elastic.period}")
     private long elasticPeriod;
 
+
+    @Value("${elastic.delay}")
+    private long elasticDelay;
+
     @Value("${cluster.name:'elasticsearch'}")
     private String clusterName;
 
@@ -67,6 +71,7 @@ public class ElasticConfig {
         ScheduledExecutorTask scheduledExecutorTask = new ScheduledExecutorTask();
         scheduledExecutorTask.setRunnable(executorTask);
         scheduledExecutorTask.setPeriod(elasticPeriod);
+        scheduledExecutorTask.setDelay(elasticDelay);
         return scheduledExecutorTask;
     }
 
