@@ -55,13 +55,14 @@ var Search = React.createClass({
     },
 
     genreSearch(event) {
-        let selVal = this.refs.select.value;
-        this.props.filterByGenre(selVal);
+        let selVal = this.refs.select;
+        console.log(selVal.value);
+        this.props.filterByGenre(selVal.value);
     },
 
     render(){
         let genres = this.props.genres.map(genre => {
-            return <option key={genre.id}>{genre.name}</option>;
+            return <option key={genre.id} value={genre.id}>{genre.name}</option>;
         });
 
         return (
@@ -76,7 +77,7 @@ var Search = React.createClass({
                 </div>
                 <br/>
                 <div className="form-group">
-                    <h6 for="sel1" className="text text-primary">Жанры:</h6>
+                    <h6 htmlFor="sel1" className="text text-primary">Жанры:</h6>
                     <select ref="select" className="form-control" id="sel1" onChange={this.genreSearch}>
                         {genres}
                     </select>

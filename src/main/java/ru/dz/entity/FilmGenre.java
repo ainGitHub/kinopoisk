@@ -1,5 +1,8 @@
 package ru.dz.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 /**
@@ -15,10 +18,12 @@ public class FilmGenre {
 
     @ManyToOne(targetEntity = Film.class)
     @JoinColumn(name = "film", referencedColumnName = "id")
+    @JsonIgnore
     private Film film;
 
     @ManyToOne(targetEntity = Genre.class)
     @JoinColumn(name = "genre", referencedColumnName = "id")
+    @JsonIgnore
     private Genre genre;
 
     public Long getId() {

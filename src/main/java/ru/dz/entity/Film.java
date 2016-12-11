@@ -1,5 +1,8 @@
 package ru.dz.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -58,16 +61,19 @@ public class Film {
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
+    @JsonIgnoreProperties
     private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
+    @JsonIgnore
     private List<FilmGenre> filmsGenres;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
+    @JsonIgnore
     private List<Review> reviews;
 
     public Long getId() {
