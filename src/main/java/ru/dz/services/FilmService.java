@@ -71,4 +71,14 @@ public class FilmService {
     public List<Film> findFilmByGenre(Long genre) {
         return filmRepository.findFilmByGenre(genre);
     }
+
+
+    public void setRatingToFilm(int rating, Film film) {
+        Double newRating = ((film.getRating() * film.getVoters() + rating)) / (film.getVoters() + 1);
+        film.setVoters(film.getVoters() + 1);
+        int d = (int) (Math.round(newRating * 10));
+        newRating = (double) d / 10;
+        film.setRating(newRating);
+        filmRepository.save(film);
+    }
 }

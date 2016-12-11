@@ -1,7 +1,5 @@
 package ru.dz.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -37,8 +35,6 @@ public class RatingController {
     @RequestMapping(value = "/film/rating/{id}/{rating}", method = RequestMethod.GET)
     private String filmRating(@PathVariable("id") Long id, @PathVariable("rating") Integer rating) {
 
-        Film film = filmService.findFilmById(id);
-        Rating rat = new Rating();
         Object userObject = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user;
 
@@ -48,6 +44,7 @@ public class RatingController {
             return "non-auto";
         }
 
+        Film film = filmService.findFilmById(id);
         UserInfo userInfo = userService.findUserByVkID(Integer.parseInt(user.getUsername()));
         if (filmService.isUserAlreadyVoted(userInfo, film)) {
             return "already";
@@ -59,13 +56,12 @@ public class RatingController {
         if (film.getRating() == null) {
             film.setRating(0.0);
         }
-        film.setVoters(film.getVoters() + 1);
-        film.setRating(film.getRating() + rating);
-        filmService.addFilm(film);
 
+        filmService.setRatingToFilm(rating, film);
+        Rating rat = new Rating();
         rat.setRating(rating);
         rat.setFilm(film);
-        rat.setUserInfo(userService.getUser((long) 7));
+        rat.setUserInfo(userInfo);
         ratingService.addRating(rat);
         return "good";
     }

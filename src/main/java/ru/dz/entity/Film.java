@@ -40,7 +40,7 @@ public class Film {
     private String trailer;
 
     @Column
-    @Transient
+//    @Transient
     private Double rating;
 
     @Column

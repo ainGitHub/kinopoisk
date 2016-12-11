@@ -9,7 +9,7 @@
 <#macro banner></#macro>
 
 <#macro container>
-<section class="container" style="width: 800px">
+<section class="container">
     <article class="post content">
         <ul class="post-list">
             <li>
@@ -60,31 +60,31 @@
 
                             <div id="reviewStars-input">
                                 <input id="star-4"
-                                       <#if film.getRating()?? && film.getRating() lt 5.5>checked</#if>
+                                       <#if film.getVoters()?? && (film.getRating() lt 5.5)>checked</#if>
                                        type="radio" name="reviewStars"
                                        data-id="${film.getId()!}"/>
                                 <label title="good" for="star-4"></label>
 
                                 <input id="star-3"
-                                       <#if film.getRating()?? && film.getRating() lt 4.5>checked</#if>
+                                       <#if film.getVoters()?? && (film.getRating() lt 4.51)>checked</#if>
                                        type="radio" name="reviewStars"
                                        data-id="${film.getId()!}"/>
                                 <label title="regular" for="star-3"></label>
 
                                 <input id="star-2"
-                                       <#if film.getRating()?? && film.getRating() lt 3.5>checked</#if>
+                                       <#if film.getVoters()?? && (film.getRating() lt 3.51)>checked</#if>
                                        type="radio" name="reviewStars"
                                        data-id="${film.getId()!}"/>
                                 <label title="poor" for="star-2"></label>
 
                                 <input id="star-1"
-                                       <#if film.getRating()?? && film.getRating() lt 2.5>checked</#if>
+                                       <#if film.getVoters()?? && (film.getRating() lt 2.51)>checked</#if>
                                        type="radio" name="reviewStars"
                                        data-id="${film.getId()!}"/>
                                 <label title="gorgeous" for="star-1"></label>
 
                                 <input id="star-0"
-                                       <#if film.getRating()?? && film.getRating() lt 1.5>checked</#if>
+                                       <#if film.getVoters()?? && (film.getRating() lt 1.51)>checked</#if>
                                        type="radio" name="reviewStars"
                                        data-id="${film.getId()!}"/>
                                 <label title="bad" for="star-0"></label>
