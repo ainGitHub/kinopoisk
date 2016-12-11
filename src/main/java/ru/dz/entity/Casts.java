@@ -1,5 +1,7 @@
 package ru.dz.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -15,14 +17,17 @@ public class Casts {
 
     @ManyToOne(targetEntity = Film.class)
     @JoinColumn(name = "film", referencedColumnName = "id")
+    @JsonIgnore
     private Film film;
 
     @ManyToOne(targetEntity = Person.class)
     @JoinColumn(name = "person", referencedColumnName = "id")
+    @JsonIgnore
     private Person person;
 
     @ManyToOne(targetEntity = Career.class)
     @JoinColumn(name = "role", referencedColumnName = "id")
+    @JsonIgnore
     private Career role;
 
     public Long getId() {

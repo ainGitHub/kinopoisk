@@ -61,7 +61,7 @@ public class Film {
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
-    @JsonIgnoreProperties
+    @JsonIgnore
     private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
