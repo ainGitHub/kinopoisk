@@ -29,7 +29,7 @@ public class FirstGenerateFilms {
     FilmRepository filmRepository;
 
     @Autowired
-    FilmSearchService filmSearchService;
+    FilmService filmService;
 
     private List<Film> films = new ArrayList<>();
 
@@ -51,8 +51,7 @@ public class FirstGenerateFilms {
     }
 
     private void initializeDBWithGeneratedFilms() {
-        filmRepository.save(films);
-        films.stream().forEach(f -> filmSearchService.add(f));
+        filmService.addAll(films);
     }
 
     private String getResource(String file) {
