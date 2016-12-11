@@ -57,7 +57,7 @@ public class FilmController {
 
     @RequestMapping(value = "/films", method = RequestMethod.GET)
     private String filmsPage(ModelMap map) {
-        List<Film> films = filmService.findAll();
+        List<Film> films = filmSearchService.findAll();
         map.put("films", films);
         return "films";
     }
@@ -74,11 +74,6 @@ public class FilmController {
         return "redirect:/films";
     }
 
-    @RequestMapping(value = "/all")
-    @ResponseBody
-    private ResponseEntity<List<Film>> allFilms() {
-        return ResponseEntity.ok(filmService.findAll());
-    }
 
     @RequestMapping(value = "/search/film")
     private ResponseEntity<List<Film>> searchFilms(@RequestParam(required = false) String name) {
