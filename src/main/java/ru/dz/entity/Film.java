@@ -50,24 +50,24 @@ public class Film {
     private boolean changed = true;
 
     @Column
+    private boolean added = true;
+
+    @Column
     private boolean deleted = false;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
-    @Transient
     private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
-    @Transient
     private List<FilmGenre> filmsGenres;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
-    @Transient
     private List<Review> reviews;
 
     public Long getId() {
@@ -196,6 +196,14 @@ public class Film {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public boolean isAdded() {
+        return added;
+    }
+
+    public void setAdded(boolean added) {
+        this.added = added;
     }
 
     @Override

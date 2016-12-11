@@ -3,22 +3,14 @@ package ru.dz.elastic;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
-import org.elasticsearch.action.update.UpdateRequestBuilder;
 import org.elasticsearch.client.Client;
-import org.elasticsearch.common.unit.TimeValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static org.elasticsearch.common.xcontent.XContentFactory.*;
-
 import ru.dz.config.ElasticConfig;
 import ru.dz.entity.Film;
-import ru.dz.entity.FilmDTO;
-import ru.dz.entity.FilmGenre;
-
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -88,7 +80,7 @@ public class FilmElasticService {
             try {
                 bulkRequest
                         .add(client.prepareIndex(ElasticConfig.FILM_CORP_INDEX, ElasticConfig.FILM_TYPE, film.getId().toString())
-                                .setSource(mapper.writeValueAsString(FilmDTO.convertFilmToFilmDTO(film)).getBytes()));
+                                .setSource(mapper.writeValueAsString(film).getBytes()));
             } catch (Exception e) {
                 logger.error(e.getMessage());
                 e.printStackTrace();
