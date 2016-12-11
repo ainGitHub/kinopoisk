@@ -22,4 +22,8 @@ public class GenreService {
     public List<Genre> getGenreByFilmId(Long id) {
         return genreRepository.getGenreByFilmId(id);
     }
+
+    public List<Genre> findAll() {
+        return genreRepository.findAll();
+    }
 }
