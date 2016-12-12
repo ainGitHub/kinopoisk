@@ -31,9 +31,14 @@ public class SearchController {
     @Autowired
     GenreService genreService;
 
-    @RequestMapping("/search/bygenre")
+    @RequestMapping("/search/by/genre")
     public ResponseEntity<List<Film>> filmsByGenre(@RequestParam("genre") Long genre) {
         return ResponseEntity.ok(filmService.findFilmByGenre(genre));
+    }
+
+    @RequestMapping("/search/by/year")
+    public ResponseEntity<List<Film>> filmsByGenre(@RequestParam("from") Integer from, @RequestParam("to") Integer to) {
+        return ResponseEntity.ok(filmSearchService.findByYear(from, to));
     }
 
     @RequestMapping("/genre/all")

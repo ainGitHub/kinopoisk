@@ -1,7 +1,6 @@
 package ru.dz.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import net.minidev.json.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -43,7 +42,6 @@ public class Film {
     private String trailer;
 
     @Column
-//    @Transient
     private Double rating;
 
     @Column
