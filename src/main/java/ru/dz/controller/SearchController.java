@@ -51,7 +51,7 @@ public class SearchController {
     @ResponseBody
     private ResponseEntity<Map> allFilms(ModelMap map) {
         List<Genre> genres = genreService.findAll();
-        List<Film> films = filmService.findAll();
+        List<Film> films = filmSearchService.findAll();
 
         map.put("genres", genres);
         map.put("films", films);
