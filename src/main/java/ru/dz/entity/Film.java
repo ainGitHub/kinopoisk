@@ -1,6 +1,6 @@
 package ru.dz.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -59,19 +59,16 @@ public class Film {
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
-    @JsonIgnore
     private List<Casts> castList;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
-    @JsonIgnore
     private List<FilmGenre> filmsGenres;
 
     @OneToMany(cascade = CascadeType.REFRESH,
             fetch = FetchType.LAZY,
             mappedBy = "film")
-    @JsonIgnore
     private List<Review> reviews;
 
     public Long getId() {
@@ -146,6 +143,7 @@ public class Film {
         this.trailer = trailer;
     }
 
+    @JsonIgnore
     public List<Casts> getCastList() {
         return castList;
     }
@@ -154,6 +152,7 @@ public class Film {
         this.castList = castList;
     }
 
+    @JsonIgnore
     public List<FilmGenre> getFilmsGenres() {
         return filmsGenres;
     }
@@ -162,6 +161,7 @@ public class Film {
         this.filmsGenres = filmsGenres;
     }
 
+    @JsonIgnore
     public List<Review> getReviews() {
         return reviews;
     }
