@@ -2,14 +2,12 @@ package ru.dz.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.dz.elastic.FilmSearchService;
 import ru.dz.entity.Film;
 import ru.dz.entity.Rating;
 import ru.dz.entity.UserInfo;
 import ru.dz.repository.FilmRepository;
 import ru.dz.repository.RatingRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,15 +47,15 @@ public class FilmService {
     }
 
     public boolean isUserAlreadyVoted(UserInfo userInfo, Film film) {
-        boolean answer = false;
-        ArrayList<Rating> ratings = (ArrayList<Rating>) ratingRepository.findAll();
+        List<Rating> ratings = (List<Rating>) ratingRepository.findAll();
         for (Rating r : ratings) {
             if (r.getFilm().equals(film) &&
                     r.getUserInfo().equals(userInfo)) {
-                answer = true;
+                return true;
             }
         }
-        return answer;
+
+        return false;
     }
 
     public void addAll(List<Film> films) {
@@ -73,11 +71,20 @@ public class FilmService {
     }
 
 
+    /**
+     * Подсчитывет и проставляет фильму рейтинг
+     * округляет до десятых
+     *
+     * @param rating
+     * @param film
+     */
     public void setRatingToFilm(int rating, Film film) {
         Double newRating = ((film.getRating() * film.getVoters() + rating)) / (film.getVoters() + 1);
-        film.setVoters(film.getVoters() + 1);
+
         int d = (int) (Math.round(newRating * 10));
         newRating = (double) d / 10;
+
+        film.setVoters(film.getVoters() + 1);
         film.setRating(newRating);
         filmRepository.save(film);
     }
