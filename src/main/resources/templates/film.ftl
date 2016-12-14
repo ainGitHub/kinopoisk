@@ -62,31 +62,31 @@
                                 <input id="star-4"
                                        <#if film.getVoters()?? && (film.getRating() lt 5.5)>checked</#if>
                                        type="radio" name="reviewStars"
-                                       data-id="${film.getId()!}"/>
+                                       data-id="${film.getId()!?c}"/>
                                 <label title="good" for="star-4"></label>
 
                                 <input id="star-3"
                                        <#if film.getVoters()?? && (film.getRating() lt 4.51)>checked</#if>
                                        type="radio" name="reviewStars"
-                                       data-id="${film.getId()!}"/>
+                                       data-id="${film.getId()!?c}"/>
                                 <label title="regular" for="star-3"></label>
 
                                 <input id="star-2"
                                        <#if film.getVoters()?? && (film.getRating() lt 3.51)>checked</#if>
                                        type="radio" name="reviewStars"
-                                       data-id="${film.getId()!}"/>
+                                       data-id="${film.getId()!?c}"/>
                                 <label title="poor" for="star-2"></label>
 
                                 <input id="star-1"
                                        <#if film.getVoters()?? && (film.getRating() lt 2.51)>checked</#if>
                                        type="radio" name="reviewStars"
-                                       data-id="${film.getId()!}"/>
+                                       data-id="${film.getId()!?c}"/>
                                 <label title="gorgeous" for="star-1"></label>
 
                                 <input id="star-0"
                                        <#if film.getVoters()?? && (film.getRating() lt 1.51)>checked</#if>
                                        type="radio" name="reviewStars"
-                                       data-id="${film.getId()!}"/>
+                                       data-id="${film.getId()!?c}"/>
                                 <label title="bad" for="star-0"></label>
                             </div>
 
@@ -111,7 +111,7 @@
                         <br><br>
 
                         <#if user??>
-                            <form method="POST" action="/film/review/add/${film.getId()!}">
+                            <form method="POST" action="/film/review/add/${film.getId()!?c}">
                                 <input type="text" name="content" class="form-control review" placeholder="Отзыв...">
                                 <button type="submit" class="btn">Добавить отзыв</button>
                             </form>

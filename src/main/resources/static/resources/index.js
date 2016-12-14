@@ -60,6 +60,40 @@ var Search = React.createClass({
         this.props.filterByGenre(selVal.value);
     },
 
+    max(){
+        var self = this;
+        var scroll_2 = this.refs.scroll_2;
+        var year2 = this.refs.year2;
+        var max = scroll_2.value;
+
+        year2.textContent = max;
+    },
+
+    min(){
+        var scroll_1 = this.refs.scroll_1;
+        var year1 = this.refs.year1;
+        var min = scroll_1.value;
+
+        year1.textContent = min;
+    },
+
+    filterByYear(){
+        var year1 = this.refs.year1.textContent;
+        var year2 = this.refs.year2.textContent;
+
+        var from, to;
+
+        if (year1 > year2) {
+            to = year1;
+            from = year2;
+        } else {
+            to = year2;
+            from = year1;
+        }
+
+        this.props.filterByYear(from, to);
+    },
+
     render(){
         let genres = this.props.genres.map(genre => {
             return <option key={genre.id} value={genre.id}>{genre.name}</option>;
@@ -81,6 +115,22 @@ var Search = React.createClass({
                     <select ref="select" className="form-control" id="sel1" onChange={this.genreSearch}>
                         {genres}
                     </select>
+                </div>
+                <div className="input-group add-on">
+                    <label ref="year1">1900</label>
+                    <br/>
+                    <input className="form-control-range" type="range" min="1900" max="2016" onChange={this.min}
+                           ref="scroll_1" defaultValue="1900"/>
+                    <br/>
+                    <input className="form-control-range" type="range" min="1900" max="2016" onChange={this.max}
+                           ref="scroll_2" defaultValue="2016"/>
+                    <br/>
+                    <label ref="year2">2016</label>
+                    <br/>
+                    <div className="">
+                        <input type="submit" className="btn btn-primary btn-sm" value="Искать"
+                               onClick={this.filterByYear}/>
+                    </div>
                 </div>
             </aside>
         );
@@ -119,7 +169,17 @@ var App = React.createClass({
     },
 
     filterByGenre(genre){
-        axios.get('/search/bygenre', {params: {genre: genre}})
+        axios.get('/search/by/genre', {params: {genre: genre}})
+            .then(res => {
+                console.log(res);
+                this.setState({films: res.data, genres: this.state.genres});
+            });
+    },
+
+    filterByYear(from, to){
+        console.log(from);
+        console.log(to);
+        axios.get('/search/by/year', {params: {from: from, to: to}})
             .then(res => {
                 console.log(res);
                 this.setState({films: res.data, genres: this.state.genres});
@@ -137,8 +197,12 @@ var App = React.createClass({
             films = "По вашему запросу фильмы не найдеы";
         return (
             <div>
-                <Search filterByGenre={this.filterByGenre} filterFilms={this.filterFilms} search={this.search}
-                        genres={this.state.genres} key={films[0].id}/>
+                <Search filterByGenre={this.filterByGenre}
+                        filterFilms={this.filterFilms}
+                        search={this.search}
+                        genres={this.state.genres}
+                        filterByYear={this.filterByYear}
+                        key={films[0].id}/>
                 <article className="post content">
                     <ul className="post-list">
                         {films}

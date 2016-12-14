@@ -25,12 +25,14 @@ public class ReviewService {
 
     public List<Review> getAllReviewsByUser(UserInfo user) {
         List<Review> allReviews = reviewRepository.findAll();
-        ArrayList<Review> userReviews = new ArrayList<>();
-        for (Review r : allReviews) {
-            if (r.getUserInfo().getId().equals(user.getId())) {
-                userReviews.add(r);
-            }
-        }
+
+        List<Review> userReviews = new ArrayList<>();
+
+        allReviews.stream().forEach(review -> {
+            if (review.getUserInfo().getId().equals(user.getId()))
+                userReviews.add(review);
+        });
+
         return userReviews;
     }
 

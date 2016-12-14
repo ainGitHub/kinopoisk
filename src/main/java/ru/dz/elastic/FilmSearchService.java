@@ -8,6 +8,7 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.elasticsearch.action.search.SearchType;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -153,6 +155,23 @@ public class FilmSearchService implements IFilmSearchService {
                 .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
                 .setQuery(QueryBuilders.matchQuery(NAME_FIELD, name))
                 .setQuery(QueryBuilders.matchQuery(DESCRIPTION_FIELD, description))
+                .execute()
+                .actionGet();
+        return getResult(response);
+    }
+
+    @Override
+    public List<Film> findByYear(Integer from, Integer to) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(from, 12, 31);
+        long fromLong = calendar.getTimeInMillis();
+        calendar.set(to, 12, 31);
+        long toLong = calendar.getTimeInMillis();
+
+        RangeQueryBuilder query = QueryBuilders.rangeQuery("year").from(fromLong).to(toLong);
+        SearchResponse response = client.prepareSearch(ElasticConfig.FILM_CORP_INDEX)
+                .setTypes(ElasticConfig.FILM_TYPE)
+                .setQuery(query)
                 .execute()
                 .actionGet();
         return getResult(response);

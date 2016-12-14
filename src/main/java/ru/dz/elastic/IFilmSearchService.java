@@ -36,4 +36,6 @@ public interface IFilmSearchService {
     void deleteAll();
 
     List<Film> searchByNameAndDescription(String name, String description);
+
+    List<Film> findByYear(Integer var1, Integer var2);
 }
