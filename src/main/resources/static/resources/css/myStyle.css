@@ -51,11 +51,11 @@ html, body {
     padding: 2pt;
 }
 
-.reviews a{
+.reviews a {
     color: #3891cf;
 }
 
-.reviews a:hover{
+.reviews a:hover {
     text-decoration: none;
     font-weight: bold;
 }
@@ -64,7 +64,7 @@ html, body {
     padding: 2%;
 }
 
-.review-button{
+.review-button {
     margin-left: 30%;
 }
 
@@ -153,4 +153,43 @@ html, body {
 
 #reviewStars-input #star-5 {
     left: 265px;
+}
+
+.admin-main {
+    padding: 1%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+}
+
+.film {
+    position: relative;
+    margin: 1%;
+    padding: 2%;
+    width: 30%;
+    height: 500pt;
+    text-align: center;
+    border: 1pt solid silver;
+}
+
+.modal-settings-input {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-names {
+    width: 130pt;
+}
+
+.modal-values {
+    width: 200pt;
+}
+
+.modal-input {
+    width: 400pt;
+    border-radius: 3pt;
+    padding: 1%;
 }

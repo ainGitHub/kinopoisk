@@ -27,4 +27,13 @@ public interface ActorRepository extends CrudRepository<Person, Long>, JpaReposi
     @Query("select c.person from Casts c " +
             "where c.film.id =:id and c.role = 4")
     List<Person> getDirectorsByFilmId(@Param("id") Long id);
+
+    @Query("select distinct c.person from Casts c where c.role = 1")
+    List<Person> getAllActors();
+
+    @Query("select distinct c.person from Casts c where c.role = 4")
+    List<Person> getAllDirectors();
+
+    @Query("select distinct c.person from Casts c where c.role = 3")
+    List<Person> getAllWriters();
 }

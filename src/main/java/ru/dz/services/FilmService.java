@@ -2,7 +2,6 @@ package ru.dz.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.dz.elastic.FilmSearchService;
 import ru.dz.entity.Film;
 import ru.dz.entity.Rating;
 import ru.dz.entity.UserInfo;
@@ -80,5 +79,9 @@ public class FilmService {
         newRating = (double) d / 10;
         film.setRating(newRating);
         filmRepository.save(film);
+    }
+
+    public void deleteFilm(Long id) {
+        filmRepository.delete(id);
     }
 }

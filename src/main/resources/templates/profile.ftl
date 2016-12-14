@@ -86,7 +86,7 @@
                         <br>
                     </#list>
                 <#else>
-                <br>
+                    <br>
                     Вы пока не оставляли ни одного отзыва -
                     <a href="" data-toggle="modal" data-target="#addReview">добавить отзыв</a><br>
                     <br>

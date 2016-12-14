@@ -45,8 +45,8 @@ public class FilmController {
         map.put("film", film);
         map.put("genres", genreService.getGenreByFilmId(id));
         map.put("actors", actorService.getActorByFilmId(id));
-        map.put("directors", actorService.getScreenWritersByFilmId(id));
-        map.put("screenwriters", actorService.getDirectorsByFilmId(id));
+        map.put("directors", actorService.getDirectorsByFilmId(id));
+        map.put("screenwriters", actorService.getScreenWritersByFilmId(id));
 
         Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (user != null && !(user instanceof String)) {

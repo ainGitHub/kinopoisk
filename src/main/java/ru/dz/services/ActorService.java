@@ -30,4 +30,16 @@ public class ActorService {
     public List<Person> getDirectorsByFilmId(Long id) {
         return actorRepository.getDirectorsByFilmId(id);
     }
+
+    public List<Person> getAllActors() {
+        return actorRepository.getAllActors();
+    }
+
+    public List<Person> getAllDirectors() {
+        return actorRepository.getAllDirectors();
+    }
+
+    public List<Person> getAllWriters() {
+        return actorRepository.getAllWriters();
+    }
 }

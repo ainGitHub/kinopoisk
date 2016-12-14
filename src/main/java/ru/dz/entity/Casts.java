@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Casts {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne(targetEntity = Film.class)
@@ -60,5 +60,24 @@ public class Casts {
 
     public void setRole(Career role) {
         this.role = role;
+    }
+
+    public Casts() {
+    }
+
+    public Casts(Film film, Person person, Career role) {
+        this.film = film;
+        this.person = person;
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Casts{" +
+                "id=" + id +
+                ", film=" + film +
+                ", person=" + person +
+                ", role=" + role +
+                '}';
     }
 }

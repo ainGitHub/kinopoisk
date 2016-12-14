@@ -26,4 +26,8 @@ public class GenreService {
     public List<Genre> findAll() {
         return genreRepository.findAll();
     }
+
+    public Genre getGenreById(Long id){
+        return genreRepository.findOne(id);
+    }
 }

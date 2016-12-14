@@ -555,9 +555,32 @@ section[role=banner] article[role=main] aside img {
 }
 
 .more-link {
+    font-size: 1.1em;
     color: #333;
     font-weight: bold;
-    white-space: nowrap;
+}
+
+.more-link-delete {
+    font-size: 1.1em;
+    color: red;
+    font-weight: bold;
+    position: absolute;
+    bottom: 3%;
+    width: 85%;
+    text-align: center;
+}
+
+.more-link-delete a {
+    color: red;
+    font-size: 1.1em;
+}
+
+.more-link:hover{
+    text-decoration: none;
+}
+
+.more-link-delete a:hover {
+    font-weight: bold;
 }
 
 .thumb-list {
