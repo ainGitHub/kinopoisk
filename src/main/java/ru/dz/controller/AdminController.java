@@ -24,7 +24,16 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminController {
-
+    private static final String FILM_MAPPING = "/film";
+    private static final String DELETE_MAPPING = "/delete";
+    private static final String DELETE_REVIEW_MAPPING = "/review" + DELETE_MAPPING;
+    private static final String DELETE_RATING_MAPPING = "/rating" + DELETE_MAPPING;
+    private static final String DELETE_FILM_MAPPING = DELETE_MAPPING + FILM_MAPPING;
+    private static final String DELETE_DIRECTOR_MAPPING = DELETE_MAPPING + "/director";
+    private static final String DELETE_WRITER_MAPPING = DELETE_MAPPING + "/writer";
+    private static final String DELETE_GENRE_MAPPING = DELETE_MAPPING + "/genre";
+    private static final String DELETE_ACTOR_MAPPING = DELETE_MAPPING + "/actor";
+    private static final String CHANGE_MAPPING = "change";
     @Autowired
     UserService userService;
     @Autowired
@@ -52,7 +61,7 @@ public class AdminController {
         return "admin";
     }
 
-    @RequestMapping(value = "/film/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = FILM_MAPPING + "/{id}", method = RequestMethod.GET)
     private String filmSettingsPage(@PathVariable("id") Long id, ModelMap map) {
         Film film = filmService.findFilmById(id);
         map.put("film", film);
@@ -68,26 +77,26 @@ public class AdminController {
         return "filmSettings";
     }
 
-    @RequestMapping(value = "/review/delete/{review_id}/{film_id}", method = RequestMethod.GET)
+    @RequestMapping(value = DELETE_REVIEW_MAPPING + "/{review_id}/{film_id}", method = RequestMethod.GET)
     private String deleteFilmReview(@PathVariable Long review_id, @PathVariable Long film_id) {
         reviewService.deleteReviewById(review_id);
         return "redirect:/admin/film/" + film_id;
     }
 
-    @RequestMapping(value = "/rating/delete/{film_id}", method = RequestMethod.GET)
+    @RequestMapping(value = DELETE_RATING_MAPPING + "/{film_id}", method = RequestMethod.GET)
     private String deleteFilmRating(@PathVariable Long film_id) {
         Film film = ratingService.clearFilmRating(filmService.findFilmById(film_id));
         filmService.addFilm(film);
         return "redirect:/admin/film/" + film_id;
     }
 
-    @RequestMapping(value = "/delete/film/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = DELETE_FILM_MAPPING + "/{id}", method = RequestMethod.GET)
     private String deleteFilm(@PathVariable Long id) {
         filmService.deleteFilm(id);
         return "redirect:/admin";
     }
 
-    @RequestMapping(value = "/delete/director/{film_id}/{director_id}", method = RequestMethod.GET)
+    @RequestMapping(value = DELETE_DIRECTOR_MAPPING + "/{film_id}/{director_id}", method = RequestMethod.GET)
     private String deleteFilmDirector(@PathVariable Long film_id, @PathVariable Long director_id) {
         Film film = filmService.findFilmById(film_id);
         Person director = actorService.findPersonById(director_id);
@@ -95,7 +104,7 @@ public class AdminController {
         return "redirect:/admin/film/" + film_id;
     }
 
-    @RequestMapping(value = "/delete/writer/{film_id}/{writer_id}", method = RequestMethod.GET)
+    @RequestMapping(value = DELETE_WRITER_MAPPING + "/{film_id}/{writer_id}", method = RequestMethod.GET)
     private String deleteFilmWriter(@PathVariable Long film_id, @PathVariable Long writer_id) {
         Film film = filmService.findFilmById(film_id);
         Person writer = actorService.findPersonById(writer_id);
@@ -103,7 +112,7 @@ public class AdminController {
         return "redirect:/admin/film/" + film_id;
     }
 
-    @RequestMapping(value = "/delete/genre/{film_id}/{genre_id}", method = RequestMethod.GET)
+    @RequestMapping(value = DELETE_GENRE_MAPPING + "/{film_id}/{genre_id}", method = RequestMethod.GET)
     private String deleteFilmGenre(@PathVariable Long film_id, @PathVariable Long genre_id) {
         Film film = filmService.findFilmById(film_id);
         Genre gen = genreService.getGenreById(genre_id);
@@ -112,7 +121,7 @@ public class AdminController {
     }
 
 
-    @RequestMapping(value = "/delete/actor/{film_id}/{actor_id}", method = RequestMethod.GET)
+    @RequestMapping(value = DELETE_ACTOR_MAPPING + "/{film_id}/{actor_id}", method = RequestMethod.GET)
     private String deleteFilmActor(@PathVariable Long film_id, @PathVariable Long actor_id) {
         Film film = filmService.findFilmById(film_id);
         Person director = actorService.findPersonById(actor_id);
@@ -120,7 +129,7 @@ public class AdminController {
         return "redirect:/admin/film/" + film_id;
     }
 
-    @RequestMapping(value = "/change/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = CHANGE_MAPPING + "/{id}", method = RequestMethod.GET)
     private String changingFilmInformation(@PathVariable Long id) throws ParseException {
         String name = request.getParameter("name");
         String country = request.getParameter("country");
