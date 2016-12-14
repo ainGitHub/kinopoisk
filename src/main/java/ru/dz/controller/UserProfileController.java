@@ -28,6 +28,9 @@ import java.util.Date;
 
 @Controller
 public class UserProfileController {
+    private static final String PROFILE_MAPPING = "/profile";
+    private static final String CHANGE_MAPPING = "/change";
+    private static final String DELETE_DATE_MAPPING = "/delete-date";
     @Autowired
     private HttpServletRequest request;
 
@@ -42,7 +45,7 @@ public class UserProfileController {
 
     Logger logger = LoggerFactory.logger(UserProfileController.class);
 
-    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    @RequestMapping(value = PROFILE_MAPPING, method = RequestMethod.GET)
     public String renderProfilePage(ModelMap model) {
         Object userObj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = null;
@@ -62,7 +65,7 @@ public class UserProfileController {
         return "profile";
     }
 
-    @RequestMapping(value = "/change/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = CHANGE_MAPPING + "/{id}", method = RequestMethod.GET)
     public String changeUserInformation(@PathVariable Long id) throws ParseException {
         String city = request.getParameter("city");
         String gender = request.getParameter("gender");
@@ -118,7 +121,7 @@ public class UserProfileController {
         return "redirect:/profile";
     }
 
-    @RequestMapping(value = "/delete-date/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = DELETE_DATE_MAPPING + "/{id}", method = RequestMethod.GET)
     public String deleteDateFromProfileInfo(@PathVariable Long id) throws ParseException {
         UserInfo user = userService.getUser(id);
         user.setBirthday(null);

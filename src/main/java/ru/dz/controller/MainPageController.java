@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class MainPageController {
+    private static final String MAIN_PAGE_MAPPING = "/";
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = MAIN_PAGE_MAPPING, method = RequestMethod.GET)
     public String renderMainPage() {
         return "mainPage";
     }
