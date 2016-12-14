@@ -28,7 +28,7 @@
                                     <a href="/actor/${(director.id)!}" style="text-decoration: none">
                                     ${(director.firstName)!} ${(director.lastName)!}</a>
                                     <#if directors?size gt 1>
-                                        (<a href="/admin/delete/director/${film.getId()}/${(director.id)!}">удалить</a>)
+                                        (<a href="/admin/delete/director/${film.getId()?c}/${(director.id)!?c}">удалить</a>)
                                     </#if><#sep>,
                                 </#list>
                             </#if><br>
@@ -38,7 +38,7 @@
                                     <a href="/actor/${(screenwriter.id)!}" style="text-decoration: none">
                                     ${(screenwriter.firstName)!} ${(screenwriter.lastName)!}</a>
                                     <#if screenwriters?size gt 1>
-                                        (<a href="/admin/delete/writer/${film.getId()}/${(screenwriter.id)!}">удалить</a>)
+                                        (<a href="/admin/delete/writer/${film.getId()?c}/${(screenwriter.id)!?c}">удалить</a>)
                                     </#if><#sep>,
                                 </#list>
                             </#if><br>
@@ -47,7 +47,7 @@
                                 <#list genres as genre>
                                 ${(genre.name)!}
                                     <#if genres?size gt 1>
-                                        (<a href="/admin/delete/genre/${film.getId()}/${(genre.id)!}">удалить</a>)
+                                        (<a href="/admin/delete/genre/${film.getId()?c}/${(genre.id)!?c}">удалить</a>)
                                     </#if><#sep>,
                                 </#list>
                             </#if><br>
@@ -57,7 +57,7 @@
                                     <a href="/actor/${(actor.id)!}" style="text-decoration: none">
                                     ${(actor.firstName)!} ${(actor.lastName)!}</a>
                                     <#if actors?size gt 1>
-                                        (<a href="/admin/delete/actor/${film.getId()}/${(actor.id)!}">удалить</a>)
+                                        (<a href="/admin/delete/actor/${film.getId()?c}/${(actor.id)!?c}">удалить</a>)
                                     </#if><#sep>,
                                 </#list>
                             </#if><br>
@@ -68,7 +68,7 @@
                                 посмотреть трейлер</a><br>
                             рейтинг:
                             <#if film.getRating()??> ${(film.getRating())!} из 5 <#else> 0 из 5 </#if>
-                            (<a href="/admin/rating/delete/${film.getId()}">сбросить</a>)
+                            (<a href="/admin/rating/delete/${film.getId()?c}">сбросить</a>)
                             <br><br>
 
                             <a href="" data-toggle="modal" data-target="#changeFilm">Изменить информацию о фильме</a>
@@ -84,7 +84,7 @@
                         <#if film.getReviews()?has_content>
                             <#list film.getReviews() as review>
                                 <h2>${(review.getUserInfo().getUsername())!}</h2>
-                                (<a href="/admin/review/delete/${review.getId()}/${film.getId()}">удалить отзыв</a>)
+                                (<a href="/admin/review/delete/${review.getId()?c}/${film.getId()?c}">удалить отзыв</a>)
                                 <br><br>
                                 <h5>${(review.getContent())!}</h5><br>
                             </#list>
@@ -113,7 +113,7 @@
                                     <h4 class="modal-title" id="myModalLabel">Изменение информации о фильме</h4>
                                 </div>
 
-                                <form method='GET' action="/admin/change/${film.getId()}">
+                                <form method='GET' action="/admin/change/${film.getId()?c}">
                                     <div class="modal-body">
                                         <br/>
                                         <label>
@@ -134,7 +134,7 @@
                                                 <select name="director">
                                                     <option value="nothing" selected>Не выбрано</option>
                                                     <#list producers as p>
-                                                        <option value="${(p.id)!}">${(p.firstName)!} ${(p.lastName)!}</option>
+                                                        <option value="${(p.id)!?c}">${(p.firstName)!} ${(p.lastName)!}</option>
                                                     </#list>
                                                 </select>
                                             </#if>
@@ -144,7 +144,7 @@
                                                 <select name="writer">
                                                     <option value="nothing" selected>Не выбрано</option>
                                                     <#list writers as w>
-                                                        <option value="${(w.id)!}">${(w.firstName)!} ${(w.lastName)!}</option>
+                                                        <option value="${(w.id)!?c}">${(w.firstName)!} ${(w.lastName)!}</option>
                                                     </#list>
                                                 </select>
                                             </#if>
@@ -154,7 +154,7 @@
                                                 <select name="actor">
                                                     <option value="nothing" selected>Не выбрано</option>
                                                     <#list persons as p>
-                                                        <option value="${(p.id)!}">${(p.firstName)!} ${(p.lastName)!}</option>
+                                                        <option value="${(p.id)!?c}">${(p.firstName)!} ${(p.lastName)!}</option>
                                                     </#list>
                                                 </select>
                                             </#if>
@@ -164,7 +164,7 @@
                                                 <select name="genre">
                                                     <option value="nothing" selected>Не выбрано</option>
                                                     <#list janres as j>
-                                                        <option value="${(j.id)!}">${(j.name)!}</option>
+                                                        <option value="${(j.id)!?c}">${(j.name)!}</option>
                                                     </#list>
                                                 </select>
                                             </#if>

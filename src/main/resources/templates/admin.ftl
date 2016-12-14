@@ -10,14 +10,14 @@
 <section class="admin-main" xmlns="http://www.w3.org/1999/html">
 
     <#if films?? && films?has_content>
-        <#list films as f>
+        <#list films as film>
             <div class="film">
-                <h2><a href="/admin/film/${f.id}">${f.name}</a></h2><br>
-                <p><a class="more-link" href="/admin/film/${f.id}">Просмотреть подробную информацию</a></p>
-                <img src="${f.image}" width="180" height="280"/><br><br>
-                <p>${f.description}</p><br><br>
+                <h2><a href="/admin/film/${film.id?c}">${film.name}</a></h2><br>
+                <p><a class="more-link" href="/admin/film/${film.id?c}">Просмотреть подробную информацию</a></p>
+                <img src="${film.image}" width="180" height="280"/><br><br>
+                <p>${film.description}</p><br><br>
                 <div class="more-link-delete">
-                    <p><a href="/admin/delete/film/${f.id}"> Удалить</a></p>
+                    <p><a href="/admin/delete/film/${film.id?c}"> Удалить</a></p>
                 </div>
             </div>
         </#list>
