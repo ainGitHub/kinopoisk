@@ -10,7 +10,13 @@
 
 <section class="profile">
     <#if user??>
-        <h2>${(user.username)!}&nbsp&nbsp${(user.secondName)!}</h2>
+        <h2>${(user.username)!}&nbsp&nbsp${(user.secondName)!} &nbsp&nbsp<#if user.getUserRoles()?has_content>
+            <#list user.getRoles() as role>
+                <#if role.getRole() == "ROLE_ADMIN">
+                    <a href="/admin">(Админ)</a>
+                </#if>
+            </#list>
+        </#if></h2>
 
         <div class="img-box" style="margin-top: 50px">
             <img src="${(user.getImage())!}" alt="photo" width="250" height="280"/>

@@ -163,7 +163,6 @@ public class AdminController {
         film.setAgeLimit(age);
         film.setYear(day);
         film.setDescription(description);
-        System.out.println(description);
         filmService.addFilm(film);
         return "redirect:/admin/film/" + id;
     }

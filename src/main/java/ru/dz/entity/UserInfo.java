@@ -160,6 +160,10 @@ public class UserInfo {
         this.vkId = vkId;
     }
 
+    public List<UserRoles> getRoles() {
+        return userRoles;
+    }
+
     @Override
     public String toString() {
         return "UserInfo{" +
