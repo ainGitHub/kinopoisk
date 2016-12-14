@@ -95,11 +95,11 @@ public class AdminController {
         return "redirect:/admin/film/" + film_id;
     }
 
-    @RequestMapping(value = "/delete/director/{film_id}/{writer_id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete/writer/{film_id}/{writer_id}", method = RequestMethod.GET)
     private String deleteFilmWriter(@PathVariable Long film_id, @PathVariable Long writer_id) {
         Film film = filmService.findFilmById(film_id);
-        Person director = actorService.findPersonById(writer_id);
-        castService.deleteFilmWriter(film, director);
+        Person writer = actorService.findPersonById(writer_id);
+        castService.deleteFilmWriter(film, writer);
         return "redirect:/admin/film/" + film_id;
     }
 
