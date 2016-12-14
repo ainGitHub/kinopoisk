@@ -15,6 +15,7 @@ import ru.dz.services.GenreService;
  */
 @Controller
 public class ActorController {
+    private static final String ACTOR_MAPPING = "/actor";
     @Autowired
     ActorService actorService;
     @Autowired
@@ -22,7 +23,7 @@ public class ActorController {
     @Autowired
     GenreService genreService;
 
-    @RequestMapping(value = "/actor/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = ACTOR_MAPPING + "/{id}", method = RequestMethod.GET)
     public String renderPersonPage(@PathVariable("id") Long id,
                                    ModelMap model) {
         model.put("person", actorService.findPersonById(id));

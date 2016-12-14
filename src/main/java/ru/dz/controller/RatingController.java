@@ -21,7 +21,7 @@ import ru.dz.services.UserService;
 
 @Controller
 public class RatingController {
-
+    private static final String RATING_MAPPING = "/film/rating";
     @Autowired
     UserService userService;
 
@@ -32,7 +32,7 @@ public class RatingController {
     FilmService filmService;
 
     @ResponseBody
-    @RequestMapping(value = "/film/rating/{id}/{rating}", method = RequestMethod.GET)
+    @RequestMapping(value = RATING_MAPPING + "/{id}/{rating}", method = RequestMethod.GET)
     private String filmRating(@PathVariable("id") Long id, @PathVariable("rating") Integer rating) {
 
         Object userObject = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

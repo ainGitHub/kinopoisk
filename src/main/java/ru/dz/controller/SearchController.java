@@ -21,7 +21,13 @@ import java.util.Map;
  */
 @Controller
 public class SearchController {
-
+    private static final String SEARCH_MAPPING = "/search";
+    private static final String BY_MAPPING = "/by";
+    private static final String SEARCH_BY_GENRE_MAPPING = SEARCH_MAPPING + BY_MAPPING + "/genre";
+    private static final String SEARCH_BY_YEAR_MAPPING = SEARCH_MAPPING + BY_MAPPING + "/year";
+    private static final String GENRE_MAPPING = "/genre";
+    private static final String ALL_MAPPING = "/all";
+    private static final String GENRE_ALL_MAPPING = GENRE_MAPPING + ALL_MAPPING;
     @Autowired
     FilmSearchService filmSearchService;
 
@@ -31,23 +37,23 @@ public class SearchController {
     @Autowired
     GenreService genreService;
 
-    @RequestMapping("/search/by/genre")
+    @RequestMapping(SEARCH_BY_GENRE_MAPPING)
     public ResponseEntity<List<Film>> filmsByGenre(@RequestParam("genre") Long genre) {
         return ResponseEntity.ok(filmService.findFilmByGenre(genre));
     }
 
-    @RequestMapping("/search/by/year")
+    @RequestMapping(SEARCH_BY_YEAR_MAPPING)
     public ResponseEntity<List<Film>> filmsByGenre(@RequestParam("from") Integer from, @RequestParam("to") Integer to) {
         return ResponseEntity.ok(filmSearchService.findByYear(from, to));
     }
 
-    @RequestMapping("/genre/all")
+    @RequestMapping(GENRE_ALL_MAPPING)
     public ResponseEntity<List<Genre>> allGenres() {
         List<Genre> genres = genreService.findAll();
         return ResponseEntity.ok(genres);
     }
 
-    @RequestMapping(value = "/all")
+    @RequestMapping(value = ALL_MAPPING)
     @ResponseBody
     private ResponseEntity<Map> allFilms(ModelMap map) {
         List<Genre> genres = genreService.findAll();

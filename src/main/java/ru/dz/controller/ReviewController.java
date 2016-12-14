@@ -22,7 +22,11 @@ import java.util.Date;
 
 @Controller
 public class ReviewController {
-
+    private static final String FILM_MAPPING = "/film";
+    private static final String REVIEW_MAPPING = "/review";
+    private static final String ADD_FILM_REVIEW_MAPPING = FILM_MAPPING + REVIEW_MAPPING + "/add";
+    private static final String ADD_REVIEW_MAPPING = REVIEW_MAPPING + "/add";
+    private static final String REMOVE_REVIEW_MAPPING = REVIEW_MAPPING + "/remove";
     @Autowired
     UserService userService;
     @Autowired
@@ -32,7 +36,7 @@ public class ReviewController {
     @Autowired
     FilmService filmService;
 
-    @RequestMapping(value = "/film/review/add/{film_id}", method = RequestMethod.POST)
+    @RequestMapping(value = ADD_FILM_REVIEW_MAPPING + "/{film_id}", method = RequestMethod.POST)
     private String addReviewAboutFilm(@PathVariable Long film_id) {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -48,7 +52,7 @@ public class ReviewController {
         return "redirect:/film/" + film_id;
     }
 
-    @RequestMapping(value = "/review/add/{user_id}", method = RequestMethod.POST)
+    @RequestMapping(value = ADD_REVIEW_MAPPING + "/{user_id}", method = RequestMethod.POST)
     private String addReviewAboutFilmFromProfile(@PathVariable Long user_id) {
         String film = request.getParameter("film");
         String content = request.getParameter("content");
@@ -66,7 +70,7 @@ public class ReviewController {
         return "redirect:/profile";
     }
 
-    @RequestMapping(value = "/review/remove/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = REMOVE_REVIEW_MAPPING + "/{id}", method = RequestMethod.GET)
     private String deleteReviewAboutFilmFromProfile(@PathVariable Long id) {
         reviewService.deleteReviewById(id);
         return "redirect:/profile";

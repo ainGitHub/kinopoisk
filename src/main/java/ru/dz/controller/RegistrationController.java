@@ -35,6 +35,9 @@ import java.util.List;
  */
 @Controller
 public class RegistrationController {
+    private static final String REGISTRATION_MAPPING = "/registration";
+    private static final String REGISTRATION_VK = "/registration_vk";
+    private static final String REGISTRATION_VK_MAPPING = REGISTRATION_MAPPING+ "/vk";
     private Logger logger = LoggerFactory.getLogger(RegistrationController.class);
 
     //// TODO: 13.10.2016 move constants to config file
@@ -49,12 +52,12 @@ public class RegistrationController {
     @Autowired
     HttpServletRequest request;
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    @RequestMapping(value = REGISTRATION_MAPPING, method = RequestMethod.GET)
     private String registerPage() {
         return "register";
     }
 
-    @RequestMapping(value = "/registration_vk", method = RequestMethod.GET)
+    @RequestMapping(value = REGISTRATION_VK, method = RequestMethod.GET)
     private ModelAndView registerLinkVK() {
 
         return new ModelAndView(new RedirectView(VK_URL + "?client_id=" + VK_APP_ID +
@@ -63,7 +66,7 @@ public class RegistrationController {
     }
 
 
-    @RequestMapping(value = "/registration/vk", method = RequestMethod.GET)
+    @RequestMapping(value = REGISTRATION_VK_MAPPING, method = RequestMethod.GET)
     private String registerVK(@RequestParam String code) throws ClientException, ApiException {
         //// TODO: 19.10.2016 Refactoring. Move the code to services
         TransportClient transportClient = HttpTransportClient.getInstance();
