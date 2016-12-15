@@ -56,8 +56,10 @@ var Search = React.createClass({
 
     genreSearch(event) {
         let selVal = this.refs.select;
-        console.log(selVal.value);
-        this.props.filterByGenre(selVal.value);
+        if (selVal.value == 0)
+            this.filterFilms();
+        else
+            this.props.filterByGenre(selVal.value);
     },
 
     max(){
@@ -113,6 +115,7 @@ var Search = React.createClass({
                 <div className="form-group">
                     <h6 htmlFor="sel1" className="text text-primary">Жанры:</h6>
                     <select ref="select" className="form-control" id="sel1" onChange={this.genreSearch}>
+                        <option key={0} value="0">Все жанры</option>
                         {genres}
                     </select>
                 </div>

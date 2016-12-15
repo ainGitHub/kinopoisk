@@ -77,6 +77,7 @@ public class FilmElasticService {
         BulkRequestBuilder bulkRequest = client.prepareBulk();
 
         films.stream().forEach(film -> {
+            logger.info(film.getName() + " trying to add");
             try {
                 bulkRequest
                         .add(client.prepareIndex(ElasticConfig.FILM_CORP_INDEX, ElasticConfig.FILM_TYPE, film.getId().toString())
