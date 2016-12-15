@@ -96,6 +96,10 @@ var Search = React.createClass({
         this.props.filterByYear(from, to);
     },
 
+    sort(){
+        this.props.sort();
+    },
+
     render(){
         let genres = this.props.genres.map(genre => {
             return <option key={genre.id} value={genre.id}>{genre.name}</option>;
@@ -103,6 +107,9 @@ var Search = React.createClass({
 
         return (
             <aside role="complementary" className="container">
+                <div className="sort-bar">
+                    <button onClick={this.sort} className="btn-sm">Сортировать по году</button>
+                </div>
                 <h2>Поиск фильмов</h2>
                 <div className="input-group add-on">
                     <input className="form-control" ref="nameRef" placeholder="Search" name="srch-term" id="srch-term"
@@ -135,6 +142,7 @@ var Search = React.createClass({
                                onClick={this.filterByYear}/>
                     </div>
                 </div>
+
             </aside>
         );
     }
@@ -189,6 +197,14 @@ var App = React.createClass({
             });
     },
 
+    sort(){
+        axios.get(`/sort`)
+            .then(res => {
+                console.log(res);
+                this.setState({films: res.data, genres: this.state.genres});
+            });
+    },
+
     render() {
         self = this;
 
@@ -205,6 +221,7 @@ var App = React.createClass({
                         search={this.search}
                         genres={this.state.genres}
                         filterByYear={this.filterByYear}
+                        sort={this.sort}
                         key={films[0].id}/>
                 <article className="post content">
                     <ul className="post-list">

@@ -9,6 +9,7 @@ import org.elasticsearch.client.Client;
 import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.RangeQueryBuilder;
+import org.elasticsearch.search.sort.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -174,6 +175,18 @@ public class FilmSearchService implements IFilmSearchService {
                 .setQuery(query)
                 .execute()
                 .actionGet();
+        return getResult(response);
+    }
+
+    @Override
+    public List<Film> sortByYear() {
+        SearchResponse response = client.prepareSearch(ElasticConfig.FILM_CORP_INDEX)
+                .setTypes(ElasticConfig.FILM_TYPE)
+                .setQuery(QueryBuilders.matchAllQuery())
+                .addSort("year", SortOrder.ASC)
+                .execute()
+                .actionGet();
+
         return getResult(response);
     }
 

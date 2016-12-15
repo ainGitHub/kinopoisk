@@ -64,4 +64,9 @@ public class SearchController {
 
         return ResponseEntity.ok(map);
     }
+
+    @RequestMapping(value = "/sort")
+    private ResponseEntity<List<Film>> sortByYear() {
+        return ResponseEntity.ok(filmSearchService.sortByYear());
+    }
 }
