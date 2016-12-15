@@ -2,6 +2,7 @@ package ru.dz.controller;
 
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,12 +54,15 @@ public class AdminController {
     @Autowired
     FilmGenreService filmGenreService;
 
-
     @RequestMapping(method = RequestMethod.GET)
     private String getAllFilms(ModelMap map) {
-        List<Film> films = filmService.findAll();
-        map.put("films", films);
-        return "admin";
+        Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (!user.equals("anonymousUser")) {
+            List<Film> films = filmService.findAll();
+            map.put("films", films);
+            return "admin";
+        }
+        return "redirect:/";
     }
 
     @RequestMapping(value = FILM_MAPPING + "/{id}", method = RequestMethod.GET)
