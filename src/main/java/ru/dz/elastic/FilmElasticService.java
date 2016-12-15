@@ -90,6 +90,7 @@ public class FilmElasticService {
 
         BulkResponse bulkResponse = bulkRequest.get();
         if (bulkResponse.hasFailures()) {
+            logger.error(bulkResponse.buildFailureMessage());
             logger.error("Can't to add films");
         }
     }
