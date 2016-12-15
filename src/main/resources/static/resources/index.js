@@ -117,15 +117,15 @@ var Search = React.createClass({
                     </select>
                 </div>
                 <div className="input-group add-on">
-                    <label ref="year1">1900</label>
+                    <label ref="year1">2000</label>
                     <br/>
-                    <input className="form-control-range" type="range" min="1900" max="2016" onChange={this.min}
-                           ref="scroll_1" defaultValue="1900"/>
+                    <input className="form-control-range" type="range" min="2000" max="2018" onChange={this.min}
+                           ref="scroll_1" defaultValue="2000"/>
                     <br/>
-                    <input className="form-control-range" type="range" min="1900" max="2016" onChange={this.max}
-                           ref="scroll_2" defaultValue="2016"/>
+                    <input className="form-control-range" type="range" min="2000" max="2018" onChange={this.max}
+                           ref="scroll_2" defaultValue="2018"/>
                     <br/>
-                    <label ref="year2">2016</label>
+                    <label ref="year2">2018</label>
                     <br/>
                     <div className="">
                         <input type="submit" className="btn btn-primary btn-sm" value="Искать"
