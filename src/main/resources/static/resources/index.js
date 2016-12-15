@@ -194,7 +194,7 @@ var App = React.createClass({
         });
 
         if (films.length == 0)
-            films = "По вашему запросу фильмы не найдеы";
+            films = "По вашему запросу фильмы не найдены";
         return (
             <div>
                 <Search filterByGenre={this.filterByGenre}

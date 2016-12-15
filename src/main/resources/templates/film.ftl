@@ -96,28 +96,31 @@
                         <div style="text-align: justify; margin-top: 30px">
                         ${(film.description)!}
                         </div>
-                        <br><br><br>
-
-                        <h1>Отзывы о фильме</h1><br>
-
-                        <#if film.getReviews()?has_content>
-                            <#list film.getReviews() as review>
-                                <h2>${(review.getUserInfo().getUsername())!}</h2> &nbsp&nbsp <br>
-                                <h5>${(review.getContent())!}</h5>
-                            </#list>
-                        <#else>
-                            У этого фильма пока нет ни одного отзыва
-                        </#if>
                         <br><br>
 
-                        <#if user??>
-                            <form method="POST" action="/film/review/add/${film.getId()!?c}">
-                                <input type="text" name="content" class="form-control review" placeholder="Отзыв...">
-                                <button type="submit" class="btn">Добавить отзыв</button>
-                            </form>
-                        <#else>
-                            Отзыв могут оставлять только авторизованные пользователи
-                        </#if>
+                        <div class="review" style="margin-left: 200px; width: 500px">
+                            <h3>Отзывы о фильме</h3><br>
+                            <#if user??>
+                                <form method="POST" action="/film/review/add/${film.getId()!?c}">
+                                    <input type="text" name="content" class="form-control review" placeholder="Отзыв...">
+                                    <button type="submit" class="btn">Добавить отзыв</button>
+                                </form>
+                            <#else>
+                                Отзыв могут оставлять только авторизованные пользователи
+                            </#if>
+                            <br><br>
+                            <#if film.getReviews()?has_content>
+                                <#list film.getReviews() as review>
+                                    <p><span style="color: blue">${(review.getUserInfo().getUsername())!}</span><br>
+                                    ${(review.getContent())!}</p>
+                                    <hr>
+                                </#list>
+                            <#else>
+                                У этого фильма пока нет ни одного отзыва
+                            </#if>
+
+                        </div>
+
                     </div>
 
                     <div class="modal fade bd-example-modal-lg" id="trailer" tabindex="-1" role="dialog"
